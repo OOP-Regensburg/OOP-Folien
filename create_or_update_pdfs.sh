@@ -43,7 +43,7 @@ do
  printf "Creating PDF from $file\n"
  filename=$(basename -- "$file")
  filename="${filename%.*}"
- decktape reveal $URL$filename $OUTPUT$filename.pdf
+ decktape --size "2560x1440" --pause 500 --load-pause 500 reveal $URL$filename $OUTPUT$filename.pdf
  printf "Done!\n\n"
 done
 
