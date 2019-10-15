@@ -549,7 +549,7 @@ while(BEDINGUNG) {
 }
 ```
 
-<span class="blocktext">Solange die Bedingung zutrifft, werden die Anweisungen zwischen den Klammern durchgeführt. Dabei wird zuerst geprüft, ob die Bedingung zutrifft. Wenn dies der Fall ist, werden die Anweisungen in den Klammern **EINMAL** ausgeführt. Anschließend wird die Bedingung erneut geprüft. Trifft sie immer noch zu, werden die Anweisungen ein zweites Mal ausgeführt – dies geschieht solange, bis die Bedingung nicht mehr zutrifft.</span>
+<span class="blocktext">Solange die Bedingung zutrifft, werden die Anweisungen zwischen den Klammern wiederholt ausgeführt. Dabei wird zuerst geprüft, ob die Bedingung zutrifft. Wenn dies der Fall ist, werden die Anweisungen in den Klammern **EINMAL** ausgeführt. Anschließend wird die Bedingung erneut geprüft. Trifft sie immer noch zu, werden die Anweisungen ein zweites Mal ausgeführt – dies geschieht solange, bis die Bedingung nicht mehr zutrifft.</span>
 
 >>>
 
@@ -575,6 +575,8 @@ Ein Algorithmus überführt einen gegebenen Anfangszustand in einen definierten 
 ![sequence](slides/images/bouncer-algo-04.png)
 ![sequence](slides/images/bouncer-algo-05.png)
 ![sequence-end](slides/images/bouncer-algo-06.png)
+
+Die Menge der Befehle, die Bouncer aus dem initialen Zustand (links) in den gewünschten Endzustand (rechts) überführen, bilden einen Algorithmus. Unterschiedlich gestaltet Algorithmen können die selben Start- und Endzustände haben.
 
 >>>
 
