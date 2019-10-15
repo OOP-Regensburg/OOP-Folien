@@ -298,15 +298,35 @@ Micheal R. Fellows, Ian Parberry: [SIGACT trying to get children excited about C
 
 ## Programmieren als Mittel der Kommunikation mit dem Computer
 
+- Beim Programmieren entwickeln wir eine Lösung für ein gegebene Problem und übersetzten diese Lösung in eine Sprache, die der Computer versteht
+- Grundsätzlich gilt: Programmierer und Programmiererinnen entwerfen Lösungsstrategien, Computer führen diese aus
+- Als Medium oder Bindeglied zwischen unserer Art zu denken und den mechanischen und elektronischen Abläufen im Computer dienen Programmiersprachen
+- Programmiersprachen können von uns *gesprochen* und vom Computer interpretiert werden
+
 >>>
 
-## Eine kurze Geschichte der Computer-Programmierung
+![large-image](slides/images/history-of-programming-languages.png)
+
+<span class="blocktext">Es gibt zahlreiche Programmiersprachen für die selben oder unterschiedliche Problemfelder: In diesem Kurs lernen Sie **Java**. Die grundlegenden Prinzipien lassen sich aber auch auf andere Sprachen übertragen!</span>
+
+>>>
+
+## Ein Beispiel
+
+<span class="blocktext">Beim Programmieren müssen wir in der Regel ein größeres Problem in kleinere, berechenbare und sequenziell lösbare Teilprobleme unterteilen, um den gewollten Zustand oder Effekt zu erreichen.</span>
+
+*Wir wollen wissen, aus welchen fünf Städten oder Orten die meisten der Kursteilnehmenden stammen.*
+
+- Wie können wir diese Frage beantworten?
+- Welche Einzelschritte müssen wir erledigen?
+- Welche Teilergebnisse erwarten wir?
+- Wie erzeugen wir das gewünschte Ergebnis?
 
 >>>
 
 # Bouncer
 
-Ein einfacher Einstieg in die Programmiersprache Java
+Der einfacher Einstieg in die Programmierung und die Programmiersprache Java
 
 >>>
 
@@ -548,6 +568,13 @@ while(BEDINGUNG) {
 ## Algorithmen mit Bouncer
 
 Ein Algorithmus überführt einen gegebenen Anfangszustand in einen definierten Endzustand und definiert dazu eine Reihe von Befehlen die nacheinander abgearbeitet werden und jeweils eindeutige Zwischenzustände erzeugen.
+
+![sequence-start](slides/images/bouncer-algo-01.png)
+![sequence](slides/images/bouncer-algo-02.png)
+![sequence](slides/images/bouncer-algo-03.png)
+![sequence](slides/images/bouncer-algo-04.png)
+![sequence](slides/images/bouncer-algo-05.png)
+![sequence-end](slides/images/bouncer-algo-06.png)
 
 >>>
 

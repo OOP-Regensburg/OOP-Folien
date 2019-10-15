@@ -402,6 +402,35 @@ body {
   height: auto;
 }
 
+.reveal img[alt=large-image] {
+  margin: 0 auto;
+  width: auto;
+  height: 80%;
+}
+
+.reveal img[alt=sequence] {
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  outline: 2px #333 solid;
+}
+
+.reveal img[alt=sequence-start] {
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  outline: 1px #333 solid;
+  border: 5px #999 solid;
+}
+
+.reveal img[alt=sequence-end] {
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  outline: 1px #333 solid;
+  border: 5px rgb(156,0,75) solid;
+}
+
 .reveal .image-description {
   display: block;
   float: right;
