@@ -297,6 +297,11 @@ body {
   line-height: 1.75em;
 }
 
+.reveal .blocktext.smaller {
+  font-size: 0.75em;
+  line-height: 1.25em;
+}
+
 .reveal table {
   font-size: 0.8em;
 }
@@ -402,6 +407,14 @@ body {
   height: auto;
 }
 
+.reveal img[alt=list-image] {
+  margin: 0;
+  width: 10%;
+  height: auto;
+  border-radius: 50%;
+  border: solid 5px #F8F8F8;
+}
+
 .reveal img[alt=large-image] {
   margin: 0 auto;
   width: auto;
@@ -411,6 +424,13 @@ body {
 .reveal img[alt=sequence] {
   width: 125px;
   height: 125px;
+  margin: 10px;
+  outline: 2px #333 solid;
+}
+
+.reveal img[alt=sequence-larger] {
+  width: 200px;
+  height: 200px;
   margin: 10px;
   outline: 2px #333 solid;
 }
@@ -440,6 +460,24 @@ body {
   text-align: left;
   font-size: 0.75em;
   line-height: 1.5em;
+}
+
+.reveal .image-list-description {
+  display: block;
+  float: right;
+  width: 80%;
+  margin-left: 1%;
+  padding: 0;
+  text-align: left;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+
+.reveal .clear-all {
+  display: block;
+  width: 100%;
+  height: 1px;
+  clear: both;
 }
 
 /*********************************************
