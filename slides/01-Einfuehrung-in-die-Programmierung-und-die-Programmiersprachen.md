@@ -253,26 +253,52 @@ In der Übung setzten Sie das Gehörte **praktisch um**.
 
 >>>
 
-## Semesterüberblick
+## Semesterüberblick (Woche 1)
 
-<span class="subtitle">Woche 1: Organisation & Einführung und das erste Programm</span>
-
-<div class="lecture-plan">
-	<span class="current">Einführung</span>
-	<span>Ein- und Ausgabe</span>
-	<span>Klassen und Methoden</span>
-	<span>Kontrollstrukturen und Variablen</span>
-	<span>Arrays und komplexe Schleife</span>
-	<span>Grundlagen der Klassenmodellierung</span>
-	<span>Vererbung und Sichtbarkeit</span>
-	<span>Event-basierten Programmierung</span>
-	<span>String- und Textverarbeitung</span>
-	<span>Planhaftes Vorgehen bei der Softwareentwicklung</span>
-	<span>Listen, Maps und die Collections</span>
-	<span>Qualitätsaspekte von Quellcode</span>
-	<span>Speicherverwaltung</span>
-	<span>Umgang mit Dateien</span>
-</div>
+<table class="lecture-plan">
+<thead>
+<tr>
+<th>Kursabschnitt</th>
+<th>Themen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grundlagen</td>
+<td>
+<span class="current">Einführung</span>
+<span>Einfache Programme erstellen</span>
+<span>Variablen, Klassen &amp; Objekte</span>
+<span>Kontrollstrukturen &amp; Methoden</span>
+<span>Arrays &amp; komplexe Schleife</span></td>
+</tr>
+<tr>
+<td>Klassenmodellierung</td>
+<td>
+<span>Grundlagen der Klassenmodellierung</span>
+<span>Vererbung &amp; Sichtbarkeit</span>
+</tr>
+<tr>
+<td>Interaktive Anwendungen</td>
+<td>
+<span>Event-basierten Programmierung</span>
+<span>String- &amp; Textverarbeitung</span>
+</tr>
+<tr>
+<td>Datenstrukturen</td>
+<td>
+<span>Listen, Maps &amp; die Collections</span>
+<span>Speicherverwaltung</span>
+<span>Umgang mit Dateien</span>
+</tr>
+<tr>
+<td>Software Engineering</td>
+<td>
+<span>Planhaftes Vorgehen bei der Softwareentwicklung</span>
+<span>Qualitätsaspekte von Quellcode</span>
+</tr>
+</tbody>
+</table>
 
 >>>
 

@@ -25,26 +25,52 @@ https://pingo.coactum.de/201662
 
 >>>
 
-## Aktueller Semesterfortschritt
+## Aktueller Semesterfortschritt (Woche 2)
 
-<span class="subtitle">Woche 2: Einfache Probleme analysieren und lösen</span>
-
-<div class="lecture-plan">
-	<span>Einführung</span>
-	<span class="current">Einfache Programme erstellen</span>
-	<span>Klassen und Methoden</span>
-	<span>Kontrollstrukturen und Variablen</span>
-	<span>Arrays und komplexe Schleife</span>
-	<span>Grundlagen der Klassenmodellierung</span>
-	<span>Vererbung und Sichtbarkeit</span>
-	<span>Event-basierten Programmierung</span>
-	<span>String- und Textverarbeitung</span>
-	<span>Planhaftes Vorgehen bei der Softwareentwicklung</span>
-	<span>Listen, Maps und die Collections</span>
-	<span>Qualitätsaspekte von Quellcode</span>
-	<span>Speicherverwaltung</span>
-	<span>Umgang mit Dateien</span>
-</div>
+<table class="lecture-plan">
+<thead>
+<tr>
+<th>Kursabschnitt</th>
+<th>Themen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grundlagen</td>
+<td>
+<span class="done">Einführung</span>
+<span class="current">Einfache Programme erstellen</span>
+<span>Variablen, Klassen &amp; Objekte</span>
+<span>Kontrollstrukturen &amp; Methoden</span>
+<span>Arrays &amp; komplexe Schleife</span></td>
+</tr>
+<tr>
+<td>Klassenmodellierung</td>
+<td>
+<span>Grundlagen der Klassenmodellierung</span>
+<span>Vererbung &amp; Sichtbarkeit</span>
+</tr>
+<tr>
+<td>Interaktive Anwendungen</td>
+<td>
+<span>Event-basierten Programmierung</span>
+<span>String- &amp; Textverarbeitung</span>
+</tr>
+<tr>
+<td>Datenstrukturen</td>
+<td>
+<span>Listen, Maps &amp; die Collections</span>
+<span>Speicherverwaltung</span>
+<span>Umgang mit Dateien</span>
+</tr>
+<tr>
+<td>Software Engineering</td>
+<td>
+<span>Planhaftes Vorgehen bei der Softwareentwicklung</span>
+<span>Qualitätsaspekte von Quellcode</span>
+</tr>
+</tbody>
+</table>
 
 >>>
 
