@@ -1,7 +1,8 @@
 /* eslint-env browser */
+/* global Reveal */
 
 const DEFAULT_CHARSET = "utf-8",
-    DEFAULT_SLIDE_PATH = "slides/00-Default.md"
+    DEFAULT_SLIDE_PATH = "slides/00-Default.md";
 
 function getSlidePathFromURL() {
     let url = new URL(window.location.href),
@@ -33,9 +34,9 @@ function initializeReveal() {
             { src: "plugin/markdown/markdown.js" },
             { src: "plugin/search/search.js", async: true },
             { src: "plugin/notes/notes.js", async: true },
-            { src: 'plugin/zoom-js/zoom.js', async: true },
-            { src: "plugin/highlight/highlight.js", async: true }
-        ]
+            { src: "plugin/zoom-js/zoom.js", async: true },
+            { src: "plugin/highlight/highlight.js", async: true },
+        ],
     });
 }
 
