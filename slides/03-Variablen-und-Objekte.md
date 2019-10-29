@@ -176,7 +176,7 @@ public void run() {
 
 <hr />
 
-<span class="step-button" onclick="stepperForVariableDemo();">Methode `run` ausführen</span>
+<span id="stepButtonForVariableDemo" class="step-button">Methode `run` ausführen</span>
 
 <span class="step-label current-line">`Code Zeile`</span><span class="step-value current-line">-</span>
 <span class="step-label myDouble">`myDouble`</span><span class="step-value myDouble">-</span>

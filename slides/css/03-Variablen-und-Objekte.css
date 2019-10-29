@@ -1,0 +1,36 @@
+.reveal .step-button {
+  display: block;
+  width: 35%;
+  margin: 0 65%;
+  background-color: rgb(156,0,75);
+  border-radius: 5px;
+  font-size: 0.75em;
+  color: #FFF;
+}
+
+.reveal .step-button:hover {
+  cursor: pointer;
+}
+
+.reveal .step-button.disabled {
+  background-color: #EEE;
+}
+
+.reveal .step-button.disabled:hover {
+  cursor: default;
+}
+
+.reveal .step-label {
+  display: inline-block;
+  width: 35%;
+  text-align: right;
+}
+
+.reveal .step-value {
+  display: inline-block;
+  width: 64%;
+  margin-left: 1%;
+  text-align: left;
+  font-weight: 600;
+  color: rgb(156,0,75);
+}
