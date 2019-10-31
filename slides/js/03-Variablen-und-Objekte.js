@@ -9,7 +9,21 @@
         currentLine: 0,
     };
 
+    function reset() {
+        context.button.innerHTML = "Methode run ausführen";
+        context.currentLine = 0;
+        context.myDoubleValue.innerHTML = "-"
+        context.myIntValue.innerHTML = "-"
+        context.anotherIntValue.innerHTML = "-"
+        context.lineValue.innerHTML = "-"
+        context.button.classList.remove("disabled");
+    }
+
     function step() {
+        if(context.button.classList.contains("disabled")) {
+            reset();
+            return;
+        }
         if (context.currentLine === 0) {
             context.button.innerHTML = "Nächster Schritt";
         }
@@ -42,8 +56,7 @@
         }
         if (context.currentLine === 9) {
             context.button.classList.add("disabled");
-            context.button.innerHTML = "Ende";
-            context.button.removeEventListener("click", this);
+            context.button.innerHTML = "Ende (Klick für Neustart)";
             return;
         }
 
