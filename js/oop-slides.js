@@ -10,7 +10,7 @@
       url = new URL(window.location.href),
       slideName = url.searchParams.get("slides"),
       startSlide = url.searchParams.get("startAtSlide");
-    if (slideName === undefined) {
+    if (slideName === null) {
       slideName = DEFAULT_SLIDE;
     }
     if (startSlide === undefined) {
