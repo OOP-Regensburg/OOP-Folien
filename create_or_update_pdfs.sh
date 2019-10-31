@@ -43,11 +43,17 @@ do
  printf "Creating PDF from $file\n"
  filename=$(basename -- "$file")
  filename="${filename%.*}"
- decktape --size "2560x1440" --pause 500 --load-pause 500 reveal $URL$filename $OUTPUT$filename.pdf
+ decktape --size "1920x1080" --pause 500 --load-pause 500 reveal $URL$filename $OUTPUT$filename.tmp.pdf
  printf "Done!\n\n"
 done
 
 printf "Export finished.\n\n"
+
+# Reduce file size with ghostscript
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLeve=1.4 -dPDFSETTINGS=/screen -sOutputFile=$OUTPUT$filename.pdf $OUTPUT$filename.tmp.pdf
+
+# Remove unreduced PDF
+rm $OUTPUT$filename.tmp.pdf
 
 printf "Add files to git and commit ... \n"
 git add $OUTPUT/*
@@ -59,7 +65,7 @@ echo -n "Do you want to push (and publish) the generated PDF slides [y/n]: "
 read mode
 if [ "$mode" == "y" ]; then
 	printf "\nPushing to master\n"
-	git push github master
+	git push origin master
 else
 	printf "\nDone without pushing to master\n"
 fi
