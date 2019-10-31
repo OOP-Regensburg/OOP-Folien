@@ -2,40 +2,61 @@
 /* global Reveal */
 (function() {
   const DEFAULT_CHARSET = "utf-8",
-    DEFAULT_SLIDE_PATH = "slides/00-Default.md";
+    DEFAULT_SLIDE = "00-Default",
+    DEFAULT_START_SLIDE = 1;
 
-  function getSlidePathFromURL() {
-    let url = new URL(window.location.href),
-      slidePath = url.searchParams.get("slides");
-    if (slidePath) {
-      return `slides/${slidePath}.md`;
+  function getSlidesFromURL() {
+    let slides = {},
+      url = new URL(window.location.href),
+      slideName = url.searchParams.get("slides"),
+      startSlide = url.searchParams.get("startAtSlide");
+    if (slideName === undefined) {
+      slideName = DEFAULT_SLIDE;
     }
-    return DEFAULT_SLIDE_PATH;
+    if (startSlide === undefined) {
+      startSlide = DEFAULT_START_SLIDE;
+    }
+    // Slides and custom Javascript and Stylesheets must be stored in /slides (i.e /slides/js or /slides/css)
+    slides.path = "slides/" + slideName + ".md";
+    // Reveal.js uses zero-indexed slide numbers
+    slides.startAt = startSlide - 1;
+    slides.css = "slides/css/" + slideName + ".css";
+    slides.js = "slides/js/" + slideName + ".js";
+    return slides;
   }
 
-  function setSlides(pathToSlides) {
+  function setSlides() {
     let slidesContainer = document.querySelector(".slides section");
-    slidesContainer.setAttribute("data-markdown", pathToSlides);
+    slidesContainer.setAttribute("data-markdown", slides.path);
     slidesContainer.setAttribute("data-charset", DEFAULT_CHARSET);
   }
 
-  function injectCustomJavascript(slides) {
-    let jsPath = slides.replace("/", "/js/").replace(".md", ".js"),
-      scriptEl = document.createElement("script");
-    scriptEl.setAttribute("src", jsPath);
-    scriptEl.setAttribute("type", "text/javascript");
-    document.body.appendChild(scriptEl);
+  function injectCustomElement(src, tag, attributes, parent) {
+    let customEl;
+    checkIfCustomFileExist(src).then(function() {
+      customEl = document.createElement(tag);
+      for (let i = 0; i < attributes.length; i++) {
+        customEl.setAttribute(attributes[i].name, attributes[i].value);
+      }
+      document[parent].appendChild(customEl);
+    }).catch(function() {
+      // Do nothing when no custom file were found
+    });
   }
 
-  function injectCustomCSS(slides) {
-    let cssPath = slides.replace("/", "/css/").replace(".md", ".css"),
-      cssEl = document.createElement("link");
-      cssEl.setAttribute("href", cssPath);
-      cssEl.setAttribute("rel", "stylesheet");
-    document.head.appendChild(cssEl);
+  function checkIfCustomFileExist(url) {
+    return new Promise(function(resolve, reject) {
+      fetch(url).then(function(response) {
+        if (response.ok) {
+          resolve();
+        } else {
+          reject();
+        }
+      });
+    });
   }
 
-  function initializeReveal(slides) {
+  function initializeReveal(slides, onReady) {
     Reveal.initialize({
       controls: true,
       progress: true,
@@ -54,25 +75,23 @@
         { src: "plugin/highlight/highlight.js", async: true },
       ],
     });
-    Reveal.addEventListener("ready", function() {
-        injectCustomJavascript(slides);
-    });
-  }
-
-  function enablePDFExport() {
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = window.location.search.match(/print-pdf/gi) ?
-      "css/print/pdf.css" :
-      "css/print/paper.css";
-    document.getElementsByTagName("head")[0].appendChild(link);
+    Reveal.addEventListener("ready", onReady);
   }
 
   // Load slides 
-  let slides = getSlidePathFromURL();
+  let slides = getSlidesFromURL();
   setSlides(slides);
-  injectCustomCSS(slides);
-  enablePDFExport();
-  initializeReveal(slides);
+  // Inject custom CSS if available
+  injectCustomElement(slides.css, "link", [{ name: "href", value: slides.css },
+    { name: "rel", value: "stylesheet" }], "head");
+  // Init Reveal.js and await for ready callback
+  initializeReveal(slides, function() {
+    // Inject custom JS if available
+    injectCustomElement(slides.js, "script", [{
+      name: "src",
+      value: slides.js,
+    }, { name: "type", value: "text/javascript" }], "body");
+    // Move to custom start sliden if set
+    Reveal.slide(slides.startAt);
+  });
 }());
