@@ -497,7 +497,7 @@ private double kmToMeters(double km) {
 
 >>>
 
-### Beispiel: Mehrere Parameter und * Returns*
+### Beispiel: Mehrere Parameter und Returns
 
 ``` java
 private int max(int value1, int value2) {
@@ -650,10 +650,10 @@ public class FlyingBall extends GraphicsApp {
 	// Instanzvariable für den Ball
 	private Circle ball;
 
-	public void initalize() {
+	public void initialize() {
 		setCanvasSize(500,500);
 		// Erstellen des Balls
-		ball = new Circle( 250,250, 50, 50, Colors.RED);
+		ball = new Circle( 250,250, 50, Colors.RED);
 }
 
 	public void draw() {
@@ -672,7 +672,7 @@ public class FlyingBall extends GraphicsApp {
 
 <span class="blocktext larger">Häufig benötigen verschiedene Methoden einer Klasse Zugriff auf dieselben Variablen:</span>
 
-- Wenn wir Objekte in `initalize` anlegen und in `draw` manipulieren bzw. zeichnen wollen, müssen die entsprechenden Variablen in beiden Methoden zugänglich machen.
+- Wenn wir Objekte in `initialize` anlegen und in `draw` manipulieren bzw. zeichnen wollen, müssen die entsprechenden Variablen in beiden Methoden zugänglich machen.
 - Instanzvariablen werden in der Klasse und außerhalb von Methoden (typischerweise zu Beginn) definiert und stehen einer Instanz in jeder Methode zur Verfügung (jede Instanz hat ihre eigenen Eigenschaftswerte): `private TYP NAME;`.
 
 >>>
