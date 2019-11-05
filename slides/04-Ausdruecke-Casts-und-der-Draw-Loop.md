@@ -61,6 +61,8 @@
 
 https://pingo.coactum.de/447102
 
+Entfällt aufgrund technischer Schwierigkeiten ;(
+
 >>>
 
 ## Rückblick: Variablen und Klassen
