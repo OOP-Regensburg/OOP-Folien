@@ -306,6 +306,24 @@ body {
   line-height: 1.25em;
 }
 
+.reveal .hint {
+  display: block;
+  width: 96%;
+  padding: 2%;
+  margin-top: 5%;
+  background-color: rgb(240,240,240);
+  border: solid 1px rgb(200,200,200);
+  font-size: 0.85em;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+.reveal .hint:before {
+  content: "Hinweis: ";
+  color: rgb(156,0,75);
+  font-weight: 600;
+}
+
 .reveal table {
   font-size: 0.8em;
 }
