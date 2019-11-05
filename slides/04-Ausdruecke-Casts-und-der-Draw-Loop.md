@@ -1,6 +1,6 @@
-# Mehr zu Variablen, Methoden und der *Draw Loop*
+# Mehr zu Variablen, Methoden und dem *Draw Loop*
 
-<span class="subtitle">Ausdrücken, Rückgabe von Werten aus Methoden und dem *Draw Loop* in der GraphicsApp</span>
+<span class="subtitle">Ausdrücken, Rückgabe von Werten aus Methoden und der *Draw Loop* in der GraphicsApp</span>
 
 <span class="blocktext">Struktur und Inhalt des Kurses wurden 2012 von Markus Heckner entwickelt. Im Anschluss haben Alexander Bazo und Christian Wolff Änderungen am Material vorgenommen. Die aktuellen Folien wurden von Alexander Bazo erstellt und können unter der [MIT-Lizenz](https://raw.githubusercontent.com/OOP-Regensburg/OOP-Folien/master/LICENSE) verwendet werden.</span>
 
