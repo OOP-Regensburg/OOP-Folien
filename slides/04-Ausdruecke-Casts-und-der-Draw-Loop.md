@@ -85,7 +85,7 @@ Entfällt aufgrund technischer Schwierigkeiten ;(
 
 - Informationen zur ersten Studienleistung
 - Typenumwandlung (*Casts*)
-- Ausrücke und Operatoren in Java
+- Ausdrücke und Operatoren in Java
 - Ergebnisse aus Methoden zurückgeben
 - Mehr zum  *Draw Loop*
 
@@ -97,7 +97,7 @@ Entfällt aufgrund technischer Schwierigkeiten ;(
 
 ### Die erste Studienleistung (1/2)
 
-- Ab heute, 16 Uhr finden Sie die Aufgabenbeschreibung und das Starterpaket zur ersten Studienleistung im [GRIPS-Kurs](https://elearning.uni-regensburg.de/course/view.php?id=39457).
+- Ab heute, 16 Uhr finden Sie die Aufgabenbeschreibung und das *Starterpaket* zur ersten Studienleistung im [GRIPS-Kurs](https://elearning.uni-regensburg.de/course/view.php?id=39457).
 - Bearbeiten Sie die drei Aufgaben und laden Sie Ihre Lösung **bis zum 17. November (23:55 Uhr)** über den vorbereiteten Link hoch.
 - Allgemeine Informationen zum Ablauf der Studienleistung finden Sie [hier](http://regensburger-forscher.de/oop/infos/Studienleistung/).
 - Die Bewertungskriterien finden Sie im GRIPS-Kurs (beim Hochladen der Lösung).
@@ -185,7 +185,7 @@ double g = 3.55;
 
 <span class="blocktext larger">Um den Rest einer ganzzahligen Division zu erhalten existiert in Java (und in den meisten anderen Programmiersprachen) der Modulo-Operator `%`:</span>
 
-<span class="blocktext larger">`15 %  3 =  8` *(15/3 = 5; Rest ist 0)*<br />
+<span class="blocktext larger">`15 %  3 =  0` *(15/3 = 5; Rest ist 0)*<br />
 `14 %  8 =  6` *(14/8 = 1; Rest ist 6)*<br />
 `14 % 17 = 14` *(14/17 = 0; Rest ist 14)*<br />
 </span>
@@ -194,7 +194,7 @@ double g = 3.55;
 
 ### Der Modulo-Operator (2/2)
 
-<span class="blocktext larger">Mit dem Modulo-Operator können Sie leicht überprüfen, ob eine Zahl gerade oder ungerade (durch 2 teilbar) ist:</span>
+<span class="blocktext larger">Mit dem *Modulo*-Operator können Sie leicht überprüfen, ob eine Zahl gerade oder ungerade (durch 2 teilbar) ist:</span>
 
 ``` java
 int num = 12;
@@ -210,9 +210,9 @@ if(num % 2 == 0) {
 
 ## Ausdrücke (Expressions)
 
-- Als Ausdruck (oder *Expression*) wird die Verknüpfung von Sprachelementen durch Operatoren bezeichnet
-- Ausdrücke werden beim Codieren definiert und zur Laufzeit ausgewertet
-- Ausdrücke haben *immer* ein Ergebnis. D.h. nach der kompletten Auswertung eines Ausdrucks bleibt ein einzelner Datenwert übrig
+- Als Ausdruck (oder *Expression*) wird die Verknüpfung von Sprachelementen durch Operatoren bezeichnet.
+- Ausdrücke werden beim Codieren definiert und zur Laufzeit ausgewertet.
+- Ausdrücke haben *immer* ein Ergebnis. D.h. nach der kompletten Auswertung eines Ausdrucks bleibt ein einzelner Datenwert übrig.
 
 ``` java
 int num1 = 2;
@@ -544,7 +544,7 @@ private Circle createCircleWithBorder(int xPos, int yPos, int radius) {
 - Sie leben vom Eintrittspunkt in die Methode bis zum Austritt (*Scope*: Sichtbarkeit und Gültigkeit).
 - Sie sind nur innerhalb der Methode sichtbar, in der sie definiert wurden.
 - Parameter sind lokale Variablen, die mit den übergebenen Werten initialisiert werden.
-- Das Set (die Menge) an lokalen Variablen bei der Ausführung einer Methode nennt man Stack Frame.
+- Das Set (die Menge) an lokalen Variablen bei der Ausführung einer Methode nennt man *Stack Frame*.
 
 >>>
 

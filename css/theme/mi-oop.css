@@ -163,12 +163,12 @@ body {
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.75em;
   font-family: Ubuntu Mono, "monospace";
-  line-height: 1.2em;
+  line-height: 1.15em;
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); }
 
@@ -180,7 +180,7 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 600px;
   word-wrap: normal; }
 
 .reveal table {
@@ -310,12 +310,17 @@ body {
   display: block;
   width: 96%;
   padding: 2%;
-  margin-top: 5%;
+  margin-top: 2.5%;
   background-color: rgb(240,240,240);
   border: solid 1px rgb(200,200,200);
   font-size: 0.85em;
   line-height: 1.5em;
   text-align: left;
+}
+
+.reveal .hint.smaller {
+  font-size: 0.65em;
+  line-height: 1.15em;
 }
 
 .reveal .hint:before {
