@@ -74,13 +74,13 @@ https://pingo.coactum.de/833782
 ## 5 Minuten für `break` und  `continue`
 
 ![left-side](slides/images/stop-button.jpg)
-<span class="image-description">Schleifen werden über Bedingungen und Zähler im Schleifenkopf gesteuert. Zusätzlich können Sie die gesamte Schleife durch den `break`-Befehl abbrechen. Eine einzelne Iteration wird über `continue` übersprungen.<br /><br />**Beide Befehle werden für unterschiedliche Verwendungszwecke eingesetzt.**</span>
+<span class="image-description">Schleifen werden über Bedingungen und Zählervariablen im Schleifenkopf gesteuert. Im Rumpf der Schleife können Sie die gesamte Schleife durch den `break`-Befehl abbrechen. Eine einzelne Iteration wird über den `continue`-Befehl übersprungen.<br /><br />**Beide Befehle werden für unterschiedliche Verwendungszwecke eingesetzt.**</span>
 
 >>>
 
 ### Einzelne Iterationen mit `continue` überspringen
 
-<span class="blocktext">Der `continue`-Befehl bricht die aktuelle Iteration der Schleife ab und fährt mit dem nächsten Durchlauf fort. Die Zählervariablen werden entsprechend der Anweisungen im Schleifenkopf angepasst. In diesem Beispiel werden alle *ungeraden* Zahlen eines im Schleifenkopf definierten Wertebereichs ausgegeben.</span>
+<span class="blocktext">Der `continue`-Befehl bricht die aktuelle Iteration der Schleife ab und fährt mit dem nächsten Durchlauf fort. Die Zählervariable wird entsprechend der Anweisungen im Schleifenkopf angepasst. In diesem Beispiel werden alle *ungeraden* Zahlen eines im Schleifenkopf definierten Wertebereichs ausgegeben.</span>
 
 ``` java
 private void continueOnEven() {
@@ -98,7 +98,7 @@ private void continueOnEven() {
 
 ### Schleifen frühzeitig mit `break` abbrechen
 
-<span class="blocktext">Der `break`-Befehl bricht die komplette Schleife ab und greift den Code in der drauf folgenden Zeile wieder auf. Im Beispiel wird die Schleife abgebrochen, sobald ein bestimmter Wert, hier `5`, erreicht wird (ein eher sinnbefreites Beispiel)</span>
+<span class="blocktext">Der `break`-Befehl bricht die komplette Schleife ab und greift den Code in der darauf folgenden Zeile wieder auf. Im Beispiel wird die Schleife abgebrochen, sobald ein bestimmter Wert, hier `5`, erreicht wird (ein eher sinnfreies Beispiel)</span>
 
 ``` java
 private void breakOnSentinel() {
@@ -116,7 +116,7 @@ private void breakOnSentinel() {
 
 ### Sentinels und `break`
 
-<span class="blocktext smaller">Mit Hilfe des `break`-Befehls können wir bei unklaren Abbruchbedingungen (z.B. bei dynamisch möglichen Benutzereingaben) die Steuerung der Schleife in deren Rumpf verlagern. Werte, die zum  Prüfen dieser internen Abbruchbedingung dienen, nennt man auch *Sentinel* bzw. *Wächterwert*.</span>
+<span class="blocktext smaller">Mit Hilfe des `break`-Befehls können wir bei unklaren Abbruchbedingungen (z.B. bei Benutzereingaben) die Steuerung der Schleife in deren Rumpf verlagern. Werte, die zum  Prüfen dieser internen Abbruchbedingung dienen, nennt man auch *Sentinel* bzw. *Wächterwert*.</span>
 
 ``` java
 private static final int SENTINEL = 0;
@@ -132,14 +132,13 @@ public void readAndSumNumbers() {
 }
 ```
 
-<span class="hint smaller">Die (fiktive) Methode `readInt` im Beispiel gibt den als Parameter übergebenen Text auf den Bildschirm aus und fordert NutzerInnen auf, einen Ganzzahl wert einzugeben. Der eingegebene Wert wird als Rückgabewert der Methode an die aufrufende Stelle zurückgegeben.</span>
-
+<span class="hint smaller">Die (fiktive) Methode `readInt` im Beispiel gibt den als Parameter übergebenen Text auf dem Bildschirm aus und erlaubt die Eingabe von Ganzzahlwerten durch NutzerInnen. Der eingegebene Wert wird als Rückgabewert der Methode an die aufrufende Stelle zurückgegeben.</span>
 
 >>>
 
 ## 5 Minuten für die `switch`-Anweisung
 
-<span class="blocktext smaller">Mit der `if`-Abfrage wird eine Bedingung genau einmal geprüft. Die Klammern müssen einen booleschen Ausdruck enthalten. Je nach Ergebnis der Auswertung (`false` oder `true`) werden die angegebenen Befehle ausgeführt oder nicht. Die im `else`-Teil definierte Alternativen wird ausgeführt, wenn die Bedingung **nicht** zutrifft.
+<span class="blocktext smaller">Mit der `if`-Abfrage wird eine Bedingung genau einmal geprüft. Die Klammern müssen einen booleschen Ausdruck enthalten. Je nach Ergebnis der Auswertung (`false` oder `true`) werden die angegebenen Befehle ausgeführt oder nicht. Die im `else`-Teil definierte Alternative wird ausgeführt, wenn die Bedingung **nicht** zutrifft.
 
 ``` java
 // Wenn Bouncer sich nach vorne bewegen kann ...
@@ -214,14 +213,14 @@ switch (dayNum) {
 }
 ```
 
-<span class="blocktext smaller">Eine `switch`-Anweisung besteht aus der zu prüfenden Variable (hier: `dayNum`), den verschiedenen möglichen Fällen (`case`), Anweisungen die je nach *case* ausgeführt werden sollen und einem (optionalen) *default*-Fall, der ausgelöst wird, wenn keiner der notierten Fälle zutrifft. Die `break`-Befehle sorgen dafür, dass nach dem Finden und Abarbeiten des richtigen Falles die switch-Anweisung verlassen wird. Mit einer `switch`-Anweisung können Variablen vom Typ `byte`, `short`, `int`, `char`, `Enum` (Aufzählung) und `String` (Text) geprüft werden.</span>
+<span class="blocktext smaller">Eine `switch`-Anweisung besteht aus der zu prüfenden Variable (hier: `dayNum`), den verschiedenen möglichen Fällen (`case`), Anweisungen die je nach *case* ausgeführt werden sollen und einem (optionalen) *default*-Fall, der ausgelöst wird, wenn keiner der notierten Fälle zutrifft. Die `break`-Befehle sorgen dafür, dass nach dem Finden und Abarbeiten des richtigen Falles die `switch`-Anweisung verlassen wird. Mit einer `switch`-Anweisung können Variablen vom Typ `byte`, `short`, `int`, `char`, `Enum` (Aufzählung) und `String` (Text) geprüft werden.</span>
 
 >>>
 
 
 ### Fallthrough in `switch`-Anweisungen: Probleme
 
-<span class="blocktext smaller">Ein besonderes Feature von `switch`-Anweisungen ist der *Fallthrough*-Mechanismus. Wird ein passender Fall (*case*) gefunden, werden, ausgehend von diesem Fall, **alle** Anweisungen bis zum nächsten `break` ausgeführt. Ein "vergessenes" `break` kann also gravierende Konsequenzen haben.</span>
+<span class="blocktext smaller">Ein besonderes Feature von `switch`-Anweisungen ist der *Fallthrough*-Mechanismus. Wird ein passender Fall (*case*) gefunden, werden - ausgehend von diesem Fall - **alle** Anweisungen bis zum nächsten `break` ausgeführt. Ein "vergessenes" `break` kann also gravierende Konsequenzen haben.</span>
 
 ``` java
 int dayNum = readInt("Gib die Nummer des Wochentags ein: ");
@@ -263,7 +262,7 @@ switch (dayNum) {
 }
 ```
 
-<span class="blocktext smaller">Für die Werte 1-4 werden keine Anweisungen notiert. Tritt einer dieser Fälle auf, *fällt* die Bearbeitung bis zur Bearbeitung des Falls `5` durch. Hier stehen dann die Anweisungen für alle vorangegangenen Fälle und das notwendige `break` um die Bearbeitung abzubrechen.</span>
+<span class="blocktext smaller">Für die Werte `1` bis `4` werden keine Anweisungen notiert. Tritt einer dieser Fälle auf, *fällt* die Bearbeitung bis zur Bearbeitung des Falls `5` durch. Hier stehen dann die Anweisungen für alle vorangegangenen Fälle und das notwendige `break` um die Bearbeitung abzubrechen.</span>
 
 >>>
 
@@ -290,7 +289,7 @@ double seed = Math.random(); // Zufallswert zwischen 0 und 0.99999...
 int randomInt = (int) (seed * 42); // Zufallswert zwischen 0 und 41
 ```
 
-<span class="blocktext smaller">Durch die Multiplikation und dem anschließenden *cast* des Ergebnisses entsteht eine zufällige Ganzzahl die irgendwo zwischen 0 und dem bei der Multiplikation verwendeten Wert liegt. Wir können den Prozess in eine Methode auslagern:</span>
+<span class="blocktext smaller">Durch die Multiplikation und dem anschließenden *cast* des Ergebnisses entsteht eine zufällige Ganzzahl die irgendwo zwischen `0` und dem bei der Multiplikation verwendeten Wert liegt. Wir können den Prozess in eine Methode auslagern:</span>
 
 ``` java
 // Gibt einen zufälligen Ganzahlwert zwischen 0 (inklusive) 
@@ -399,7 +398,7 @@ public class Animation extends GraphicsApp {
 
 - Simulation mit mehreren Bällen, die sich bewegen
 - Figuren in einem Schachcomputer
-- Einlesen mehrerer Werte, die verarbeitet werden sollen
+- Einlesen mehrerer Werte, die zusammen verarbeitet werden sollen
 
 <span class="blocktext larger">Alle Objekte/Werte sind vom gleichen Typ. Auch die Variablen werden wahrscheinlich sehr ähnlich heißen. Für solche verwenden wir Arrays (Felder).</span>
 
@@ -442,7 +441,7 @@ int sum = numbers[0] + numbers[1] + numbers[2];
 System.out.println("Summe aller Werte in numbers: " + sum);
 ```
 
-<span class="blocktext">Die Kombination Variablenname + Index verhält sich bei Zuweisungen und Lesezugriffen genau wie eine einzelne Variable und kann auch so genutzt werden!</span>
+<span class="blocktext">Die Kombination aus Variablenname und Index verhält sich bei Zuweisungen und Lesezugriffen genau wie eine einzelne Variable und kann auch so genutzt werden!</span>
 
 >>>
 
@@ -483,7 +482,7 @@ for(int i = 0; i < numbers.length; i++) {
 }
 ```
 
-<span class="hint smaller">Die Indizes eines Arrays werden als `int`-Wert abgebildet. Dadurch ergibt sich eine theoretische maximal Länge von `2.147.483.647`. In der Praxis ist die maximale Länge wahrscheinlich geringer, da verschiedene *Laufzeitumgebungen* hier unterschiedliche Limits setzten.</span>
+<span class="hint smaller">Die Indizes eines Arrays werden als `int`-Wert abgebildet. Dadurch ergibt sich eine theoretische maximale Länge von `2.147.483.647`. In der Praxis ist die maximale Länge wahrscheinlich geringer, da verschiedene *Laufzeitumgebungen* hier unterschiedliche Limits setzten.</span>
 
 >>>
 
@@ -511,7 +510,7 @@ for(int i = 0; i < numbers.length; i++) {
 <span class="blocktext smaller">Eine häufige Aufgabe bei der Gestaltung von Anwendungen mit der *GraphicsApp*-Umgebung ist das Ausrichten von Elementen an einem zweidimensionalen Raster, z.B. für ein Schachbrett:</span>
 
 ![left-side](slides/images/2d-example-chess.png)
-<span class="image-description">Die einzelnen Elemente dieser und ähnlicher Darstellungen orientieren sich an einem Gitter über die  `x`- und  `y`-Achsen. Andere Beispiele aus dem *GraphicsApp*-Kontext sind das Zeichnen Rasterdarstellungen (Vgl.: Bouncers Welt), das geordnete Positionieren von Elementen oder das Einteilen der Zeichenfläche in einzelne Bereiche.<br /><br />**Für die Arbeit mit solchen Strukturen können wir verschachtelte Kontrollstrukturen einsetzten!**</span>
+<span class="image-description">Die einzelnen Elemente dieser und ähnlicher Darstellungen orientieren sich an einem Gitter über die  `x`- und  `y`-Achsen. Andere Beispiele aus dem *GraphicsApp*-Kontext sind das Zeichnen Rasterdarstellungen (Vgl.: Bouncers Welt), das geordnete Positionieren von Elementen oder das Einteilen der Zeichenfläche in einzelne Bereiche.<br /><br />**Für die Arbeit mit solchen Strukturen können wir verschachtelte Kontrollstrukturen einsetzen!**</span>
 
 >>>
 
