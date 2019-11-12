@@ -65,9 +65,9 @@ https://pingo.coactum.de/833782
 
 ## Das Programm für heute
 
-- 5-Minuten-Themen: `break` & `continue`, `switch`-Anweisung und eine Wiederholung des *Draw Loop* 
+- 5-Minuten-Themen: `break` & `continue`, `switch`-Anweisung, Zufallswerte und eine Wiederholung des *Draw Loop* 
 - Verwaltung von Werten gleichen Typs in einer Variable: *Arrays*
-- Verschachtelte Schleifen und die Iteration über mehrdimensionale *Arrays*
+- Verschachtelte Schleifen
 
 >>>
 
@@ -118,7 +118,6 @@ private void breakOnSentinel() {
 
 <span class="blocktext smaller">Mit Hilfe des `break`-Befehls können wir bei unklaren Abbruchbedingungen (z.B. bei dynamisch möglichen Benutzereingaben) die Steuerung der Schleife in deren Rumpf verlagern. Werte, die zum  Prüfen dieser internen Abbruchbedingung dienen, nennt man auch *Sentinel* bzw. *Wächterwert*.</span>
 
-
 ``` java
 private static final int SENTINEL = 0;
 public void readAndSumNumbers() {
@@ -140,33 +139,39 @@ public void readAndSumNumbers() {
 
 ## 5 Minuten für die `switch`-Anweisung
 
-<span class="blocktext">Mit der `if`-Abfrage wird eine Bedingung genau einmal geprüft. Die Klammern müssen einen booleschen Ausdruck enthalten. Je nach Ergebnis der Auswertung (`false` oder `true`) werden die angegebenen Befehle ausgeführt oder nicht. Die im `else`-Teil definierte Alternativen wird ausgeführt, wenn die Bedinung **nicht** zutrifft.
+<span class="blocktext smaller">Mit der `if`-Abfrage wird eine Bedingung genau einmal geprüft. Die Klammern müssen einen booleschen Ausdruck enthalten. Je nach Ergebnis der Auswertung (`false` oder `true`) werden die angegebenen Befehle ausgeführt oder nicht. Die im `else`-Teil definierte Alternativen wird ausgeführt, wenn die Bedingung **nicht** zutrifft.
 
 ``` java
+// Wenn Bouncer sich nach vorne bewegen kann ...
 if(bouncer.canMoveForward()) {
+	// ... tut er dies.
 	bouncer.move();
+// Wenn er sich nicht nach vorne bewegen kann ...
 } else {
+	// ... dreht er sich nach links.
 	bouncer.turnLeft();
 }
 ```
+
+<span class="hint smaller">In einer `if ... else`-Bedingung wird entweder die eine **oder** die andere Anweisungsgruppe (`{ ... }`) ausgeführt. Es spielt keine Rolle, ob durch die Ausführung der `if`-Befehle eine Situation eintritt, die - relativ zur Ausgangssituation - eine Ausführung der `else`-Anweisungsgruppe notwendig machen würde.</span>
 
 >>>
 
 ### Alternativen mit "Cascading IF"
 
-<span class="blocktext">Komplexere Zusammenhänge und priorisierte Alternativen können auch durch verschachtelte `if`-Abfragen abgebildet werden:</span>
+<span class="blocktext smaller">Komplexere Zusammenhänge und priorisierte Alternativen können auch durch verschachtelte `if`-Abfragen abgebildet werden:</span>
 
 ``` java
 if (score >= 90) {
 	System.out.println("Note: 1");
 } else if (score >= 80) {	
-	System.out.printlnprintln("Note: 2");
+	System.out.printlnp("Note: 2");
 } else if (score >= 70) {	
-	System.out.printlnprintln("Note: 3");
+	System.out.println("Note: 3");
 } else if (score >= 60) {
-	System.out.printlnprintln("Note: 4");
+	System.out.println("Note: 4");
 } else {
-	System.out.printlnprintln("Note: 5");
+	System.out.println("Note: 5");
 }
 ```
 
@@ -177,44 +182,151 @@ if (score >= 90) {
 ### Beispiel: "Cascading IF" und Wochentage
 
 ``` java
-int dayNum = readInt(“Gib die Nummer des Wochentags ein: “);
+int dayNum = readInt("Gib die Nummer des Wochentags ein: ");
 
 if (dayNum == 6) {
-	println("Heute ist Wochenende (Samstag)!");
+	System.out.println(("Heute ist Wochenende (Samstag)!");
 } else if (dayNum == 7) {
-	println("Heute ist Wochenende (Sonntag)!");
+	System.out.println(("Heute ist Wochenende (Sonntag)!");
 } else {
-	println("Heute ist ein Arbeitstag :(");
+	System.out.println(("Heute ist ein Arbeitstag :(");
 }
 ```
 
-<span class="blocktext">Solche und ähnliche Konstruktionen lassen sich auch mit der  `switch`-Anweisung notieren!</span>
+Solche und ähnliche Konstruktionen lassen sich auch mit der  `switch`-Anweisung notieren!
 
 >>>
 
 ### Beispiel: `switch` und Wochentage
 
 ``` java
-int dayNum = readInt(“Gib die Nummer des Wochentags ein: “);
-
+int dayNum = readInt("Gib die Nummer des Wochentags ein: ");
 switch (dayNum) {
 	case 6:
-		println("Heute ist Wochenende (Samstag)!");
+		System.out.println(("Heute ist Wochenende (Samstag)!");
 		break;
 	case 7:
-		println("Heute ist Wochenende (Sonntag)!");
+		System.out.println(("Heute ist Wochenende (Sonntag)!");
 		break;
 	default:
-		println("Heute ist ein Arbeitstag :(");
+		System.out.println(("Heute ist ein Arbeitstag :(");
 		break;
 }
 ```
 
 <span class="blocktext smaller">Eine `switch`-Anweisung besteht aus der zu prüfenden Variable (hier: `dayNum`), den verschiedenen möglichen Fällen (`case`), Anweisungen die je nach *case* ausgeführt werden sollen und einem (optionalen) *default*-Fall, der ausgelöst wird, wenn keiner der notierten Fälle zutrifft. Die `break`-Befehle sorgen dafür, dass nach dem Finden und Abarbeiten des richtigen Falles die switch-Anweisung verlassen wird. Mit einer `switch`-Anweisung können Variablen vom Typ `byte`, `short`, `int`, `char`, `Enum` (Aufzählung) und `String` (Text) geprüft werden.</span>
 
+>>>
+
+
+### Fallthrough in `switch`-Anweisungen: Probleme
+
+<span class="blocktext smaller">Ein besonderes Feature von `switch`-Anweisungen ist der *Fallthrough*-Mechanismus. Wird ein passender Fall (*case*) gefunden, werden, ausgehend von diesem Fall, **alle** Anweisungen bis zum nächsten `break` ausgeführt. Ein "vergessenes" `break` kann also gravierende Konsequenzen haben.</span>
+
+``` java
+int dayNum = readInt("Gib die Nummer des Wochentags ein: ");
+switch (dayNum) {
+	case 6:
+		System.out.println(("Heute ist Wochenende (Samstag)!");
+		// Hier fehlt das "break"-Statement
+	case 7:
+		System.out.println(("Heute ist Wochenende (Sonntag)!");
+		break;
+	default:
+		System.out.println(("Heute ist ein Arbeitstag :(");
+		break;
+}
+```
+
+<span class="blocktext smaller">Das Programm gibt, im Fall von `i = 6` sowohl den Text "Heute ist Wochenende (Samstag)!" als auch "Heute ist Wochenende (Sonntag)!" aus. **In diesem Fall ist das nicht gewollt!**</span>
 
 >>>
 
+### Fallthrough in `switch`-Anweisungen: Möglichkeiten
+
+<span class="blocktext smaller">Der *fallthrough*-Mechanismus kann auch bewusst genutzt werden:</span>
+
+``` java
+int dayNum = readInt("Gib die Nummer des Wochentags ein: ");
+switch (dayNum) {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		System.out.println("Heute ist ein Arbeitstag");
+		break;
+	case 6:
+	case 7:
+		println("Heute ist Wochenende!");
+		break;
+}
+```
+
+<span class="blocktext smaller">Für die Werte 1-4 werden keine Anweisungen notiert. Tritt einer dieser Fälle auf, *fällt* die Bearbeitung bis zur Bearbeitung des Falls `5` durch. Hier stehen dann die Anweisungen für alle vorangegangenen Fälle und das notwendige `break` um die Bearbeitung abzubrechen.</span>
+
+>>>
+
+
+## 5 Minuten für Zufallswerte
+
+<span class="blocktext">Häufig benötigen Sie bzw. werden Sie in Ihren Anwendungen zufällige Werte für numerische Eigenschaften ihrer Objekte benötigen:</span>
+
+- Zufällige Startpositionen für Objekte
+- Zufällige Geschwindigkeiten für deren Bewegungen
+- Entscheidungen auf Basis bestimmter Wahrscheinlichkeiten
+- ...
+
+Wirklichen *Zufall* gibt es in (den meisten) Computern nicht. Wir können aber Werte generieren, die für unsere Zwecke *zufällig* genug sind (Pseudozufallszahlen).
+
+>>>
+
+### Zufallswerte mit der `Math`-Klasse
+
+<span class="blocktext smaller">Die Methode `Math.random` generiert bei jedem Aufruf einen *zufälligen* `double`-Wert zwischen 0 (inklusive) und 1 (exklusive). Also einen Wert zwischen `0.0` und `0.99999...`. Mit ein bisschen Mathematik können wir damit beliebige *zufällige* Ganzahlen berechnen:</span>
+
+``` java
+double seed = Math.random(); // Zufallswert zwischen 0 und 0.99999...
+int randomInt = (int) (seed * 42); // Zufallswert zwischen 0 und 41
+```
+
+<span class="blocktext smaller">Durch die Multiplikation und dem anschließenden *cast* des Ergebnisses entsteht eine zufällige Ganzzahl die irgendwo zwischen 0 und dem bei der Multiplikation verwendeten Wert liegt. Wir können den Prozess in eine Methode auslagern:</span>
+
+``` java
+// Gibt einen zufälligen Ganzahlwert zwischen 0 (inklusive) 
+// und "upperLimit" (exklusive) zurück
+public int getRandomInt(int upperLimit) {
+	int value = (int) (Math.random() * upperLimit);
+	return value;
+}
+```
+
+>>>
+
+### Zufallswerte mit der `Random`-Klasse
+
+<span class="blocktext">Für die einfacherer (und bessere) Generierung von Zufallswerten existiert in Java eine separate Klasse: `Random`. Deren Dokumentation können Sie [hier](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html) nachlesen. Einige der möglichen Funktionen sind:</span>
+
+``` java
+// Erstellen des Zufallsgenerators
+Random randomGenerator = new Random();
+
+// Erzeugen einer zufälligen Ganzzahl
+int randomInt = randomGenerator.nextInt();
+
+// Erzeugen einer zufälligen Ganzzahl von 0 bis zu einem bestimmten, 
+// exklusiven Limit (hier: 42)
+int randomIntWithLimit = randomGenerator.nextInt(42);
+
+// Erzeugen einer zufälligen Fließkommazahl zwischen  0 und 1.0
+float randomFloat = randomGenerator.nextFloat();
+
+// Erzeugen eines zufälligen Wahrheitswertes (true oder false)
+boolean randomBoolean = randomGenerator.nextBoolean();
+
+```
+
+>>>
 
 ## 5 Minuten für den *Draw Loop* 
 
@@ -308,7 +420,7 @@ public class Animation extends GraphicsApp {
 
 <code>DATENTYP[] NAME;</code>
 
-<span class="blocktext">Bei der Initalisierung wird das `new`-Schlüsselwort verwendet. Die Länge (Anzahl der *Plätze* für Objekte) muss an dieser Stelle angegeben werden und kann anschließend nicht verändert werden:</span>
+<span class="blocktext">Bei der Initialisierung wird das `new`-Schlüsselwort verwendet. Die Länge (Anzahl der *Plätze* für Objekte) muss an dieser Stelle angegeben werden und kann anschließend nicht verändert werden:</span>
 
 <code>DATENTYP[] NAME = new DATENTYP[LENGTH];</code>
 
@@ -371,7 +483,7 @@ for(int i = 0; i < numbers.length; i++) {
 }
 ```
 
-<span class="hint smaller">Die Indizes eines Arrays werden als `int`-Wert abgebildet. Dadurch ergibt sich eine theoretische maximal Länge von `2.147.483.647`. In der Praxis ist die maximale Länge wahrscheinlich geringer, da verschiedene *Virtual Machines* hier unterschiedlich bei der Implementierung vorgehen.</span>
+<span class="hint smaller">Die Indizes eines Arrays werden als `int`-Wert abgebildet. Dadurch ergibt sich eine theoretische maximal Länge von `2.147.483.647`. In der Praxis ist die maximale Länge wahrscheinlich geringer, da verschiedene *Laufzeitumgebungen* hier unterschiedliche Limits setzten.</span>
 
 >>>
 
@@ -385,23 +497,83 @@ for(int i = 0; i < numbers.length; i++) {
 
 ## Praxis-Beispiel: Bälle mit zufälliger Startposition
 
->>>
-
-### Einschub: Zufallswerte mit Math.random()
-
->>>
-
-# Mehrdimensionale Arrays
+![left-side](slides/images/random-balls.png)
+<span class="image-description">Wir erstellen eine Anwendung mit beliebig vielen, sich bewegenden, Bällen. Die Bälle werden in einem Array gespeichert und bei der Initialisierung zufällig auf der Zeichenfläche positioniert.</span>
 
 >>>
 
-# Verschachtelte `for`-Schleifen
+# Verschachtelte Schleifen
 
 >>>
+
+### 2D-Darstellungen mit Raster
+
+<span class="blocktext smaller">Eine häufige Aufgabe bei der Gestaltung von Anwendungen mit der *GraphicsApp*-Umgebung ist das Ausrichten von Elementen an einem zweidimensionalen Raster, z.B. für ein Schachbrett:</span>
+
+![left-side](slides/images/2d-example-chess.png)
+<span class="image-description">Die einzelnen Elemente dieser und ähnlicher Darstellungen orientieren sich an einem Gitter über die  `x`- und  `y`-Achsen. Andere Beispiele aus dem *GraphicsApp*-Kontext sind das Zeichnen Rasterdarstellungen (Vgl.: Bouncers Welt), das geordnete Positionieren von Elementen oder das Einteilen der Zeichenfläche in einzelne Bereiche.<br /><br />**Für die Arbeit mit solchen Strukturen können wir verschachtelte Kontrollstrukturen einsetzten!**</span>
+
+>>>
+
+### Verschachtelte Schleifen: Allgemeines
+
+<span class="blocktext">Kontrollstrukturen können auch innerhalb anderer Kontrollstrukturen genutzt werden, d.h. eine Schleife kann eine andere Schleife enthalten. Generell gilt dabei: Enthält eine Schleife eine andere, so wird bei jeder Iteration der *äußeren Schleife [A]* die *innere Schleife [B]* komplett durchlaufen.</span>
+
+``` java
+int i = 0; 
+int j = 0;
+
+while (i<10) { // Äußere Schleife A
+	while (j<10) { // Innere Schleife B
+		System.out.println("Eine Nachricht aus der inneren Schleife");	
+		j++;
+	}
+	i++;
+}
+```
+
+Wie oft wird der Text ausgegeben?
+
+>>>
+
+### Verschachtelte Schleifen: Rasterdarstellungen
+
+<span class="blocktext">`for`-Schleifen eignen sich sehr gut dafür, Koordinatenpaare für die zweidimensionale Positionierung von Elementen zu generieren:</span>
+
+``` java
+private static final GRID_WIDTH = 8;
+private static final GRID_HEIGHT = 8;
+
+// Iteration über alle Spalten
+for(int x = 0; x < GRID_WIDTH; x++) {
+	// Zeilenweise Iteration über die Elemente einer Spalte
+	for(int y = 0; y < GRID_HEIGHT; y++) {
+		System.out.println("Aktuelle Koordinaten {" + x + "," + y + "}");
+	}
+}
+
+```
+
+<span class="hint smaller">Die Dimensionen des Gitters (hier `8x8`) stimmen in der Regel nicht mit der tatsächlichen Größe der Zeichenfläche in Pixeln überein (z.B. `800px x 800px`). Aus den Koordinatenpaaren und der intendierten Größe der einzelnen Felder lassen sich aber die notwendigen Dimensionen berechnen.</span>
+
+>>>
+
+## Praxis-Beispiel: Raster mit Zufallsfarben
+
+![left-side](slides/images/2d-example-color-grid.png)
+<span class="image-description">Wir erstellen eine Anwendung, die ein Raster aus zufällig eingefärbten Farben darstellt.</span>
+
+>>>
+
 
 ## Zusammenfassung 
 
-- ...
+- Der Ablauf von Schleifen lässt sich in deren *Rumpf* durch die Befehle `continue` und  `break` steuern
+- Einige `if ... else`-Anweisungen lassen sich sehr gut mit der `switch`-Anweisung ersetzten
+- (Numerische) Zufallswerte lassen sich über die Funktion `Math.random()` oder Instanzen der Klasse `Random` erzeugen
+- Werte gleichen Datentyps können in einem Array verwaltet werden
+- Arrays haben eine feste Länge
+- Elemente eines Arrays können über einen eindeutigen Index (Position im Feld) angesprochen werden
 
 >>>
 
