@@ -527,6 +527,9 @@ while (i<10) { // Äußere Schleife A
 		System.out.println("Eine Nachricht aus der inneren Schleife");	
 		j++;
 	}
+	// Setzt die Zählervariable für die innere Schleife für die nächste Iteration
+	// der äußeren Schleife zurück.
+	j = 0; 
 	i++;
 }
 ```
