@@ -516,7 +516,7 @@ for(int i = 0; i < numbers.length; i++) {
 
 ### Verschachtelte Schleifen: Allgemeines
 
-<span class="blocktext">Kontrollstrukturen können auch innerhalb anderer Kontrollstrukturen genutzt werden, d.h. eine Schleife kann eine andere Schleife enthalten. Generell gilt dabei: Enthält eine Schleife eine andere, so wird bei jeder Iteration der *äußeren Schleife [A]* die *innere Schleife [B]* komplett durchlaufen.</span>
+<span class="blocktext smaller">Kontrollstrukturen können auch innerhalb anderer Kontrollstrukturen genutzt werden, d.h. eine Schleife kann eine andere Schleife enthalten. Generell gilt dabei: Enthält eine Schleife eine andere, so wird bei jeder Iteration der *äußeren Schleife [A]* die *innere Schleife [B]* komplett durchlaufen.</span>
 
 ``` java
 int i = 0; 
