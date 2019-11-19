@@ -186,7 +186,7 @@ private void readName() {
 
 ## Information Hiding
 
-<span class="blocktext larger">Im Verhältnis zwischen *Client* und *Implementor* spielt das Prinzip des *Information Hidings* eine wesentliche Rolle:</span>
+<span class="blocktext larger">Im Verhältnis zwischen *Client* und *Implementor* spielt das Prinzip des *Information Hiding* eine wesentliche Rolle:</span>
 
 - Als *Client* interessiert es uns nicht, wie `Math.random()` funktioniert oder was in `Ellipse.draw()` passiert. Wir brauchen/sehen nur das Ergebnis.
 - Die eigentliche Implementierung (*Was passiert?*) wird (bewusst) vor dem *Client* versteckt. Dieser muss nur die Methodensignatur, d.h. Parameter & Rückgabewert kennen um zu wissen, was möglich ist.
@@ -316,6 +316,7 @@ private void rollDice() {
 <span class="hint smaller">Klassen werden in separaten Dateien definiert, deren Name identisch mit dem Namen der Klasse ist. Die Dateien haben die Endung `.java`.</span>
 
 ```
+// Dieser Code greift den folgenden Folien vorweg!
 public class Dog {
 	private Color furColor;
 	private boolean isHungry;
@@ -467,7 +468,7 @@ public Color getFurColor() {
 }
 
 public void setOwner(String owner) {
-	if(!owner.equals("Cruella de Ville“)) {
+	if(!owner.equals("Cruella de Ville")) {
 		this.owner = owner;
 	}
 }
@@ -491,6 +492,51 @@ lesenden Zugriff. LPs können über eine öffentliche Methode ergänzt werden. D
 
 ![left-side](slides/images/expanding-circles-demo.png)
 <span class="image-description">Eine Klasse `ExpandingCircle` kapselt ein sich ausdehnendes `Circle`-Objekt. Im Konstruktor werden Position, initiale Größe und die Farbe des Kreises übergeben. Über die öffentlichen Methoden `update` und  `draw` kann der Kreis vergrößert und gezeichnet werden. Die Anpassung der Größe erfolgt schrittweise bis zu einem definierten Maximalwert. In einer *GraphicsApp* werden zwei Instanzen der `ExpandingCircle`-Klasse erstellt und verwendet.</span>
+
+>>>
+
+# Objekte als Parameter
+
+>>>
+
+## Caveat: Objekte als Parameter
+
+<span class="blocktext">Objekte verhalten sich anders als primitive Datentypen, wenn Sie als (Übergabe-)Parameter eingesetzt werden:</span>
+
+``` java
+private void modifyStudent(Student student, int lp) {
+	System.out.println("Modifying Students LPs");
+	student.addLP(lp);
+}
+```
+
+<span class="hint smaller">Objekte werden **nicht** als Kopien weitergegeben sondern als Verweise (Referenzen) auf die *Originale*. Wenn wir ein Objekt (Parameter) in einer Methode ändern, ändern wir das Original. Technisch gesehen wird auhc hier konkreter Wert, nämlich die "Adresse" des übergeben, Java arbeitet immer mit dem *Call by Value*-Prinzip.</span>
+
+>>>
+
+## Konsequenzen des *Call by Value*-Ansatzes in Java (1/2)
+
+- Wird ein Objekt an eine Methode übergeben, befindet sich in der Parameter-Variable die Adresse (im Speicher) an der das Objekt bzw. seine Methoden (nicht wirklich) und Eigenschaften gespeichert (die schon) werden.
+- Wenn wir die Eigenschaften des Objekts über die Parameter-Variable ändern, ändern wir das ursprüngliche Objekt.
+- Wenn wir die Parameter-Variable überschreiben, bleibt das ursprüngliche unberührt (wir ändern dann nur einen von mehreren der Orte, an denen die Adresse des Objekts gespeichert ist).
+
+>>>
+
+## Konsequenzen des *Call by Value*-Ansatzes in Java (2/2)
+
+``` java
+/**
+ * LPs werden für das äußere Objekt gesetzt, die Initialisierung des neuen Objekts 
+ * ist aber auf den Scope beschränkt.
+ */
+private void modifyStudent(Student student, int lp) {
+	System.out.println("Modifying Students LPs");
+	student.addLP(lp);
+	student = new Student(“A new User", 4.0);
+}
+```
+
+<span class="hint smaller">Wir greifen dieses Thema im späteren Verlauf der Vorlesung beim Thema *Speicherverwaltung* noch einmal auf.</span>
 
 >>>
 
@@ -542,52 +588,6 @@ public Circle createRandomCircleWithColor(int minRadius, int maxRadius) {
 ``` 
 
 <span class="hint smaller">Das [JavaDoc-Format](https://de.wikipedia.org/wiki/Javadoc) erlaubt die gezielte Beschreibung einzelner Code-Bestandteile (z.B. Parameter oder Rückgabewerte). Auf Basis der Kommentare kann eine Übersicht (Dokumentation) des Programms erstellt werden kann (Vgl.: [GraphicsApp-Dokumentation](https://oop-regensburg.github.io/GraphicsApp-Reborn-Library/index.html).</span>
-
->>>
-
-
-# Objekte als Parameter
-
->>>
-
-## Caveat: Objekte als Parameter
-
-<span class="blocktext">Objekte verhalten sich anders als primitive Datentypen, wenn Sie als (Übergabe-)Parameter eingesetzt werden:</span>
-
-``` java
-private void modifyStudent(Student student, int lp) {
-	System.out.println("Modifying Students LPs");
-	student.addLP(lp);
-}
-```
-
-<span class="hint smaller">Objekte werden **nicht** als Kopien weitergegeben sondern als Verweise (Referenzen) auf die *Originale*. Wenn wir ein Objekt (Parameter) in einer Methode ändern, ändern wir das Original. Technisch gesehen wird auhc hier konkreter Wert, nämlich die "Adresse" des übergeben, Java arbeitet immer mit dem *Call by Value*-Prinzip.</span>
-
->>>
-
-## Konsequenzen des *Call by Value*-Ansatzes in Java (1/2)
-
-- Wird ein Objekt an eine Methode übergeben, befindet sich in der Parameter-Variable die Adresse (im Speicher) an der das Objekt bzw. seine Methoden (nicht wirklich) und Eigenschaften gespeichert (die schon) werden.
-- Wenn wir die Eigenschaften des Objekts über die Parameter-Variable ändern, ändern wir das ursprüngliche Objekt.
-- Wenn wir die Parameter-Variable überschreiben, bleibt das ursprüngliche unberührt (wir ändern dann nur einen von mehreren der Orte, an denen die Adresse des Objekts gespeichert ist).
-
->>>
-
-## Konsequenzen des *Call by Value*-Ansatzes in Java (2/2)
-
-``` java
-/**
- * LPs werden für das äußere Objekt gesetzt, die Initialisierung des neuen Objekts 
- * ist aber auf den Scope beschränkt.
- */
-private void modifyStudent(Student student, int lp) {
-	System.out.println("Modifying Students LPs");
-	student.addLP(lp);
-	student = new Student(“A new User", 4.0);
-}
-```
-
-<span class="hint smaller">Wir greifen dieses Thema im späteren Verlauf der Vorlesung beim Thema *Speicherverwaltung* noch einmal auf.</span>
 
 >>>
 
