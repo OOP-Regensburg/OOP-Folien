@@ -76,7 +76,7 @@ https://pingo.coactum.de/368355
 
 >>>
 
-## Diese Datentypen kennen wir bereits
+## Bekannte Datentypen
 
 | Bereich | Datentypen | Beispiele Wertebereich | Code-Beispiele (Variablen) |
 |---------|------------|------------------------|----------------------------|
@@ -86,15 +86,15 @@ https://pingo.coactum.de/368355
 | Wahrheitswerte | `boolean` | `true`, `false`  | `boolean x = false`; |
 | (Graphische) Objekte | jeweiliger Klassenname | `Circle`, `Label`,...  | `Circle x = new Circle(50,50,100,Colors.RED`; |
 
-**Häufig wollen wir aber auch Text(e) in unseren Anwendung verwenden!**
+<span class="blocktext">**Häufig wollen wir aber auch Text(e) in unseren Anwendung verwenden!**</span>
 
 >>>
 
-## Zeichenketten mit *Strings*  abbilden
+## Texte mit *Strings*  abbilden
 
 <code>String myName = "Alexander Bazo";</code>
 
-<span class="blocktext">*Strings*  sind Objekte, können aber - unter Verwendung von Anführungsstrichen - als sogenanntes Literal und ohne `new`-Schlüsselwort erzeugt werden. **Fun Fact:** Intern wird für die Speicherung des Textes in der `String`-Klasse ein *Array* aus einzelnen `char`-Elementen verwendet.</span>
+<span class="blocktext">*Strings*  sind Objekte, können aber - unter Verwendung von Anführungsstrichen - als sogenanntes Literal und ohne `new`-Schlüsselwort erzeugt werden.<br /><br />**Fun Fact:** Intern wird für die Speicherung des Textes in der `String`-Klasse ein *Array* aus einzelnen `char`-Elementen verwendet.</span>
 
 <span class="hint smaller">In Java (und vielen anderen Programmiersprachen) ist ein Literal ein unveränderbarer Ausdruck (en. *literally* ~ *wortwörtlich*). Jeder fest codierte numerische Wert, `true` & `false` sowie jedes im Code notierte Zeichen bzw. jede Zeichenkette ist ein solches, unveränderbares Literal mit einer festen Bedeutung.</span>
 
@@ -131,16 +131,18 @@ for (int i = 0; i < myName.length(); i++) {
 <span class="blocktext">Strings können - in Kommandozeilen-basierten Anwendungen - über die `Scanner`-Klasse eingelesen werden:</span>
 
 ``` java
-// Erzeugt einen Scanner, der von der Standardeingabe (in der Regel die Kommandozeile) ließt
+// Erzeugt einen Scanner, der von der Standardeingabe (in der Regel die Kommandozeile) liest
 Scanner scanner = new Scanner(System.in);
 /** 
  * Gibt die nächste Eingabe des Nutzenden als String zurück, d.h. Sie erhaltenen alle
  * eingegebenen Zeichen bis zum nächsten Zeilenumbruch (Enter-Taste).
  * Achtung: Ihr Programm hängt hier fest, bis der Nutzende die Eingabe beendet hat 
- * (Enter-Taste). Erst dann wird die nächste Zeile Code ausgeführt.
+ * (Enter-Taste gedrückt hat). Erst dann wird die nächste Codezeile ausgeführt.
  */
 String input = scanner.nextLine();
 ```
+
+<span class="hint">Die `Scanner`-Klasse bietet weitere Methoden an, über die auch Zahlen oder Wahrheitswerte aus der ausgewählten Eingabequelle eingelesen werden können (Vgl. [Orcacles Java-Dokumentation](https://docs.oracle.com/javase/10/docs/api/java/util/Scanner.html)).</span>
 
 >>>
 
@@ -149,8 +151,8 @@ String input = scanner.nextLine();
 ``` java
 
 /**
- * Die Methode gibt den als Parameter übergebenen Text aus und gibt die 
- * nächste Zeile zurück, die der Nutzenden eingibt. 
+ * Die Methode gibt den als Parameter übergebenen Text als Hinweis an 
+ * an den Nutzenden aus und liefert dessen Eingabe/Antwort zurück. 
  */
 private String readString(String prompt) {
     System.out.print(prompt);
@@ -172,27 +174,23 @@ private void readName() {
 
 ## Client vs. Implementor
 
-<span class="hint smaller">Im Rahmen der **Bereitstellung** und **Verwendung** von Klasse unterscheiden wir zwischen den Personen, die Klassen modellieren und entwickeln und denjenigen, die diese Klassen in eigenen Programmen verwenden</span>
+<span class="hint smaller">Im Rahmen der **Bereitstellung** und **Verwendung** von Klasse unterscheiden wir zwischen den Personen, die Klassen modellieren und entwickeln und denjenigen, die diese Klassen in eigenen Programmen verwenden.</span>
 
 <span class="blocktext">**Clients** nutzen bestehende Klassen in eigenen Programmen. Wir haben als NutzerInnen die vorgegebenen Klassen der *GraphicsApp*-Umgebung, z.B. `Circle`, `Label` oder `Rectangle` verwendet.</span>
 
 <span class="blocktext">**Implementors** stellen Klassen für *Clients* bereit. Die von uns verwendeten Klassen der *GraphicsApp*-Umgebung wurden für uns bereitgestellt.</span>
 
-<span class="blocktext">Die Rollen sind nicht trennscharf, in der Regel sind wir *Client* und *Implementor*, da wir auf der Grundlage vorgegebenen Klassen eigene Programme/Klassen entwerfen. Die Klassifizierung dient eher der Beschreibung der Autorenschaft einer einzelnen Klasse.</span>
+<span class="blocktext">Die Rollen sind nicht trennscharf, in der Regel sind wir *Client* und *Implementor*, da wir auf der Grundlage vorgegebener Klassen eigene Programme/Klassen entwerfen. Die Klassifizierung dient eher der Beschreibung der Autorenschaft einer einzelnen Klasse.</span>
 
 >>>
 
 ## Information Hiding
 
-<span class="blocktext">Im Verhältnis zwischen *Client* und *Implementor* spielt das Prinzip des *Information Hidings* eine wesentliche Rolle:</span>
+<span class="blocktext larger">Im Verhältnis zwischen *Client* und *Implementor* spielt das Prinzip des *Information Hidings* eine wesentliche Rolle:</span>
 
 - Als *Client* interessiert es uns nicht, wie `Math.random()` funktioniert oder was in `Ellipse.draw()` passiert. Wir brauchen/sehen nur das Ergebnis.
-- Die eigentliche Implementierung (*Was passiert?*) wird vor dem *Client* versteckt. Dieser muss nur die Methodensignatur, d.h. Parameter & Rückgabewert kennen um zu wissen, was möglich ist.
+- Die eigentliche Implementierung (*Was passiert?*) wird (bewusst) vor dem *Client* versteckt. Dieser muss nur die Methodensignatur, d.h. Parameter & Rückgabewert kennen um zu wissen, was möglich ist.
 - Der *Implementor* muss diese relevanten Informationen zugänglich dokumentieren  (Vgl. [Dokumentation der GraphicsApp](https://oop-regensburg.github.io/GraphicsApp-Reborn-Library/index.html)).
-
->>>
-
-### Information Hiding in der Cocktailbar
 
 >>>
 
@@ -235,15 +233,13 @@ Einige Methoden der `Random`-Klasse:
 
 ### Beispiel: Ein Zufallsgenerator zum Würfeln
 
-![screenshot](/slides/images/dice-roller-demo.gif)
+![screenshot](slides/images/dice-roller-demo.gif)
 
 <span class="hint">Wie verwenden als *Client*  die Methoden der `Random`-Klasse um sechs zufällige Werte zwischen `1` und `6` zu berechnen, die in Form von *Würfeln* auf dem Bildschirm dargestellt werden.</span>
 
 >>>
 
-### Beispiel: Simulation von n-Würfen
-
-![small-image](/slides/images/dice-roller-cli.png)
+### Beispiel: Simulation von n-Würfen 
 
 ``` java 
 private void rollDice() {
@@ -255,13 +251,13 @@ private void rollDice() {
     while (result != maxResult) {
         result = 0;
         for(int i = 0; i < numberOfDice; i++) {
-
             int randomDiceValue = MIN_DICE_VALUE + random.nextInt(MAX_DICE_VALUE);
             result += randomDiceValue;
         }
         numberOfTries++;
     }
-    System.out.println("Das maximale Ergebnis (" + maxResult + ") wurde nach " + numberOfTries + " Versuchen erreicht!");
+    System.out.println("Das maximale Ergebnis (" + maxResult + ") wurde nach " + \
+    	numberOfTries + " Versuchen erreicht!");
 }
 ```
 
@@ -272,23 +268,71 @@ private void rollDice() {
 
 >>>
 
-### Wiederholung: Objekte und Klassen (1/2)
+### Wiederholung: Objekte und Klassen (1/3)
+
+- Ein Objekt ist eine Datenstruktur mit einem bestimmten Zustand und Verhalten.
+- Eine Klasse ist eine Vorlage, die eine gemeinsame Struktur für alle Objekte (Instanzen) dieser Klasse definiert.
+- Jedes Objekt ist eine Instanz einer bestimmten Klasse, eine Klasse kann als Vorlage für viele Instanzen dienen.
+- Klassen sind in Hierarchien aus Subklassen und Superklassen organisiert.
 
 >>>
 
-### Wiederholung: Objekte und Klassen (2/2)
+### Wiederholung: Objekte und Klassen (2/3)
+
+![large-image](slides/images/classes-dog-1.png)
+
+>>>
+
+### Wiederholung: Objekte und Klassen (3/3)
+
+![large-image](slides/images/classes-dog-2.png)
+
+<span class="blocktext">Drei Instanzen (Objekte) der Klasse Hund. Die Objekte teilen sich bestimmte Beschreibung – sie basieren auf dem gleichen Muster. Die konkreten Ausprägungen der Eigenschaften, z.B. hier die *Fellfarbe* kann unterschiedlich sein!</span>
 
 >>>
 
 ## Zentrale Bestandteile einer Klasse
 
+![large-image](slides/images/classes-dog-3.png)
+
+<span class="blocktext smaller">Die verschiedenen Bestandteile beschreiben die Fähigkeiten, (Methoden) und Eigenschaften (Konstanten/Variablen) einer Klasse. Nicht alle Klassen müssen über alle Bestandteile verfügen.</span>
+
 >>>
 
-### Aufbau einer Klasse (Beispiel `Dog`)
+## Eigene Klassen definieren (1/2)
+
+<span class="blocktext">**Objekterzeugung** (Konstruktor): Die individuelle Fellfarbe des Hundes wird festgelegt.</span>
+
+<span class="blocktext">**Verhalten** (Methoden): (Öffentliche) Methoden, die das Verhalten aller Hunde definieren (*Fressen*, *Bellen*, *Apportieren*).</span>
+
+<span class="blocktext">**Zustand** (Instanzvariablen): (Öffentliche) Variablen, die individuelle Zustände für Eigenschaften abbilden, die alle Hunde haben (*Name*, *Hunger*).</span>
+
+<span class="blocktext">**Kurzfristige Zustände** (Lokale Variablen in Methoden): Variablen, die zwischenzeitliche Ergebnisse/Zustände abbilden, z.B. ob ein Hund beim Apportieren einen Stock im Mund hat.</span>
 
 >>>
 
-## Eigene Klassen definieren
+## Eigene Klassen definieren (2/2)
+
+<span class="hint smaller">Klassen werden in separaten Dateien definiert, deren Name identisch mit dem Namen der Klasse ist. Die Dateien haben die Endung `.java`.</span>
+
+```
+public class Dog {
+	private Color furColor;
+	private boolean isHungry;
+	
+	public Dog(Color furColor) {
+		this.furColor = furColor;
+		isHungry = true;
+	}
+	
+	public void eat() {
+		if(isHungry == true) {
+			isHungry = false;
+		}
+	}
+}
+``` 
+
 
 >>>
 
@@ -311,9 +355,48 @@ int x = random.nextInt();
 
 >>>
 
+### Instanzvariablen
+
+- Anders als lokale Variablen werden Instanzvariablen zu Beginn der Klasse (und nicht in Methoden) definiert.
+- Instanzvariablen sind innerhalb des gesamten Objekts sichtbar und *leben* solange das Objekt *lebt*. Sie sind  innerhalb der ganzen Instanz verwendbar.
+- Instanzvariablen repräsentieren die Eigenschaften bzw. den Zustand des Objekts. Auch wenn die Eigenschaften nur einmal in der Klasse definiert werden, verfügt jedes Objekt über sein eigens Set an Instanzvariablen, d.h. jede `Dog`-Instanz hat eine eigene Variable (`furColor`) für die Fellfarbe.
+
+>>>
+
+### Konstruktoren (1/2)
+
+- Konstruktoren sind besondere Methoden, über die Objekte/Instanzen einer Klasse erzeugt werden
+-Über Konstruktoren werden in der Regel initiale Werte für die Eigenschaften eines neu zu erstellenden Objekts gesetzt
+
+![small-image](slides/images/classes-dog-4.png)
+
+>>>
+
+### Konstruktoren (2/2)
+
+<span class="blocktext smaller">Der Name des Konstruktors ist identisch zum Klassennamen. Bei Konstruktoren wird kein expliziter Rückgabewert (auch kein `void`) angegeben. Ein neues Objekt wird über den Aufruf eines Konstruktors mit dem `new`-Schlüsselwort erzeugt. Innerhalb einer Klasse können unterschiedliche Konstruktoren mit verschiedenen Parametern definiert werden (Vgl. graphische Objekte in der *GraphicsApp*).</span>
+
+``` java
+public class Dog {
+	private Color furColor;
+	private boolean hungry;
+
+	public Dog(Color color) {
+		furColor = color;
+		hungry = true;
+	}
+}
+```
+
+<span class="blocktext smaller">Aus unserer `Dog`-Klasse kann über den Aufruf des Konstruktors `new Dog(Colors.BLACK)` eine konkrete `Dog`-Instanz erzeugt werden.</span>
+
+>>>
+
 ### Das Schlüsselwort `this`
 
-<span class="blocktext smaller">Innerhalb einer Klasse kann an jeder Stelle über das Schlüsselwort this auf die Instanz verwiesen werden. Oft wird vom this-Zeiger gesprochen, was technisch aber nicht völlig korrekt ist, da Java kein explizites Zeiger-Konzept unterstützt. Präzise müsste es this-Referenz heißen. Die this-Referenz können wir z.B. nutzen, um bei Namensgleichheit Parameter von Instanzvariablen zu unterscheiden:</span>
+<span class="blocktext">Innerhalb einer Klasse kann an jeder Stelle über das Schlüsselwort `this` auf die aktuelle Instanz verwiesen werden.</span>
+
+<span class="blocktext">Oft wird vom `this`-Zeiger gesprochen, was technisch aber nicht völlig korrekt ist, da Java kein explizites Zeiger-Konzept unterstützt. Präzise müsste es `this`-Referenz heißen. Die `this`-Referenz können wir z.B. nutzen, um bei Namensgleichheit Parameter von Instanzvariablen zu unterscheiden:</span>
 
 ``` java
 private Color furColor;
@@ -328,22 +411,6 @@ public Dog(Color furColor) {
 
 >>>
 
-### Konstruktoren (1/2)
-
->>>
-
-### Konstruktoren (1/2)
-
->>>
-
-### Instanzvariablen
-
-- Anders als lokale Variablen werden Instanzvariablen zu Beginn der Klasse (und nicht in Methoden) definiert.
-- Instanzvariablen sind innerhalb des gesamten Objekts sichtbar und *leben* solange das Objekt *lebt*. Sie sind  innerhalb der ganzen Instanz verwendbar.
-- Instanzvariablen repräsentieren die Eigenschaften bzw. den Zustand des Objekts. Auch wenn die Eigenschaften nur einmal in der Klasse definiert werden, verfügt jedes Objekt über sein eigens Set an Instanzvariablen, d.h. jede `Dog`-Instant hat eine eigene Variable (`furColor`) für die Fellfarbe.
-
->>>
-
 ### Statische Variablen und Konstanten
 
 - Statische Variablen (Klassenvariablen) werden von allen Instanzen einer Klasse geteilt (!=Instanzvariablen): `private static boolean dogCatcherSpotted`
@@ -352,14 +419,47 @@ public Dog(Color furColor) {
 
 >>>
 
-### Methoden
+### Öffentliche und private Methoden (2/2)
+
+<span class="blocktext">Methoden beschreiben das interne Verhalten von Klassen (`private`) und bilden die Schnittstelle zu anderen Programmbestandteilen (`public`).</span>
+
+<span class="blocktext">Innerhalb von Methoden kann auf die Instanzvariablen und andere Methoden zugegriffen werden, und es können lokale Variablen definiert werden. Eine öffentliche Methode kann private/interne Methoden aufrufen. Dekomposition ist also auch hier möglich und notwendig.</span>
+
+Auf der nächsten Folie: Methoden für unsere `Dog`-Klasse.
+
+>>>
+
+### Öffentliche und private Methoden (2/2)
+
+``` java
+public void fetch() {
+	boolean hasStick = false;
+	runToStick();
+	while(!hasStick) {
+		hasStick = tryToPickUpStick();
+	}
+	runToOwner();
+	}
+
+private void runToStick() {
+	// ...
+}
+	
+private void runToOwner() {
+	// ...
+}
+
+private boolean tryToPickUpStick() {
+	return RandomGenerator.getInstance().nextBoolean();
+}
+```
 
 >>>
 
 ### Besondere Methoden: Getter & Setter
 
-- Instanzvariablen sollten in der Regel versteckt (private) sein. Dadurch wird das Prinzip des *Information Hiding* gewahrt
-- Wenn doch ein lesender/schreibender Zugriff von Außen nötig sein sollte, geschieht diese über Methoden, die den eigentlichen Zugriff auf die Daten kapseln: *Getter* & *Setter*
+- Instanzvariablen sollten in der Regel versteckt (private) sein. Dadurch wird das Prinzip des *Information Hiding* gewahrt.
+- Wenn doch ein lesender/schreibender Zugriff von Außen nötig sein sollte, geschieht diese über Methoden, die den eigentlichen Zugriff auf die Daten kapseln: *Getter* & *Setter*.
 
 ``` java
 public Color getFurColor() {
@@ -381,9 +481,16 @@ public void setOwner(String owner) {
 
 ## Beispiel: Student & StudentsApp
 
+![left-side](slides/images/students-demo-cli.png)
+<span class="image-description">Eine Klasse `Student` mit Name, Leistungspunkten und Note. Jeder Studierende verfügt über eine fortlaufend vergebene ID. Die Eigenschaften werden über den Konstruktor gesetzt. *Getter*-Methoden erlauben den 
+lesenden Zugriff. LPs können über eine öffentliche Methode ergänzt werden. Die Anwendung speichert die durch Eingabe der Nutzenden erzeugten Studierenden in einem Array.</span>
+
 >>>
 
 ## Beispiel: Expanding Circle
+
+![left-side](slides/images/expanding-circles-demo.png)
+<span class="image-description">Eine Klasse `ExpandingCircle` kapselt ein sich ausdehnendes `Circle`-Objekt. Im Konstruktor werden Position, initiale Größe und die Farbe des Kreises übergeben. Über die öffentlichen Methoden `update` und  `draw` kann der Kreis vergrößert und gezeichnet werden. Die Anpassung der Größe erfolgt schrittweise bis zu einem definierten Maximalwert. In einer *GraphicsApp* werden zwei Instanzen der `ExpandingCircle`-Klasse erstellt und verwendet.</span>
 
 >>>
 
@@ -393,7 +500,7 @@ public void setOwner(String owner) {
 
 ## Kommentare in Java
 
-Kommentare dienen der zusätzlichen Beschreibung von Quelltext. Sie haben keine funktionale sondern eine dokumentierende Bedeutung:
+<span class="blocktext">Kommentare dienen der zusätzlichen Beschreibung von Quelltext. Sie haben keine funktionale sondern eine dokumentierende Bedeutung:</span>
 
 ``` java
 
@@ -415,7 +522,7 @@ public Cirlce createRandomCircle() {
 
 >>>
 
-## Kommentare mit JavaDoc strukturieren 
+### Kommentare mit JavaDoc strukturieren 
 
 ``` java
 /**
@@ -434,7 +541,7 @@ public Circle createRandomCircleWithColor(int minRadius, int maxRadius) {
 }
 ``` 
 
-<span class="hint smaller">Das [JavaDoc-Format](https://de.wikipedia.org/wiki/Javadoc) erlaubt die gezielte Beschreibung einzelner Code-Bestandteile. (z.B. Parameter oder Rückgabewerte). Auf Basis der Kommentare kann eine Übersicht (Dokumentation) des Programms erstellt werden kann (Vgl.: [GraphicsApp-Dokumentation](https://oop-regensburg.github.io/GraphicsApp-Reborn-Library/index.html).</span>
+<span class="hint smaller">Das [JavaDoc-Format](https://de.wikipedia.org/wiki/Javadoc) erlaubt die gezielte Beschreibung einzelner Code-Bestandteile (z.B. Parameter oder Rückgabewerte). Auf Basis der Kommentare kann eine Übersicht (Dokumentation) des Programms erstellt werden kann (Vgl.: [GraphicsApp-Dokumentation](https://oop-regensburg.github.io/GraphicsApp-Reborn-Library/index.html).</span>
 
 >>>
 
@@ -458,15 +565,11 @@ private void modifyStudent(Student student, int lp) {
 
 >>>
 
-### Beispiel: StudentsApp 2.0
-
->>>
-
 ## Konsequenzen des *Call by Value*-Ansatzes in Java (1/2)
 
-- Wird ein Objekt an eine Methode übergeben, befindet sich in der Parameter-Variable die Adresse (im Speicher) an der das Objekt bzw. seine Methoden (nicht wirklich) und Eigenschaften gespeichert werden.
-- Wenn wir die Eigenschaften des Objekts über die Parameter-Variable ändern, ändern wir das ursprüngliche Objekt
-- Wenn wir die Parameter-Variable überschreiben, bleibt das ursprüngliche unberührt (wir ändern dann nur einen von mehreren der Orte, an denen die Adresse des Objekts gespeichert ist)
+- Wird ein Objekt an eine Methode übergeben, befindet sich in der Parameter-Variable die Adresse (im Speicher) an der das Objekt bzw. seine Methoden (nicht wirklich) und Eigenschaften gespeichert (die schon) werden.
+- Wenn wir die Eigenschaften des Objekts über die Parameter-Variable ändern, ändern wir das ursprüngliche Objekt.
+- Wenn wir die Parameter-Variable überschreiben, bleibt das ursprüngliche unberührt (wir ändern dann nur einen von mehreren der Orte, an denen die Adresse des Objekts gespeichert ist).
 
 >>>
 
