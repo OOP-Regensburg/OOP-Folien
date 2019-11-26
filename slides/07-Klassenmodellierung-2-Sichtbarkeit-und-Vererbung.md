@@ -87,11 +87,11 @@ private void modifyStudent(Student student, int lp) {
 }
 ```
 
-<span class="hint smaller">Objekte werden **nicht** als Kopien weitergegeben sondern als Verweise (Referenzen) auf die *Originale*. Wenn wir ein Objekt (Parameter) in einer Methode ändern, ändern wir das Original. Technisch gesehen wird auhc hier konkreter Wert, nämlich die "Adresse" des übergeben, Java arbeitet immer mit dem *Call by Value*-Prinzip.</span>
+<span class="hint smaller">Objekte werden **nicht** als Kopien weitergegeben sondern als Verweise (Referenzen) auf die *Originale*. Wenn wir ein Objekt (Parameter) in einer Methode ändern, ändern wir das Original. Technisch gesehen wird auch hier konkreter Wert, nämlich die "Adresse" des übergeben, Java arbeitet immer mit dem *Call by Value*-Prinzip.</span>
 
 >>>
 
-## Konsequenzen des *Call by Value*-Ansatzes in Java (1/2)
+### Konsequenzen des *Call by Value*-Ansatzes in Java (1/2)
 
 - Wird ein Objekt an eine Methode übergeben, befindet sich in der Parameter-Variable die Adresse (im Speicher) an der das Objekt bzw. seine Methoden (nicht wirklich) und Eigenschaften gespeichert (die schon) werden.
 - Wenn wir die Eigenschaften des Objekts über die Parameter-Variable ändern, ändern wir das ursprüngliche Objekt.
@@ -99,7 +99,7 @@ private void modifyStudent(Student student, int lp) {
 
 >>>
 
-## Konsequenzen des *Call by Value*-Ansatzes in Java (2/2)
+### Konsequenzen des *Call by Value*-Ansatzes in Java (2/2)
 
 ``` java
 /**
@@ -109,7 +109,7 @@ private void modifyStudent(Student student, int lp) {
 private void modifyStudent(Student student, int lp) {
 	System.out.println("Modifying Students LPs");
 	student.addLP(lp);
-	student = new Student(“A new User", 4.0);
+	student = new Student("A new User", 4.0);
 }
 ```
 
@@ -170,7 +170,181 @@ public Circle createRandomCircleWithColor(int minRadius, int maxRadius) {
 
 # Rückblick: Klassenmodellierung am Beispiel *Studierender*
 
+>>>
+
+## Wir modellieren Studierende als JAVA-Klassen
+
+<span class="blocktext">Die Klasse `Student` soll Gemeinsamkeiten aller Studierende abbilden. Ein möglicher Einsatzzweck ist ein Computersystem zur Verwaltung aller Studieren einer Universität. Wir modellieren Klassen (in der Regel) spezifisch für einen Anwendungsfall. D.h. wir beachten und beschreiben die Eigenschaften der Objekte, die relevant für den Problemkontext sind. Unsere `Student`-Klasse umfasst z.B. Name, Matrikelnummer, Durchschnittsnote und aktuelle Anzahl an Leistungspunkte, da diese im Kontext *Universität*, z.B. für die Prüfungsverwaltung relevant sind.</span>
+
+Wir beschreiben **nicht** alle denkbaren, strukturellen Übereinstimmungen von Studierenden (*Hobbies*, *Sehstärke*, *Lieblingsessen*, ...).
+
+>>>
+
+### Interner Bereich (Private-Sichtbarkeit)
+
+<span class="blocktext">Private Methoden, Konstanten und Instanzvariablen: Nur die Instanzen der Klassen selbst haben Zugriff.</span>
+
+- Instanzvariable für den Namen
+- Instanzvariable für die aktuelle Durchschnittsnote
+- Instanzvariable für eine ID, z.B. die Matrikelnummer
+- Instanzvariable für die aktuelle Anzahl an Leistungspunkten
+
+>>>
+
+### Externe Schnittstelle (Public-Sichtbarkeit)
+
+<span class="blocktext">Private Methoden, Konstanten und Instanzvariablen: Nur die Instanzen der Klassen selbst haben Zugriff.</span>
+
+- Getter-Methode für Zugriff auf den Namen
+- Getter-Methode für Zugriff auf die aktuelle Durchschnittsnote
+- Getter-Methode für Zugriff auf die ID
+- Getter-Methode für Zugriff auf die aktuelle Anzahl an Leistungspunkten
+- Setter-Methode zum Hinzufügen neuer Leistungspunkte
+
+>>>
+
+### Das Ergebnis: Eigenschaften und Konstruktor der Klasse
+
+``` java
+public class Student {
+	private String name;
+	private double grade;
+	private int id;
+	private int lp;
+
+	private static int nextID = 1;
+
+	public Student(String name, double grade) {
+		this.name = name;
+		this.grade = grade;
+		this.lp = 0;
+		this.id = nextID;
+		nextID++;
+	}
+
+	// Siehe nächste Folie
+}
+```
+
+>>>
+
+### Das Ergebnis: Öffentliche Schnittstelle der Klasse
+
+``` java
+public class Student {
+	
+	// siehe vorherige Folie
+
+	public String getName()  {
+		return name;
+	}
+	public double getGrade() {
+		return grade;
+	}
+	public int getID() {
+		return id;
+	}
+	public int getLP() {
+		return lp;
+	}
+	public void addLP(int lp) {
+		this.lp += lp;
+	}
+}
+```
+
+>>>
+
 # Klassen und Vererbung
+
+>>>
+
+## Klassenhierarchien
+
+![large-image](slides/images/klassenhierarchie.png)
+
+<span class="blocktext">Der Vererbungsmechanismus erlaubt uns das hierarchische Gliedern von Klassen und die Modellierung von Gemeinsamkeiten und Spezialisierungen.</span> 
+
+>>>
+
+## Super- und Subklassen
+
+<span class="blocktext">Student ist die **Superklasse** (auch *Oberklasse*). `BachelorStudent`, `MasterStudent` und `PhdStudent` erben von dieser Klasse: Sie sind **Subklassen** (auch *Unterklassen*) von `Student`. Dabei übernehmen Sie die Eigenschaften und Methoden der *Superklassen*. In den *Subklassen* können (öffentliche) Methoden der *Superklasse* überschrieben werden und neue Methoden und Eigenschaften ergänzt werden.</span>
+
+<span class="hint">Eine Subklasse ist eine Erweiterung oder **Spezialisierung** der Superklasse. Umgekehrt kann man eine Oberklasse als **Generalisierung** ihrer Unterklassen ansehen.</span>
+
+>>>
+
+### Vererbung im Code einleiten
+
+``` java
+public class BachelorStudent extends Student {
+
+	// Spezialisierte Implementierung für Bachelor-Studierende
+
+}
+```
+
+<span class="blocktext">Über das Schlüsselwort `extends` wird die Vererbung eingeleitet (Vgl. `GraphicsApp` und `BouncerApp`). Im *Body* der Klasse kann dann auf alle **öffentlichen** Variablen und Methoden der Superklasse zugegriffen werden.</span>
+
+<span class="hint">*Private* Methoden und Eigenschaften werden nicht vererbt. Vererbte, öffentliche Methoden, die auf solche Bereiche zugreifen, funktionieren auch in der Unterklasse. Der direkte Zugriff auf z.B. eine *private int*-Variable der *Superklasse* in der Unterklasse **nicht** möglich.</span>
+
+>>>
+
+## Implizite Vererbung in Java (1/2)
+
+<span class="blocktext">Alle Klassen in Java (auch unsere eigenen) werden automatisch  in eine bestehende Klassenhierarchie eingebunden. Deren Ausgangspunkt ist die Klasse `Object`. Lassen wir unsere Klassen nicht explizit von einer anderen Klasse erben, erstellen wir eine direkte Unterklasse von `Object`. Da Vererbung auch über mehrere Hierarchieebenen funktioniert, steht am Anfang einer beliebig langen Vererbungskette immer die `Object`-Klasse: "*Class Object is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class.*" (Quelle: Oracle-Dokumentation (Java 10)).</span>
+
+Dadurch verfügt jede Klasse bzw. jedes Objekt über bestimmte vorgegebene Methoden.
+
+>>>
+
+## Implizite Vererbung in Java (2/2)
+
+![large-image](slides/images/root-object.png)
+
+<span class="hint">Grundsätzlich ist es keine schlechte Idee, für jede neu definierte Klasse `toString()` zu überschreiben. Man legt damit fest, wie ein Objekt als Zeichenkette darzustellen ist, eine Funktion, die sehr häufig benötigt wird. Z.b. bei der Suche nach Fehlern!</span>
+
+>>>
+
+### Vererbung als Mittel der Spezialisierung 
+
+<span class="blocktext smaller">Oft wollen Sie eine vorhandene Klasse mit deren öffentlicher Schnittstelle als Grundlage für eine neue, spezialisierte Variante nutzen.</span>
+
+**Beispiel: Master-Studierende**
+
+<span class="blocktext smaller">Wir möchten eine spezielle Klasse für die Verwaltung von Master-StudentInnen erstellen:</span>
+- Master-StudentInnen soll alles können, was StudentInnen können 
+- Über 180 Leistungspunkte aus dem BA-Studium verfügen
+- In der `toString()`-Methode angeben, dass es sich um einen bzw. eine Master-StudentIn handelt
+
+<span class="hint smaller">Bei der Frage, ob eine neue Komponente in eine bestehende Klassenhierarchie eingegliedert werden soll, hilft der "*is a*"-Test: *MasterStudent is a Student* (Unterklasse *is a* Oberklasse)? Wenn die Frage mit *ja* beantwortet werden kann, ergibt die Spezialisierung hier Sinn.</span>
+
+>>>
+
+#### Die Klasse MasterStudent
+
+``` java
+// Unsere Klasser erweitert/erbt von die/der Klasse Student
+public class MasterStudent extends Student {
+
+	public MasterStudent(String name, double grade) {
+		// Wir verwenden den vererbten Konstruktor für die allgemeine Initialisierung
+		super(name, grade); 
+		// Dann erfolgt die spezielle Initialisierung
+		addLP(180);
+	}
+
+	// Wir überschreiben die schon vorhandenen Methode toString 
+	// @Override ist eine optionale Anmerkung für die Laufzeitumgebung
+	@Override
+	public String toString() {
+		// Das Schlüsselwort super verweist immer auf die Superklasse und 
+		// erlaubt Zugriff auf deren Methoden und Eigenschaften
+		return super.toString() + " (MasterStudent)";
+	}
+}
+``` 
 
 >>>
 
@@ -178,6 +352,59 @@ public Circle createRandomCircleWithColor(int minRadius, int maxRadius) {
 
 >>>
 
+## Vererbung in der GraphicsApp
+
+![large-image](slides/images/klassenhierarchie-graphicsapp.png)
+
+<span class="blocktext">Alle Subklassen erben von `GraphicsObject` und nutzen (oder überschreiben) bestehende Methoden dieser *Superklasse*. Der Umgang mit ihnen ist daher ähnlich, da die öffentliche Schnittstelle von der Superklasse übernommen wird: `getXPos()`, `getYPos()`, ...</span>
+
+>>>
+
+### GraphicsApp-Hinweise: Bounding Box
+
+![small-image](slides/images/bounding-box.png)
+
+<span class="hint">Alle *GraphicsObjects* verfügen über Methoden, um die Ränder eines Rechtecks (die *Bounding Box*) zu ermitteln, welches das Objekt umschließt. Diese Box kann sinnvoll für eine (angenäherte) Kollisionsabfrage genutzt werden.</span>
+
+>>>
+
+### GraphicsApp-Hinweise: Bilder 
+
+- Bilder werden in der *GraphicsApp* über die Klasse `Image` repräsentiert und werden (Vgl. *Vererbung*) wie die anderen *GraphicsObjects* positioniert und bewegt.
+- Beim Erzeugen des Bildes (Konstruktor) muss der relative Pfad zur Ausgangsdatei angegeben werden. Nach dem Erzeugen hat das Bild immer die Größe der Ursprungsdatei, kann aber skaliert werden.
+- Die Ausgangsdateien werden in einem Ordner im Projektverzeichnis gespeichert und von dort referenziert: `Image bird = new Image(0, 0, "data/bird.png");`
+
+>>>
+
+## Komposition vs. Vererbung (1/3)
+
+<span class="blocktext">Komposition beschreibt den Vorgang, einer Klasse Instanzen anderer Klassen als *Member* bzw. Eigenschaft zur Verfügung zu stellen. Intern kann dann auf die Funktionalität der Klassen zugegriffen werden. Komposition ist häufig eine sinnvollere Alternative zur Vererbung.</span>
+
+***Favor Composition over Inheritance!***
+
+>>>
+
+## Komposition vs. Vererbung (2/3)
+
+`BouncingBall`-Klasse
+
+![small-image](slides/images/bouncing-ball.png)
+
+>>>
+
+## Komposition vs. Vererbung (3/3)
+
+<span class="blocktext">**Ist Vererbung (Ellipse) hier praktikabel?** Nein, da das Zeichnen des Kreises nur eine Teilaufgabe ist. Unser `BouncingBall` wird als eigene Klasse definiert, die Instanzen von `Ellipse`, `Rectangle` und `Label` nutzt (*Komposition* ). Der *has a* -Test zeigt schnell, das Komposition die besser Wahl ist.</span>
+
+>>>
+
+## Komposition in der GraphicsApp: Compound
+
+- Das `Compound` erlaubt es, mehrere graphische Objekte zu kombinieren, sodass sie sich wie ein *GraphicsObject*  verhalten und als Einheit manipuliert werden können.
+- Objekte werden dem `Compound` über Methode `add()` bzw. `addRelative()` hinzugefügt.
+- Die Menge der im `Compound` gespeicherten Objekte kann damit als einzelnes *GraphicsObject* behandelt werden: z.B. sorgt ein Aufruf der `draw`-Methode des `Compound` dafür, dass alle Objekte gezeichnet werden.
+
+>>>
 
 ## Zusammenfassung 
 
