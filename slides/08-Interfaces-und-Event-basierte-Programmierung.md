@@ -66,17 +66,18 @@ https://pingo.coactum.de/365849
 ## Das Programm für heute
 
 - Nächste Studienleistung
-- 5-Minuten-Thema: Mehrdimensionale Arrays
-- Ereignisbasierte Anwendungen: Auf Maus und Tastatur reagieren
+- Ereignis-basierte Anwendungen: Auf Maus und Tastatur reagieren
 - *Interfaces* und das *Observer*-Muster
 
 >>>
 
 ## Die nächste Studienleistung
 
->>>
-
-## Mehrdimensionale Arrays
+- Sie implementieren ein ersten, interaktives Spiel und setzten dabei das bekannte *Memory*-Konzept um
+- Sie stellen ein Spielbrett mit mehreren Karten dar und erlauben den NutzerInnen, einzelne Karten anzuklicken
+- Sie arbeiten *Event*-basiert und reagieren auf die Eingaben der NutzerInnen
+- Handout und Code-Vorgabe finden Sie ab heute Abend im GRIPS-Kurs
+- Abgabedatum ist der 15. Dezember
 
 >>>
 
@@ -87,7 +88,7 @@ https://pingo.coactum.de/365849
 
 >>>
 
-## Events in der realen Welt
+## Events (Ereignisse) in der realen Welt
 
 ![large-image](slides/images/events-real-world-1.png)
 
@@ -131,7 +132,7 @@ https://pingo.coactum.de/365849
 
 <span class="blocktext smaller">**Bouncer**: Sobald das Programm startet, beginne mit diesem Befehl. Direkt danach führe diese Aufgabe aus und dann diese und dann diese ... </span>
 
-<span class="blocktext smaller">**GraphicsApp**: Jedes Mal, wenn die draw-Methode aufgerufen wird, erledige zu erst diese Aufgabe und dann diese und dann diese ... </span>
+<span class="blocktext smaller">**GraphicsApp**: Jedes Mal, wenn die `draw`-Methode aufgerufen wird, erledige zu erst diese Aufgabe und dann diese und dann diese ... </span>
 
 <span class="blocktext">Wir hatten eine klare Vorstellung in welcher (zeitlichen) Reihenfolge unser Programm abläuft und was wann passiert: *Wenn der Fall eintritt, dass dieses Ereignis ausgelöst wird, dann mach zuerst das hier und dann das hier. Sobald du damit fertig bist, fahre mit dem eigentlichen Ablauf des Programms fort.*</span>
 
@@ -139,59 +140,66 @@ https://pingo.coactum.de/365849
 
 ## Auf Events reagieren (2/2)
 
-<span class="blocktext">Wenn wir eventbasiert Programmieren, legen wir uns einen Plan zurecht, der ausgeführt werden soll, wenn ein bestimmter Zustand erreicht wird. Wann das der Fall ist, können wir in der Regel nicht genau bestimmen (Der Benutzer kann z.B. nach 1s, 10s oder erst 60s auf die Maustaste drücken ...). </span>
+<span class="blocktext">Wenn wir *Event*-basiert programmieren, legen wir uns einen Plan zurecht, der ausgeführt werden soll, wenn ein bestimmter Zustand erreicht wird bzw. ein bestimmtes *Event* eintritt. Wann das der Fall ist, können wir in der Regel nicht genau bestimmen (Unsere BenutzerInnen können z.B. nach einer, zehn oder erst nach sechzig Sekunden auf die Maustaste drücken ...). </span>
 
 >>>
 
-## Das Observer-Muster (1/2)
+## Das Observer-Muster (1/3)
 
-<span class="blocktext smaller">In der GraphicsApp wird ein bestimmtes Entwurfs-Muster (*Pattern*) verwendet, um die *Event*-Verarbeitung zu implementieren: Das *Observer Pattern*.</span>
-
->>>
-
-## Das Observer-Muster (2/2)
-
-<span class="blocktext">In Java wird das Informieren der konkreten Observer durch den Aufruf öffentlicher Methoden realisiert. Damit das funktioniert, müssen alle Observer über entsprechende Methoden verfügen. Es muss sichergestellt werden, dass das *Subject* mit dem *Observer* sprechen kann. Aber: Es können sich ganz unterschiedliche Klassen als *Observer* für ein bestimmtes Ereignis Subject interessieren!</span>
-
-<span class="hint smaller">Beim Entwickeln unterschiedlicher Software müssen häufig die selben, grundlegenden Probleme gelöst werden. Für viele dieser Aufgaben haben sich Best Practices ergeben, die in der Literatur oft als Patterns oder Muster beschrieben werden (Ein Pattern ist dabei mehr als nur die Lösung selbst).</span>
+<span class="blocktext">Beim Entwickeln unterschiedlicher Software müssen häufig die selben, grundlegenden Probleme gelöst werden. Für viele dieser Aufgaben haben sich *Best Practices ergeben*, die in der Literatur oft als *Design Patterns* oder Muster beschrieben werden (Ein *Pattern* ist dabei mehr als nur die Lösung selbst). In der GraphicsApp wird ein bestimmtes Entwurfsmuster (*Design Pattern*) verwendet, um die *Event*-Verarbeitung zu implementieren: Das *Observer Pattern*.</span>
 
 >>>
 
-### Wie kommuniziert eine *Subject*-Klasse mit den anderen Klassen, die sich für die Ereignisse interessieren?
+## Das Observer-Muster (2/3)
+
+![small-image](slides/images/observer-pattern-gamma.png)
+
+<blockquote>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</blockquote>
+<p>Gamma et al. <i>Design Patterns: Elements of Reusable Object-oriented Software</i></p>
+
+>>>
+
+## Das Observer-Muster (3/3)
+
+<span class="blocktext">In Java wird das Informieren der konkreten *Observer* durch den Aufruf öffentlicher Methoden realisiert. Damit das funktioniert, müssen alle *Observer* über entsprechende Methoden verfügen. Es muss sichergestellt werden, dass das *Subject* (oder *Observable*) mit dem *Observer* sprechen kann. Aber: Es können sich ganz unterschiedliche Klassen als *Observer* für ein bestimmtes *Observable* interessieren!</span>
+
+>>>
+
+### Wie kommuniziert eine *Observable*-Klasse mit den *Observer*-Klassen, die sich für die Ereignisse interessieren?
 
 - Klassen kommunizieren untereinander über öffentliche Methoden (Vgl. `Student`-Klasse). Alle Empfänger brauchen passende Methoden, über die die Events weitergegeben werden können: `mouseMoved`, `mouseDragged`, `mouseClicked`, ...
 - Wie stellen wir sicher, dass der Empfänger über diese Methoden verfügt? Ist Vererbung hier die richtige Entscheidung?
-- *Interfaces*  bieten in JAVA die Möglichkeit, eine Reihe an Methoden zu definieren, die eine Klasse auf jeden Fall haben muss, ohne dass die tatsächliche Implementierung der Methoden vorgegeben ist
+- *Interfaces*  bieten in JAVA die Möglichkeit, eine Reihe an Methoden zu definieren, die eine Klasse auf jeden Fall haben muss, ohne dass die tatsächliche Implementierung der Methoden vorgegeben ist.
 
 >>>
 
 ## Probleme mit Vererbung
 
-<span class="hint smaller">Häufig stoßen Sie beim Modellieren Ihrer Klassen auf Gemeinsamkeiten, die sich nicht sinnvoll in einer Vererbungshierarchie abbilden lassen – vor allem bei der Integration von Events oder der Gruppierung von Objekten</span>
+<span class="hint smaller">Häufig stoßen Sie beim Modellieren Ihrer Klassen auf Gemeinsamkeiten, die sich nicht sinnvoll in einer Vererbungshierarchie abbilden lassen – vor allem bei der Integration von Events oder der Gruppierung von Objekten.</span>
 
-<span class="blocktext smaller">**Beispiele**: Ein Videospiel, mit unterschiedlichen Gegenständen, die auf Wind reagieren</span>
+<span class="blocktext smaller">**Beispiele**: Ein Videospiel, mit unterschiedlichen Gegenständen, die alle auf Wind reagieren</span>
 
 ![left-side](slides/images/events-graphics-app-3.png)
-<span class="image-description">Wenn wir diese Dinge als Klassen abbilden, konkurrieren unterschiedliche Superklassen miteinander: Die Windmühle ist ein Gebäude, das Segelschiff ist ein Fahrzeug und das Tumbleweed ist eine Pflanze. Die Reaktion auf den Wind ist nur ein kleiner Teil des Verhaltens der Klassen.<br />
-**Trotzdem wollen wir die Klassen innerhalb unserer Anwendung hinsichtlich dieses Verhaltens gleich behandeln**</span>
+<span class="image-description">Wenn wir diese Dinge als Klassen abbilden, konkurrieren wahrscheinlich unterschiedliche Superklassen miteinander: Die Windmühle ist ein Gebäude, das Segelschiff ist ein Fahrzeug und das *Tumbleweed* ist/war eine Pflanze. Die Reaktion auf den Wind ist nur ein kleiner Teil des Verhaltens der Klassen.<br />
+**Trotzdem wollen wir die Klassen innerhalb unserer Anwendung hinsichtlich dieses Verhaltens gleich behandeln!**</span>
 
 >>>
 
 ## Weitergabe von Events
 
-<span class="blocktext">**Unser Problem**: Unterschiedliche Klassen bzw. deren Instanzen interessieren sich für ein und dasselbe Ereignis. Die Weitergabe dieser Ereignis muss über die öffentliche Schnittstelle der Klassen (public-Methoden) erfolgen.</span>
+<span class="blocktext">**Unser Problem**: Unterschiedliche Klassen bzw. deren Instanzen interessieren sich für ein und dasselbe Ereignis. Die Weitergabe dieser Ereignis muss über die öffentliche Schnittstelle der Klassen (`public`-Methoden) erfolgen.</span>
 
 <span class="blocktext smaller">Jede der Klassen muss eine eigene Methode für die Weitergabe des Events bereitstellen. Jede Methode muss einzeln aufgerufen werden. Jedes neue Element, das ebenfalls auf Wind reagiert, muss entsprechend implementiert werden.</span>
 
-<span class="blocktext">**Lösung**: Idee: Wir wollen alle relevanten Objekte, unabhängig von ihrer eigentlichen Klasse – und nur im Kontext des Wind-Ereignis als Objekte gleichen Typs, mit gleicher öffentlicher Schnittstelle, behandeln, um alle interessierten Elemente auf die gleiche Art und Weise über das Ereignis zu informieren. **Dafür setzen wir in Java *Interfaces* ein!**</span>
+<span class="blocktext">**Lösung**: Idee: Wir wollen alle relevanten Objekte, unabhängig von ihrer eigentlichen Klasse und nur im Kontext des *Wind*-Ereignis als Objekte gleichen Typs, mit gleicher öffentlicher Schnittstelle, behandeln, um alle interessierten Elemente auf die gleiche Art und Weise über das Ereignis zu informieren. **Dafür setzen wir in Java *Interfaces* ein!**</span>
 
 >>>
 
 ## Interfaces in Java
 
-1. Interfaces werden wie Klassen in Dateien mit der Endung .java definiert. Das Keyword lautet interface (Vgl.: class für Klassen)
+1. Interfaces werden wie Klassen in Dateien mit der Endung `.java` definiert. Das *Keyword* lautet `interface` (Vgl.: `class` für Klassen)
 2. Interfaces bestehen aus einer Liste von öffentlichen Konstanten und Methodensignaturen (!).
-3. Bei der Definition einer Klasse können über das implements-Schlüsselwort ein oder mehrere Interfaces angeben werden: Die Klasse implementiert dann diese Interfaces.
+3. Bei der Definition einer Klasse können über das `implements`-Schlüsselwort ein oder mehrere Interfaces angeben werden: Die Klasse *implementiert* dann diese Interfaces.
 4. Implementiert eine Klasse ein Interface, müssen innerhalb der Klasse alle im Interface enthaltende Methoden mit der korrekten Signatur und einem frei wählbaren Rumpf definiert werden.
 5. Implementiert eine Klasse ein Interface, können Instanzen der Klasse als Instanzen der Interface behandelt werden. D.h., im Kontext der Instanz kann, alternativ zu eigentlichen Klasse, auch das Interface als Datentyp genutzt werden.
 
@@ -199,7 +207,7 @@ https://pingo.coactum.de/365849
 
 ## Beispiel: Cleanable (1/2)
 
-<span class="blocktext smaller">Das Interface Cleanable gibt vor, über welche öffentlichen Methoden alle Dinge, die putzbar sind, angesprochen werden sollen.</span>
+<span class="blocktext smaller">Das Interface `Cleanable` gibt vor, über welche öffentlichen Methoden alle Dinge, die *putzbar* sind, angesprochen werden sollen.</span>
 
 ``` java
 public interface Cleanable {
@@ -228,7 +236,7 @@ public class Cat implements Cleanable {
 
 ## Beispiel: Cleanable (2/2)
 
-<span class="blocktext">Die Klassen Window und Car haben unterschiedliche Aufgaben, beide repräsentieren aber putzbare Dinge. Beide implementieren das Interface, um im Kontext des Putzens gleich angesprochen werden zu können. Was genau beim Putzen passiert, unterscheidet sich aber bei Window und Tooth (Unterschied zwischen Signatur und Rumpf der clean-Methode beachten): </span>
+<span class="blocktext">Die Klassen `Window` und `Car` haben unterschiedliche Aufgaben, beide repräsentieren aber*putzbare* Dinge. Beide implementieren das Interface, um im Kontext des Putzens gleich angesprochen werden zu können. Was genau beim Putzen passiert, unterscheidet sich aber bei `Window` und `Car` (Unterschied zwischen Signatur und Rumpf der `clean`-Methode beachten): </span>
 
 ``` java
 Cleanable[] cleanables = new Cleanable[2];
@@ -255,14 +263,14 @@ public class Apple implements Eatable {
 }
 ```
 
-<span class="hint smaller">nterfaces werden – wie Klassen – in separaten Dateien definiert. Klassen, die ein Interface implementieren (implements), müssen zwangsläufig alle Methoden implementieren, die das Interface vorgibt (Vertrag). Dabei wird nur die Signatur vorgeschrieben – die eigentliche Implementierung bleibt der Klasse überlassen. Eine Klasse kann mehrere Interfaces implementieren.</span>
+<span class="hint smaller">Interfaces werden, wie Klassen, in separaten Dateien definiert. Klassen, die ein Interface implementieren (`implements`), müssen zwangsläufig alle Methoden implementieren, die das Interface vorgibt (Vertrag). Dabei wird nur die Signatur vorgeschrieben, die eigentliche Implementierung bleibt der Klasse überlassen. Eine Klasse kann mehrere Interfaces implementieren.</span>
 
 >>>
 
 ## Warum wir Interfaces verwenden müssen
 
 - Oft verfügen Klassen über ähnliche Aufgaben oder Schnittstellen, ohne dass diese (sinnvoll) in einer Vererbungshierarchie abgebildet werden können.
-- Klassen können aber nur von einer Superklasse abgeleitet werden. Über Interfaces lässt sich die Vererbungshierarchie „aufbrechen“.
+- Klassen können aber nur von einer Superklasse abgeleitet werden. Über Interfaces lässt sich die Vererbungshierarchie *aufbrechen*.
 - Interfaces definieren eine minimale öffentliche Schnittstelle, über die andere Komponenten auf die implementierenden Klassen zugreifen können.
 - Diese gleiche Schnittstelle ermöglicht es Objekte unterschiedlicher Klassen einheitlich zu behandeln, da ihre öffentliche Schnittstelle (teilweise) gleich ist.
 
@@ -270,9 +278,9 @@ public class Apple implements Eatable {
 
 ## Interfaces im Java JDK
 
-- Die Schnittstelle Cloneable (Paket java.lang) signalisiert, dass von Objekten einer Klasse, die Cloneable implementiert, Kopien erstellt werden können,
-- Die Schnittstelle Serializable (Paket java.io) signalisiert, dass Objekte einer Klasse, die Serializable implementiert, serialisiert, d. h. persistent gespeichert werden können (z. B. in einer Datei) und
-- die Implementierung der Schnittstelle Comparable (Paket java.lang) macht Objekte durch die Implementierung der compareTo-Methode mit anderen Objekten gleichen Typs vergleichbar (Anwendung bei Suchen und Sortieren, z. B. über die Hilfsklasse java.util.Arrays).
+- Die Schnittstelle `Cloneable` (Paket `java.lang`) signalisiert, dass von Objekten einer Klasse, die `Cloneable` implementiert, Kopien erstellt werden können,
+- Die Schnittstelle `Serializable` (Paket `java.io`) signalisiert, dass Objekte einer Klasse, die `Serializable` implementiert, serialisiert, d. h. persistent "gespeichert" werden können (z. B. in einer Datei)
+- Die Implementierung der Schnittstelle `Comparable` (Paket `java.lang`) macht Objekte durch die Implementierung der compareTo-Methode mit anderen Objekten gleichen Typs vergleichbar (Anwendung bei Suchen und Sortieren, z. B. über die Hilfsklasse `java.util.Arrays`).
 
 >>>
 
@@ -280,17 +288,17 @@ public class Apple implements Eatable {
 
 ### Scalable
 
-<span class="blocktext">Line, Image, Ellipse und Rect implementieren das Scalable-Interface. Alle Objekte sind dadurch über die scale-Methode skalierbar. Die eigentliche Implementierung ist jeweils unterschiedlich, die öffentliche Interaktion ist aber die gleiche.</span>
+<span class="blocktext">`Line`, `Image`, `Ellipse` und `Rect` implementieren das `Scalable`-Interface. Alle Objekte sind dadurch über die `scale`-Methode skalierbar. Die eigentliche Implementierung ist jeweils unterschiedlich, die öffentliche Interaktion ist aber die gleiche.</span>
 
 ### Resizable 
 
-<span class="blocktext">Ellipse, Image und Rect implementieren das Resizable-Interface. Die Größe von allen Objekte kann über die Methode setBounds und setSize verändert werden.</span>
+<span class="blocktext">`Ellipse`, `Image` und `Rect` implementieren das `Resizable`-Interface. Die Größe von allen Objekte kann über die Methode `setSize`
 
 >>>
 
 ## UI-Events in der GraphcisApp
 
-<span class="blocktext">Die Klasse GraphicsApp implementiert bereits die Interfaces KeyListener und MouseListener und wird über Ereignisse informiert. Wir können diese Methoden überschreiben und in unseren Anwendungen auf Events von Maus und Tastatur reagieren:</span>
+<span class="blocktext">Die Superklasse `GraphicsApp` implementiert bereits die Interfaces `GraphicsAppKeyListener` und `GraphicsAppMouseListener` und wird in den entsprechenden Methoden über Eingabeereignisse informiert. Wir können diese Methoden überschreiben um in unseren Anwendungen individuell auf *Events*  von Maus und Tastatur reagieren:</span>
 
 ``` java
  @Override
@@ -310,7 +318,7 @@ public class Apple implements Eatable {
 
 ### Maus-Ereignisse
 
-<span class="blocktext">Über den Parameter vom Typ MouseEvent kann in den Interface-Methoden auf die Eigenschaften des Events zugegriffen werden:</span>
+<span class="blocktext">Über den Parameter vom Typ `MouseEvent` (bzw. den spezialisierten Klassen, z.B. `MouseClickedEvent`) kann in den Interface-Methoden auf die Eigenschaften des Events zugegriffen werden:</span>
 
 ``` java
 // mit: MouseEvent e
@@ -320,7 +328,7 @@ int mouseButton = e.getButton();
 // ...
 ```
 
-<span class="hint smaller">Sowohl die Mouse- als auch die Key-Methoden werden bei jedem Ereignis aufgerufen. Jeder Tastendruck und jede Mausbewegung, die innerhalb Ihrer Anwendung ausgeführt wird landet als Parameter in der entsprechenden Methoden. Für jedes Ereignis wird die jeweilige Methode einmal aufgerufen.</span>
+<span class="hint smaller">Sowohl die `Mouse`- als auch die `Key`-Methoden werden bei jedem Ereignis aufgerufen. Jeder Tastendruck und jede Mausbewegung, die innerhalb Ihrer Anwendung ausgeführt wird landet als Parameter in der entsprechenden Methoden. Für jedes Ereignis wird die jeweilige Methode einmal aufgerufen.</span>
 
 >>>
 
@@ -350,21 +358,21 @@ int keyCode = e.getKeyCode();
 ### Im Code auf Events reagieren (1/2)
 
 ``` java
-public void onMouseDragged(MouseEvent e) {
-	// What happens when mouse is dragged
+public void onMouseMoved(MouseMovedEvent event) {
+	// What happens when mouse is moved
 	moveEllipse(e.getX(), e.getY());
 }
 ```
 
-<span class="hint smaller">In den Methoden kann auf die Parameter des Events zugegriffen werden (Was ist passiert? Wo ist es passiert?). Diese Informationen werden in der Regel an eine andere Methode Ihrer GraphicsApp weitergegeben und dort verarbeitet (Das Objekt, das sich für die Informationen interessiert, ist auch für deren Verarbeitung verantwortlich).</span>
+<span class="hint smaller">In den Methoden kann auf die Parameter des Events zugegriffen werden (Was ist passiert? Wo ist es passiert?). Diese Informationen werden in der Regel an eine andere Methode Ihrer *GraphicsApp* weitergegeben und dort verarbeitet (Das Objekt, das sich für die Informationen interessiert, ist auch für deren Verarbeitung verantwortlich).</span>
 
 >>>
 
 ### Im Code auf Events reagieren (2/2)
 
 ``` java
-public void onKeyPressed(KeyEvent e) {
-	switch (e.getKeyCode()) {
+public void onKeyPressed(KeyPressedEvent event) {
+	switch (event.getKeyCode()) {
 		case KeyEvent.VK_0:
 			// Key ‚0‘ pressed
 			break;
@@ -377,13 +385,22 @@ public void onKeyPressed(KeyEvent e) {
 }
 ```
 
-<span class="hint smaller">Über die switch-Konstruktion können unterschiedliche Fälle (=Tasten) abgefragt werden; dazu nutzen wir die Konstanten aus der Event-Klasse. Je nach Taste kann ein anderes Verhalten (=Methode) ausgelöst werden.</span>
+<span class="hint smaller">Über die `switch`-Konstruktion können unterschiedliche Fälle (=Tasten) abgefragt werden; dazu nutzen wir die Konstanten aus der Event-Klasse. Je nach Taste kann ein anderes Verhalten (=Methode) ausgelöst werden.</span>
 
 >>>
 
-## Beispiele
+### Übersicht über verwendbare Events
+
+| Ereignis | Zu überschreibende Methode | Event-Objekt | Verfügbare Informationen |
+|----------|----------------------------|--------------|--------------------------|
+| Mausklick | `onMouseClicked` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
+| Mausbewegung | `onMouseMoved`  | `MouseMovedEvent` | `x`- und `y`-Koordinaten |
+| Taste wird gedrückt | `onKeyPresses` | `KeyPressedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
+| Taste wird losgelassen | `onKeyReleased` | `KeyReleasedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
+| Eingabesignal (Taste) kommt im System an | `onKeyTyped` | `KeyTypedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
 
 >>>
+
 
 ## Zusammenfassung 
 

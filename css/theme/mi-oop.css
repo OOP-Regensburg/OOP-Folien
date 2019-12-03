@@ -15,7 +15,7 @@ body {
 
 .reveal {
   font-family: Ubuntu, "sans-serif";
-  font-size: 32px;
+  font-size: 40px;
   font-weight: normal;
   color: #333; }
 
@@ -60,7 +60,7 @@ body {
   font-size: 1.5em; }
 
 .reveal h3 {
-  font-size: 1em; }
+  font-size: 1.25em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -73,8 +73,7 @@ body {
  *********************************************/
 .reveal p {
   margin: 20px 0;
-  line-height: 1.3;
-  text-align: center; }
+  line-height: 1.3; }
 
 /* Ensure certain elements are never larger than the slide itself */
 .reveal img,
@@ -85,8 +84,7 @@ body {
 
 .reveal strong,
 .reveal b {
-  font-weight: bold;
-  color: rgb(30,30,30); }
+  font-weight: bold; }
 
 .reveal em {
   font-style: italic; }
@@ -95,7 +93,6 @@ body {
 .reveal dl,
 .reveal ul {
   display: inline-block;
-  width: 100%;
   text-align: left;
   margin: 0 0 0 1em; }
 
@@ -103,17 +100,13 @@ body {
   list-style-type: decimal; }
 
 .reveal ul {
-  list-style-type: square; }
+  list-style-type: disc; }
 
 .reveal ul ul {
   list-style-type: square; }
 
 .reveal ul ul ul {
   list-style-type: circle; }
-
-  .reveal ul li {
-  margin-bottom: 0.25em;
- }
 
 .reveal ul ul,
 .reveal ul ol,
@@ -129,33 +122,18 @@ body {
   margin-left: 40px; }
 
 .reveal blockquote {
-  width: 100%;
-  border-width: 0;
-  text-align: left;
-  border-style: none;
-  box-shadow: none;
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+  padding: 5px;
   font-style: italic;
-  color: rgb(90,90,90); }
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
 
-.reveal blockquote p {
-  text-align: justify;
-  font-size: 1em;
-  line-height: 1.5em;
-  text-justify: inter-character;
-}
-
-.reveal blockquote + p {
-  width: 75%;
-  margin-left: 25%;
-  text-align: right;
-  font-size: 0.75em;
-  color: rgb(156,0,75);
-}
-
-.reveal blockquote + p:before {
-  content: "Quelle: ";
-  color: rgb(90,90,90);
-}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block; }
 
 .reveal q {
   font-style: italic; }
@@ -163,12 +141,12 @@ body {
 .reveal pre {
   display: block;
   position: relative;
-  width: 100%;
+  width: 90%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.75em;
+  font-size: 0.55em;
   font-family: Ubuntu Mono, "monospace";
-  line-height: 1.15em;
+  line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); }
 
@@ -180,7 +158,7 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 600px;
+  max-height: 400px;
   word-wrap: normal; }
 
 .reveal table {
@@ -239,14 +217,7 @@ body {
 .reveal a:hover {
   color: #ff037c;
   text-shadow: none;
-  text-decoration: underline;
   border: none; }
-
-.reveal a:after {
-  content: "\1F517";
-  font-size: 0.75em;
-  margin-left: 0.25em;
-}
 
 .reveal .roll span:after {
   color: #fff;
@@ -257,9 +228,9 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  max-height: 50vh;
-  width: auto;
-}
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
   border: 0;
@@ -274,280 +245,6 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border-color: #9c004b;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
-
-/*********************************************
- * CUSTOM ELEMENTS
- *********************************************/
-
-.reveal .subtitle {
-  display: block;
-  font-weight: 600;
-  text-align: center;
-}
-
-.reveal .blocktext {
-  display: block;
-  text-align: left;
-  font-size: 0.85em;
-  line-height: 1.5em;
-}
-
-.reveal .blocktext.center {
-  text-align: center;
-}
-
-.reveal .blocktext.larger {
-  font-size: 1em;
-  line-height: 1.75em;
-}
-
-.reveal .blocktext.smaller {
-  font-size: 0.75em;
-  line-height: 1.25em;
-}
-
-.reveal .hint {
-  display: block;
-  width: 96%;
-  padding: 2%;
-  margin-top: 2.5%;
-  background-color: rgb(240,240,240);
-  border: solid 1px rgb(200,200,200);
-  font-size: 0.85em;
-  line-height: 1.5em;
-  text-align: left;
-}
-
-.reveal .hint.smaller {
-  font-size: 0.65em;
-  line-height: 1.15em;
-}
-
-.reveal .hint:before {
-  content: "Hinweis: ";
-  color: rgb(156,0,75);
-  font-weight: 600;
-}
-
-.reveal table {
-  font-size: 0.8em;
-}
-
-.reveal table thead {
-  background-color: rgb(156,0,75);
-  color: #FFF;
-}
-
-.reveal .sources {
-  display: block;
-  margin-bottom: 0.75em;
-  text-align: left;
-  font-size: 0.75em;
-  line-height: 1em;
-}
-
-.reveal .sources p {
-  margin-bottom: 1em;
-}
-
-.reveal .board {
-  display: flex;
-  flex-wrap: wrap;
-  width: 960px;
-  margin: 0 auto;
-  justify-content: center;
-} 
-
-.reveal .board .box {  
-  display: block;
-  height: 50px;
-  width: 50px;
-  flex-shrink: 1;
-  flex-basis: auto;
-  margin: 1.5px;
-}
-
-.reveal .label {
-  display: inline-block;
-  margin: 0 1vh;
-  padding: 1vh;
-  border-radius: 0.25vh;
-  font-size: 0.75em;
-  color: #FFF;
-}
-
-.reveal .lecture {
-    background-color: #e52521;
-}
-
-.reveal .tutorial {
-    background-color: #43b047;
-}
-
-.reveal .lab {
-    background-color: #fbd000;
-}
-
-.reveal .exam {
-    background-color: #000;
-}
-
-.reveal .study {
-    background-color: #049cd8;
-}
-
-.reveal .lecture-plan {
-  font-size: 0.75em;
-}
-
-.reveal .lecture-plan td:first-child {
-  font-weight: 600;
-  text-align: right;
-  vertical-align: middle;
-}
-
-.reveal .lecture-plan span {
-  display: inline-block;
-  margin: 0.5vh;
-  padding: 1vh;
-  background-color: rgb(200,200,200);
-  font-size: 0.75em;
-  color: #FFF;
-}
-
-.reveal .lecture-plan span.done {
-  background-color: #43b047;
-}
-
-.reveal .lecture-plan span.current {
-  background-color: #049cd8;
-}
-
-.reveal .diagram {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reveal .diagram .box-with-label {
-  display: block;
-  margin: 0.25em;
-  flex-basis: 30%;
-  min-height: 200px;
-  background-color: #FAFAFA;
-  font-size: 0.75em;
-  border: solid 2px rgb(156,0,75);
-}
-
-.reveal .diagram .box-with-label .box-label {
-  display: block;
-  padding: 0.25em;
-  background-color: rgb(156,0,75);
-  color: #FFF;
-  font-weight: 600;
-}
-
-.reveal .diagram .box-with-label .content {
-  display: block;
-  padding: 0.25em;
-}
-
-.reveal img[alt=user-image] {
-  width: 18%;
-  height: auto;
-  margin: 0.5%;
-  border-radius: 50%;
-  border: solid 5px #F8F8F8;
-}
-
-.reveal img[alt=screenshot] {
-  width: 70%;
-}
-
-.reveal img[alt=left-side] {
-  margin-left: 0;
-  width: 40%;
-  height: auto;
-}
-
-.reveal img[alt=list-image] {
-  margin: 0;
-  width: 10%;
-  height: auto;
-  border-radius: 50%;
-  border: solid 5px #F8F8F8;
-}
-
-.reveal img[alt=large-image] {
-  margin: 0 auto;
-  height: 80%;
-  width: auto;
-}
-
-.reveal img[alt=small-image] {
-  margin: 0 auto;
-  height: 40%;
-  width: auto;
-}
-
-.reveal img[alt=sequence] {
-  width: 125px;
-  height: 125px;
-  margin: 10px;
-  outline: 2px #333 solid;
-}
-
-.reveal img[alt=sequence-larger] {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  outline: 2px #333 solid;
-}
-
-.reveal img[alt=sequence-start] {
-  width: 125px;
-  height: 125px;
-  margin: 10px;
-  outline: 1px #333 solid;
-  border: 5px #999 solid;
-}
-
-.reveal img[alt=sequence-end] {
-  width: 125px;
-  height: 125px;
-  margin: 10px;
-  outline: 1px #333 solid;
-  border: 5px rgb(156,0,75) solid;
-}
-
-.reveal .image-description {
-  display: block;
-  float: right;
-  width: 55%;
-  margin-left: 5%;
-  padding: 0;
-  text-align: left;
-  font-size: 0.75em;
-  line-height: 1.5em;
-}
-
-.reveal .image-list-description {
-  display: block;
-  float: right;
-  width: 80%;
-  margin-left: 1%;
-  padding: 0;
-  text-align: left;
-  font-size: 0.75em;
-  line-height: 1.5em;
-}
-
-.reveal .clear-all {
-  display: block;
-  width: 100%;
-  height: 1px;
-  clear: both;
-}
 
 /*********************************************
  * NAVIGATION CONTROLS
