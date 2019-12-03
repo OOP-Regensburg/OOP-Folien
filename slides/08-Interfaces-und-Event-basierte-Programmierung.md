@@ -267,7 +267,7 @@ public class Apple implements Eatable {
 
 >>>
 
-## Warum wir Interfaces verwenden müssen
+### Warum wir Interfaces verwenden müssen
 
 - Oft verfügen Klassen über ähnliche Aufgaben oder Schnittstellen, ohne dass diese (sinnvoll) in einer Vererbungshierarchie abgebildet werden können.
 - Klassen können aber nur von einer Superklasse abgeleitet werden. Über Interfaces lässt sich die Vererbungshierarchie *aufbrechen*.
@@ -302,14 +302,14 @@ public class Apple implements Eatable {
 
 ``` java
  @Override
-    public void onKeyPressed(KeyPressedEvent event) {
-        super.onKeyPressed(event);
-    }
+public void onKeyPressed(KeyPressedEvent event) {
+	super.onKeyPressed(event);
+}
 
-    @Override
-    public void onMouseClicked(MouseClickedEvent event) {
-        updateCounter();
-    }
+@Override
+public void onMouseClicked(MouseClickedEvent event) {
+    updateCounter();
+}
 ```
 
 <span class="blocktext">Die Parameter der Methoden beinhalten Informationen über das Ereignis: Tasten, Position, ...</span>
@@ -346,12 +346,12 @@ int keyCode = e.getKeyCode();
 
 | Taste | Numerischer Code | Konstante |
 |-------|------------------|-----------|
-| Pfeiltaste (oben) | 38 | KeyEvent.VK_UP |
-| Pfeiltaste (oben) | 40 | KeyEvent.VK_DOWN |
-| Leertaste | 32 | KeyEvent.VK_SPACE |
-| R | 82 | KeyEvent.VK_R |
-| G | 71 | KeyEvent.VK_G |
-| B | 66 | KeyEvent.VK_B |
+| Pfeiltaste (oben) | 38 | GraphicsAppKeyEvent.VK_UP |
+| Pfeiltaste (oben) | 40 | GraphicsAppKeyEvent.VK_DOWN |
+| Leertaste | 32 | GraphicsAppKeyEvent.VK_SPACE |
+| R | 82 | GraphicsAppKeyEvent.VK_R |
+| G | 71 | GraphicsAppKeyEvent.VK_G |
+| B | 66 | GraphicsAppKeyEvent.VK_B |
 
 >>>
 
@@ -391,7 +391,7 @@ public void onKeyPressed(KeyPressedEvent event) {
 
 ### Übersicht über verwendbare Events
 
-| Ereignis | Zu überschreibende Methode | Event-Objekt | Verfügbare Informationen |
+| Ereignis | Methode | Event-Objekt | Eigenschaften |
 |----------|----------------------------|--------------|--------------------------|
 | Mausklick | `onMouseClicked` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
 | Mausbewegung | `onMouseMoved`  | `MouseMovedEvent` | `x`- und `y`-Koordinaten |
