@@ -167,7 +167,7 @@ https://pingo.coactum.de/365849
 
 ### Wie kommuniziert eine *Observable*-Klasse mit den *Observer*-Klassen, die sich für die Ereignisse interessieren?
 
-- Klassen kommunizieren untereinander über öffentliche Methoden (Vgl. `Student`-Klasse). Alle Empfänger brauchen passende Methoden, über die die Events weitergegeben werden können: `mouseMoved`, `mouseDragged`, `mouseClicked`, ...
+- Klassen kommunizieren untereinander über öffentliche Methoden (Vgl. `Student`-Klasse). Alle Empfänger brauchen passende Methoden, über die die Events weitergegeben werden können: `mouseMoved`, `mousePressed`, ...
 - Wie stellen wir sicher, dass der Empfänger über diese Methoden verfügt? Ist Vererbung hier die richtige Entscheidung?
 - *Interfaces*  bieten in JAVA die Möglichkeit, eine Reihe an Methoden zu definieren, die eine Klasse auf jeden Fall haben muss, ohne dass die tatsächliche Implementierung der Methoden vorgegeben ist.
 
@@ -223,11 +223,11 @@ public class Window implements Cleanable {
 		// clean window
 	}
 }
-public class Cat implements Cleanable {
+public class Car implements Cleanable {
 	public void drive() {
 	}
 	public void clean() {
-		// clean tooth
+		// clean car
 	}
 }
 ```
@@ -236,12 +236,12 @@ public class Cat implements Cleanable {
 
 ## Beispiel: Cleanable (2/2)
 
-<span class="blocktext">Die Klassen `Window` und `Car` haben unterschiedliche Aufgaben, beide repräsentieren aber*putzbare* Dinge. Beide implementieren das Interface, um im Kontext des Putzens gleich angesprochen werden zu können. Was genau beim Putzen passiert, unterscheidet sich aber bei `Window` und `Car` (Unterschied zwischen Signatur und Rumpf der `clean`-Methode beachten): </span>
+<span class="blocktext">Die Klassen `Window` und `Car` haben unterschiedliche Aufgaben, beide repräsentieren aber *putzbare* Dinge. Beide implementieren das Interface, um im Kontext des Putzens gleich angesprochen werden zu können. Was genau beim Putzen passiert, unterscheidet sich aber bei `Window` und `Car` (Unterschied zwischen Signatur und Rumpf der `clean`-Methode beachten): </span>
 
 ``` java
 Cleanable[] cleanables = new Cleanable[2];
 cleanables[0] = new Window();
-cleanables[1] = new Tooth();
+cleanables[1] = new Car();
 for(int i = 0; i < cleanables.length; i++) {
 	cleanables[i].clean();
 }
@@ -307,7 +307,7 @@ public void onKeyPressed(KeyPressedEvent event) {
 }
 
 @Override
-public void onMouseClicked(MouseClickedEvent event) {
+public void onMousePressed(MousePressedEvent event) {
     updateCounter();
 }
 ```
@@ -318,12 +318,12 @@ public void onMouseClicked(MouseClickedEvent event) {
 
 ### Maus-Ereignisse
 
-<span class="blocktext">Über den Parameter vom Typ `MouseEvent` (bzw. den spezialisierten Klassen, z.B. `MouseClickedEvent`) kann in den Interface-Methoden auf die Eigenschaften des Events zugegriffen werden:</span>
+<span class="blocktext">Über den Parameter vom Typ `MouseEvent` (bzw. den spezialisierten Klassen, z.B. `MousePressedEvent`) kann in den Interface-Methoden auf die Eigenschaften des Events zugegriffen werden:</span>
 
 ``` java
-// mit: MouseEvent e
-int cursorX = e.getX();
-int cursorY = e.getY();
+// mit: MouseEvent event
+int cursorX = event.getX();
+int cursorY = event.getY();
 int mouseButton = e.getButton();
 // ...
 ```
@@ -337,8 +337,8 @@ int mouseButton = e.getButton();
 <span class="blocktext">Über den Parameter vom Typ KeyEvent kann in den Interface-Methoden auf die Eigenschaften des Events zugegriffen werden:</span>
 
 ``` java
-// mit: KeyEvent e
-int keyCode = e.getKeyCode();
+// mit: KeyEvent event
+int keyCode = event.getKeyCode();
 // ...
 ```
 
@@ -347,7 +347,7 @@ int keyCode = e.getKeyCode();
 | Taste | Numerischer Code | Konstante |
 |-------|------------------|-----------|
 | Pfeiltaste (oben) | 38 | GraphicsAppKeyEvent.VK_UP |
-| Pfeiltaste (oben) | 40 | GraphicsAppKeyEvent.VK_DOWN |
+| Pfeiltaste (unten) | 40 | GraphicsAppKeyEvent.VK_DOWN |
 | Leertaste | 32 | GraphicsAppKeyEvent.VK_SPACE |
 | R | 82 | GraphicsAppKeyEvent.VK_R |
 | G | 71 | GraphicsAppKeyEvent.VK_G |
@@ -385,7 +385,7 @@ public void onKeyPressed(KeyPressedEvent event) {
 }
 ```
 
-<span class="hint smaller">Über die `switch`-Konstruktion können unterschiedliche Fälle (=Tasten) abgefragt werden; dazu nutzen wir die Konstanten aus der Event-Klasse. Je nach Taste kann ein anderes Verhalten (=Methode) ausgelöst werden.</span>
+<span class="hint smaller">Über die `switch`-Konstruktion können unterschiedliche Fälle (Tasten) abgefragt werden; dazu nutzen wir die Konstanten aus der Event-Klasse. Je nach Taste kann ein anderes Verhalten (=Methode) ausgelöst werden.</span>
 
 >>>
 
@@ -393,14 +393,13 @@ public void onKeyPressed(KeyPressedEvent event) {
 
 | Ereignis | Methode | Event-Objekt | Eigenschaften |
 |----------|----------------------------|--------------|--------------------------|
-| Mausklick | `onMouseClicked` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
+| Maustaste gedrückt | `onMousePressed` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
+| Maustaste losgelassen | `onMouseReleased` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
 | Mausbewegung | `onMouseMoved`  | `MouseMovedEvent` | `x`- und `y`-Koordinaten |
-| Taste wird gedrückt | `onKeyPresses` | `KeyPressedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
+| Taste wird gedrückt | `onKeyPressed` | `KeyPressedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
 | Taste wird losgelassen | `onKeyReleased` | `KeyReleasedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
-| Eingabesignal (Taste) kommt im System an | `onKeyTyped` | `KeyTypedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
 
 >>>
-
 
 ## Zusammenfassung 
 
