@@ -396,6 +396,7 @@ public void onKeyPressed(KeyPressedEvent event) {
 | Maustaste gedrückt | `onMousePressed` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
 | Maustaste losgelassen | `onMouseReleased` | `MouseClickedEvent` | `x`- und `y`-Koordinaten und gedrückte Maustaste |
 | Mausbewegung | `onMouseMoved`  | `MouseMovedEvent` | `x`- und `y`-Koordinaten |
+| Drag (Maus) | `onMouseDragged`  | `MouseDragEvent` | `x`- und `y`-Koordinaten |
 | Taste wird gedrückt | `onKeyPressed` | `KeyPressedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
 | Taste wird losgelassen | `onKeyReleased` | `KeyReleasedEvent` | Numerische ID der Taste und deren "Inhalt" als `char` |
 

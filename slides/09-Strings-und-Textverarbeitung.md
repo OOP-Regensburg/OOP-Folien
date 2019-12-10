@@ -279,7 +279,7 @@ String input = in.nextLine();
 <span class="blocktext">Wir können einzelnen Zeichen auslesen:</span>
 
 ``` java
-char fistChar = input.charAt(0);
+char fistChar = input.charAt(0); // firstChar hat den Wert 'J'
 ```
 
 >>>
@@ -399,7 +399,7 @@ input = input.toUpperCase();
 
 ## String vergleichen (1/2)
 
-<span class="blocktext">Was überprüfen wird beim Vergleich zweier Objekt-Variablen mithilfe des  `==`-Operators? Wir prüfen, ob die Variablen auf die selben Objekte zeigen (Objekte verhalten sich anders keine primitive Daten)!</span>
+<span class="blocktext">Was überprüfen wird beim Vergleich zweier Objekt-Variablen mithilfe des  `==`-Operators? Wir prüfen, ob die Variablen auf die selben Objekte zeigen (Objekte verhalten sich anders als primitive Daten)!</span>
 
 ``` java
 String value1 = new String("Java ist toll");
