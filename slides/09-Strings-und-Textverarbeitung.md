@@ -6,7 +6,7 @@
 
 >>>
 
-### Aktueller Semesterfortschritt (Woche 6)
+### Aktueller Semesterfortschritt (Woche 9)
 
 <table class="lecture-plan">
 <thead>
