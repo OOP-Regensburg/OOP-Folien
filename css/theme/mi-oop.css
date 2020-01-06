@@ -137,6 +137,10 @@ body {
   font-style: italic;
   color: rgb(90,90,90); }
 
+.reveal blockquote.smaller {
+  font-size: 0.75em;
+} 
+
 .reveal blockquote p {
   text-align: justify;
   font-size: 1em;
@@ -515,7 +519,7 @@ body {
 
 .reveal img[alt=left-side] {
   margin-left: 0;
-  width: 40%;
+  width: 30%;
   height: auto;
 }
 
