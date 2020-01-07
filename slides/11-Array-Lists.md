@@ -57,7 +57,7 @@
 
 ## Pingo-Quiz
 
-![large-image](slides/images/pingo-2002-01-07.png)
+![large-image](slides/images/pingo-2020-01-07.png)
 
 https://pingo.coactum.de/792176
 
@@ -69,13 +69,15 @@ https://pingo.coactum.de/792176
 - Mehrdimensionale Datenstrukturen und Listen
 - Bildverarbeitung mit der ArrayList
 
+<span class="hint">Heute/Morgen startet die letzte Studienleistung. Nutzen Sie diese Chance, unabhängig vom Bestehen der anderen beiden Aufgaben, als Übungsmöglichkeit. Beginnen Sie spätestens jetzt auch mit der Vorbereitung auf die Klausur am 18. Februar. **Vergessen Sie dabei auch nicht die Anmeldung in Flexnow vom 1. bis zum 9. Februar**.</span>
+
 >>>
 
 # Wiederholung: Arrays
 
 >>>
 
-**Arrays erstellen**
+#### Arrays erstellen
 
 ``` java
 int[] values = new int[5];
@@ -104,7 +106,7 @@ int[] values = new int[5];
 	</li>
 </ul>
 
-**Arrays belegen und Werte auslesen**
+#### Arrays belegen und Werte auslesen
 
 ``` java
 values[1] = 2;
@@ -137,7 +139,7 @@ values[1] = 2;
 int content = values[1]; // Returns 2
 ```
 
-**Länge eines Arrays bestimmen**
+#### Länge eines Arrays bestimmen
 
 ``` java
 int length = values.length; // Returns 5
@@ -147,7 +149,9 @@ int length = values.length; // Returns 5
 
 ## Wichtiges zu Arrays (1/2)
 
-- Arrays können für jeden Datentypen erzeugt werden.
+- Arrays können für jeden Datentypen erzeugt werden. 
+- Innerhalb eines Arrays können immer nur Werte des gleichen Datentyps gespeichert werden.
+- Arrays haben eine feste, bei der Initialisierung festgelegte, Länge.
 - Bei der Initialisierung werden die Felder des Arrays mit *Default*-Werten belegt (primitive Datentypen) oder sind *leer* (`null`, bei Objekten).
 - Auf die einzelnen Elemente kann über die Indizes (0 bis *Länge des Arrays - 1*) zugegriffen werden. Wird auf einen ungültigen Index zugegriffen, entsteht ein Fehler: `IndexOutOfBounds`
 
@@ -173,7 +177,7 @@ values[3] = 6;
 
 ## Arrays sortieren
 
-<span class="blocktext smaller">Algorithmen, die Listen von vergleichbaren Elementen nach gewünschten Kriterien sortieren, nennt man *Sortieralgorithmen*. Einer der einfachsten, in der Praxis aber kaum verwendeten, Sortieralgorithmen ist der **Bubble sort**-Algorithmus:</span>
+<span class="blocktext smaller">Algorithmen, die Listen von vergleichbaren Elementen nach gewünschten Kriterien sortieren, nennt man *Sortieralgorithmen*. Einer der einfachsten, in der Praxis aber kaum verwendeten, Sortieralgorithmen ist der *bubble sort*-Algorithmus:</span>
 
 <blockquote class="smaller">In der Bubble-Phase wird die Eingabe-Liste von links nach rechts durchlaufen. Dabei wird in jedem Schritt das aktuelle Element mit dem rechten Nachbarn verglichen. Falls die beiden Elemente das Sortierkriterium verletzen, werden sie getauscht. Am Ende der Phase steht bei auf- bzw. absteigender Sortierung das größte bzw. kleinste Element der Eingabe am Ende der Liste. Die Bubble-Phase wird solange wiederholt, bis die Eingabeliste vollständig sortiert ist. Dabei muss das letzte Element des vorherigen Durchlaufs nicht mehr betrachtet werden, da die restliche zu sortierende Eingabe keine größeren bzw. kleineren Elemente mehr enthält.<br />
 Je nachdem, ob auf- oder absteigend sortiert wird, steigen die größeren oder kleineren Elemente wie Blasen im Wasser (daher der Name) immer weiter nach oben, das heißt, an das Ende der Liste. Es werden stets zwei Zahlen miteinander in „Bubbles“ vertauscht.</blockquote>
@@ -181,7 +185,16 @@ Je nachdem, ob auf- oder absteigend sortiert wird, steigen die größeren oder k
 
 >>>
 
-## Bubble Sort
+
+## Bubble Sort (1/2)
+
+![large-image](slides/images/bubble-sort-visualgo-anim.png)
+
+[Animation des Bubble Sort-Verfahrens auf visualgo.net](https://visualgo.net/bn/sorting)
+
+>>>
+
+## Bubble Sort (2/2)
 
 ``` java
 public void bubbleSort(int[] array) {
@@ -206,33 +219,32 @@ public void bubbleSort(int[] array) {
 
 # Mehrdimensionale Arrays
 
->>>
-
-## Vorbemerkung
-
-<span class="blocktext">Wir sprechen heute von 2- oder mehrdimensionalen Arrays und meinen damit bestimmte Datenstrukturen, die eine tiefere Dimensionalität als "normale" Arrays haben. Technisch gesehen ist das nicht korrekt, weil ein Array in Java (!) immer nur eine Dimension hat. Der richtige Begriff für die gemeinten Strukturen wäre: *Array of an Array* (Ein Array aus Arrays). In der Praxis wird diese (sprachliche) Unterscheidung kaum angewandt.</span>
+<span class="hint">Wir sprechen heute von 2- oder mehrdimensionalen Arrays und meinen damit bestimmte Datenstrukturen, die eine tiefere Dimensionalität als "normale" Arrays haben. Technisch gesehen ist das nicht korrekt, weil ein Array in Java (!) immer nur eine Dimension hat. Der richtige Begriff für die gemeinten Strukturen wäre: *Array of an Array* (Ein Array aus Arrays). In der Praxis wird diese (sprachliche) Unterscheidung kaum angewandt.</span>
 
 >>>
 
-## Arrays über mehrere Dimensionen
+### Arrays über mehrere Dimensionen (1/2)
 
-<span class="blocktext">Ein Array kann aus beliebig vielen Dimensionen aufgebaut sein. D.h. jedes Element eines Arrays kann selbst ein Array sein. Auf der untersten Ebene stehen dann die Werte, die durch den Datentyp definiert werden. Eine solche Struktur eignet sich hervorragend, um 2-dimensionale Datenstrukturen (z. B. ein Schachbrett) abzubilden.</span>
-
-
-<span class="hint">Java spezifiziert hier keine maximale Tiefe. Die *Java Runtimes* unterstützen jedoch meist nur Arrays mit einer maximalen Tiefe (Dimension) von 255: `int[][][][][][][][][] ....`</span>
+<span class="blocktext">Ein Array kann aus beliebig vielen Dimensionen aufgebaut sein. D.h. jedes Element eines Arrays kann selbst ein Array sein. Auf der untersten Ebene stehen dann die Werte, die durch den Datentyp definiert werden. Eine solche Struktur eignet sich hervorragend, um 2-dimensionale Datenstrukturen (z. B. ein Schachbrett) abzubilden.<br /><br />
+Ein 2-dimensionales Array besteht aus einem Array einer bestimmten Länge. Jedes Element dieses Array ist selbst wieder ein Array, mit den eigentlichen Werten.</span>
 
 >>>
 
-## Anlegen eines 2-dimensionalen Arrays
+### Arrays über mehrere Dimensionen (2/2)
+
+<span class="blocktext">Auch mehrdimensionale Arrays haben **einen** Datentyp und einen Namen. Die Länge der Dimensionen wird bei dem Erstellen der einzelne Arrays angegeben.</span>
+
+**Anlegen eines mehrdimensionalen Arrays**
 
 ``` java
 int[][] values = new int[x][y];
 ```
-- Auch mehrdimensionale Arrays haben **einen** Datentyp und einen Namen.
-- Die Länge der Dimensionen wird bei dem Erstellen der einzelne Arrays angegeben.
-- Umgangssprachlich ausgedrückt wird hier "... ein Array der Länge `x` erstellt, in dem jedes Element ein eigenständiges `int`-Array der Länge `y` darstellt.".
 
-<span class="hint">Ein 2-dimensionales Array besteht aus einem Array einer bestimmten Länge. Jedes Element dieses Array ist selbst wieder ein Array, mit den eigentlichen Werten.</span>
+<span class="blocktext">Umgangssprachlich ausgedrückt wird hier *... ein Array der Länge `x` erstellt, in dem jedes Element ein eigenständiges `int`-Array der Länge `y` darstellt.*</span>
+
+
+<span class="hint smaller">Java spezifiziert hier keine maximale Tiefe. Die *Java Runtimes* unterstützen jedoch meist nur Arrays mit einer maximalen Tiefe (Dimension) von 255: `int[][][][][][][][][] ....`</span>
+
 
 >>>
 
@@ -281,6 +293,8 @@ for (int rowIndex = 0; rowIndex < numRows; rowIndex++) {
 ArrayList<String> stringList = new ArrayList<String>();
 ```
 
+<span class="hint smaller">Das Bereitstellen generischer Klassen ist eine Methode der *Generischen Programmierung*, die u.a. der Entwicklung wiederverwendbarer Programmbestandteile dient. Durch die möglichst allgemeine Formulierung kann die tatsächliche Art der Verwendung, in der Regel die beteiligten Datentypen bei der Implementierung der konkreten Komponente bestimmt werden. In Java wird dieser Ansatz durch die sogenannten *Generics* realisiert und begegnet uns neben der ArrayList auch in anderen Datenstrukturen, z.B. *Maps*.</span>
+
 >>>
 
 ## Verwendung der ArrayList (2/3)
@@ -292,7 +306,6 @@ ArrayList<Ellipse> circles = new ArrayList<Ellipse>();
 // Elemente hinzufügen (ans Ende der Liste)
 Ellipse circle = new Ellipse(0,0,10,10);
 circles.add(circle);
-
 
 // Länge/Anzahl der Elemente feststellen
 int numCircles = circles.size();
@@ -312,14 +325,23 @@ circles.remove(circle)
 
 ## Verwendung der ArrayList (3/3)
 
-![large-image](slides/images/array-list-functions.png)
+| | |
+|-|-|
+|boolean add(E e) |Appends the specified element to the end of this list. |
+|void add(int index, E e) | Inserts the specified element at the specified position in this list. |
+|E remove(int index) |Removes the element at the specified position in this list. |
+|boolean remove(Object o) |Removes the first occurrence of the specified element from this list, if it is present. |
+|void clear()  |Removes all of the elements from this list. |
+|int size() |Returns the number of elements in this list.   |
+|E get(int index) |Returns the element at the specified position in this list. |
+
+[Quelle und weitere Methoden: OpenJDK-Dokumentation](https://devdocs.io/openjdk~8/java/util/arraylist)
 
 >>>
 
 ## ArrayList: Nur mit Objekten!
 
-- Primitive Datentypen (`int`, `double`, `boolean`, `char`) sind in einer ArrayList nicht zulässig.
-- Um trotzdem solche Daten in der Liste speichern zu können existieren *Wrapper*-Klassen. Instanzen davon kapseln einen primitiven Datentyp in einer Objekt-Repräsentation:
+<span class="blocktext">Primitive Datentypen (`int`, `double`, `boolean`, `char`) sind in einer ArrayList nicht zulässig. Um trotzdem solche Daten in der Liste speichern zu können existieren *Wrapper*-Klassen. Instanzen davon kapseln einen primitiven Datentyp in einer Objekt-Repräsentation:</span>
 
 | Datentyp | Wrapper-Klasse | Anmerkung |
 |----------|----------------|-----------|
@@ -333,19 +355,17 @@ circles.remove(circle)
 ## Wrapper-Klassen manuell und automatisch nutzen
 
 ``` java
-// Erzeugung einer Instanz von Integer
+// Erzeugen einer Instanz von Integer
 int numValue = 5;
 Integer numObject = new Integer(num);
 
-// Wert auslesen 
+// Gespeicherten Wert auslesen 
 int numValue = numObject.intValue();
 
 // Automatisches Boxing und Unboxing 
 ArrayList<Integer> nums = new ArrayList<Integer>();
-
 int numValue = 5;
-nums.add(numValue);	// Boxing
-
+nums.add(numValue); // Boxing
 int numValue = nums.get(0); // Unboxing
 ``` 
 <span class="hint smaller">Genau wie Strings sind die *Wrapper-Klassen* `Integer`, `Double`, `Boolean` und `Character` *immutable*!</span>
@@ -382,19 +402,10 @@ for(type element: arrayList) {
 
 >>>
 
-## Rasterdarstellung von Bildern (1/2)
+## Rasterdarstellung von Bildern
 
-![large-image](slides/images/image-pixel-array.png)
-
->>>
-
-## Rasterdarstellung von Bildern (2/2)
-
-- Bilder werden in der GraphicsApp als Raster dargestellt (Vgl. EIMI).
-- Jeder Pixel dieser Bilder hat einen bestimmten Farb/Zahl-Wert, der zur Darstellung auf dem Bild benutzt wird.
-- Über die Image-Klasse können diese Pixel als mehrdimensionales Array ausgelesen werden.
-- Jeder Pixel wird dabei durch einen kombinierten `int`-Wert beschrieben, der die Rot-, Grün- und Blau-Werte codiert.
-- Die Pixel eines Bildes könne mit einem neuen mehrdimensionalen Array überschrieben werden.
+![left-side](slides/images/image-pixel-array.png)
+<span class="image-description">Bilder werden in der GraphicsApp als Raster dargestellt (Vgl. EIMI). Jeder Pixel hat dabei einen bestimmten Farb/Zahl-Wert, der zur Darstellung auf dem Bild benutzt wird. Über die Image-Klasse können diese Pixel als mehrdimensionales Array ausgelesen werden. Jeder Pixel wird dabei durch einen kombinierten `int`-Wert beschrieben, der die Rot-, Grün- und Blau-Werte codiert. Die Pixel eines Bildes könne mit einem neuen mehrdimensionalen Array überschrieben werden.</span>
 
 >>>
 
@@ -404,7 +415,7 @@ Nachdem ein Bild erstellt (initialisiert) wurde, können die Pixelwerte ausgeles
 
 ``` java 
 // Bild erstellen
-Image image = new Image("data/image.ong");
+Image image = new Image("data/image.png");
 
 // Pixel auslesen
 int[][] pixels = image.getPixelArray();
