@@ -55,14 +55,6 @@
 
 >>>
 
-## Pingo-Quiz
-
-![large-image](slides/images/pingo-2020-01-07.png)
-
-https://pingo.coactum.de/792176
-
->>>
-
 ## Das Programm für heute
 
 - Kurze Wiederholung zu Arrays
