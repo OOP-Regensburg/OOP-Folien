@@ -67,10 +67,23 @@ https://pingo.coactum.de/089521
 ## Das Programm für heute
 
 - Qualitätsaspekte in der Programmierung
-- Verschiedene Formen von Programmfehleren
+- Verschiedene Formen von Programmfehlern
 - Methoden und Techniken zum Beheben von Programmfehlern
 
 <span class="hint">**Vergessen Sie nicht die Klausuranmeldung in Flexnow vom 1. bis zum 9. Februar**.</span>
+
+>>>
+
+## Ausblick auf die nächsten Wochen
+
+| Datum | Inhalte | Übung |
+|-------|---------|-------|
+| 21. Januar | Komplexere Datenstrukturen und Preisverleihung zur Weihnachts-Challenge | Übungsblatt |
+| 28. Januar | Speicherverwaltung und Dateien | Übungsblatt |
+| 04. Februar | Ausblick und Klausurvorbereitung | Klausurfragen |
+
+<span class="hint">Die Klausur findet am 18. Februar statt. Neben den Inhalten der Vorlesung und Übung können Sie sich auch mit den Klausurfragen vergangener Semester vorbereiten. 
+Diese finden Sie auf [der Seite der Fachschaft](https://www.uni-regensburg.de/universitaet/fim/klausuren/index.html#oop).</span>
 
 >>>
 
@@ -103,7 +116,7 @@ https://pingo.coactum.de/089521
 
 ### ProgrammierInnen-Perspektive: Codequalität (1/3)
 
-<span class="blocktext">Programmiererinnen und Programmierer nehmen die *enstehende* Software vor allem als Sammlung von Quellcodedateien war. Diesbezüglich stellen sie andere **Anforderungen** und erwarten unter anderem, dass der **Quellcode** ...</span>
+<span class="blocktext">Programmiererinnen und Programmierer nehmen die *enstehende* Anwendung vor allem als Sammlung von Quellcodedateien war. Diesbezüglich stellen sie andere Anforderungen an die Software und erwarten unter anderem, dass der **Quellcode** ...</span>
 
 - ... verständlich formuliert ist.
 - ... gut lesbar ist.
@@ -118,7 +131,7 @@ https://pingo.coactum.de/089521
 
 - Guter Quellcode folgt den formalen *Best Practices* der gewählten Programmiersprache und selbstgewählten Auflagen des Entwicklungsteams (z.B. bei der Formatierung oder der Schreibweise von Bezeichnern).
 - Guter Quellcode ist verständlich formuliert, in dem z.B. Bezeichner für Variablen oder Methoden treffend die jeweilige Funktion des Elements beschreiben.
-- Guter Quellcode ist klar strukturiert. D.h., das Teilaufgaben in abgeschlossenen Komponenten implementiert werden und z.B. wiederholt verwendeter Code zentral definiert wird (Vgl. *Duplicate Code*).
+- Guter Quellcode ist klar strukturiert. d.h., dass Teilaufgaben in abgeschlossenen Komponenten implementiert werden und z.B. wiederholt verwendeter Code zentral definiert wird (Vgl. *Duplicate Code*).
 
 >>>
 
@@ -131,15 +144,11 @@ https://pingo.coactum.de/089521
 
 >>>
 
-## Gute vs. schlechter Code
-
->>>
-
 # Programmfehler in JAVA
 
 >>>
 
-### Syntaktisch korrekt, trotzdem verbuggt
+## Syntaktisch korrekt, trotzdem verbuggt
 
 ![large-image](slides/images/debugging-example-02.png)
 
@@ -160,20 +169,21 @@ Bildquelle: *Der erste Bug. Dokumentiert am 9. September 1945 von von Grace Hopp
 
 <span class="blocktext">Mit steigender Komplexität der entwickelten Programme steigt auch die *Chance* auf Programmierfehler:</span>
 
-- Mehr Code bietet mehr Raum für Fehler; in der Softwareindustrie wird häufig mit Fehlerraten von 1-5 *Bugs* pro 1000 *Lines of Code* gerechnet.
-- Aufwendigere Programme, z.B. interaktive Anwendungen, bieten eine Vielzahl an möglichen Abläufen oder Pfade an, die getestet werden müssen.
+- Mehr Code bietet mehr Raum für Fehler: in der Softwareindustrie wird häufig mit Fehlerraten von 1-5 *Bugs* pro 1000 *Lines of Code* gerechnet.
+- Aufwendigere Programme, z.B. interaktive Anwendungen, bieten eine Vielzahl an unterschiedlichen Möglichkeiten für den Programmablauf an.
 - Komplexere Software hat mehr mögliche Fehlerquellen (Eingabe, Ausgabe, Verarbeitung, Ablauf, NutzerInnen(!), ...).
-- ...
+
+<span class="blocktext">Die hier genannten Gründe lassen sich beliebig erweitern. Die Kernaussage ist: **Bugs lassen sich niemals vollständig vermeiden. Wir brauchen Strategien, um damit umzugehen.**</span>
 
 >>>
 
 ### Bugs treten zur Laufzeit auf
 
-<span class="blocktext">Durch genaues Lesen des Quellcodes können Bugs auch im Vorfeld identifiziert werden. In der Regel wird man aber durch Fehler oder ein Fehlverhalten des Programms auf sie aufmerksam:</span>
+<span class="blocktext">Durch genaues Lesen des Quellcodes können Bugs auch im Vorfeld identifiziert werden. In der Regel wird man aber erst durch auftretende Fehler oder ein bemerktes Fehlverhalten des Programms auf sie aufmerksam:</span>
 
-<span class="blocktext">**Exception, Fehler oder Absturz**: *Das Programm verursacht an einer bestimmten Stelle einen Fehler, der die weitere Ausführung verhindert.*</span>
+<span class="blocktext larger">**Exception, Fehler oder Absturz**: *Das Programm verursacht an einer bestimmten Stelle einen Fehler, der die weitere Ausführung verhindert.*</span>
 
-<span class="blocktext">**Funktionales Fehlverhalten**: *Das Programm verhält sich unerwartet.*</span>
+<span class="blocktext larger">**Funktionales Fehlverhalten**: *Das Programm verhält sich unerwartet.*</span>
 
 >>>
 
@@ -182,7 +192,7 @@ Bildquelle: *Der erste Bug. Dokumentiert am 9. September 1945 von von Grace Hopp
 <span class="blocktext">Bugs stellen unerwartet Fehler im Programmablauf dar. Java kommuniziert bestimmte Formen dieser Probleme über `Exceptions` (engl. *Ausnahme*)</span>
 
 - *Exceptions* werden ausgelöst, wenn der eigentlich vorgesehene Ausdruck oder Befehl zur Laufzeit nicht ausgeführt werden kann.
-- Die betroffene stelle *wirft* (*throws*) in diesem Fall eine *Exception*, die innerhalb der Laufzeit als Objekt kommuniziert wird.
+- Die betroffene stelle *wirft* (*throws*) in diesem Fall eine *Exception*, die innerhalb der Anwendung als Objekt kommuniziert wird.
 - Das `Exception`-Objekt und dessen Subklassen beinhalten Informationen zum Fehler und sorgen u.A. für die rote Ausgabe in der IntelliJ-Konsole.
 
 <span class="hint smaller">`Exceptions` beschreiben erwartbare, mögliche Fehlersituationen. Einige davon lassen sich schon zur Laufzeit mit einer gewissen Wahrscheinlichkeit vorhersehen und erfordern eine entsprechende Vorbereitung des Codes. Dazu und zum Entwurf eigener *Exceptions* hören wir im weiteren Verlauf der Vorlesung noch mehr.</span>
@@ -193,13 +203,13 @@ Bildquelle: *Der erste Bug. Dokumentiert am 9. September 1945 von von Grace Hopp
 
 | Exception | Beschreibung | Mögliche Ursache* |
 |-----------|--------------|------------------|
-|`IndexOutOfBounds` | | Fehler im iterativen  Zugriff auf ein Array. |
-|`NullPointer` | | Fehlende Initialisierung eines Objekts |
-|`Stackoverflow` | Endlosschleife mit Methodenaufrufen | 
-|`ClassCast` | | Inkompatible Klassen, z.B. falsche Elternklasse |
-|`FileNotFound` | | Schreibfehler im Dateiname |
+|`IndexOutOfBounds` | Zugriff auf eine Element außerhalb des Bereichs der validen Array-Indizes. | Fehler im iterativen  Zugriff auf ein Array. |
+|`NullPointer` | Zugriff auf eine Variable, die kein Objekt beinhaltet. | Fehlende Initialisierung eines Objekts |
+|`Stackoverflow` | Überlauf des Speicherbereichs, der temporärer Parameter und lokale Inhalte von Methoden verwaltet. | Endlosschleife mit Methodenaufrufen | 
+|`ClassCast` | Versuch, ein Objekt als Instanz einer inkompatiblen Klassen zu betrachten. | Inkompatible Klassen, z.B. falsche Elternklasse |
+|`FileNotFound` | Versuch, auf eine nicht existierende Datei zuzugreifen. | Schreibfehler im Dateiname |
 
-<span class="hint">* Die genannten Probleme sind mögliche Ursachen für die vorgestellten *Exceptions*. Für jeden der Fehler gibt es aber noch viele andere Gründe ...</span>
+<span class="hint smaller">* Die genannten Probleme sind mögliche Ursachen für die vorgestellten *Exceptions*. Für jeden der Fehler gibt es aber noch viele andere Gründe ...</span>
 
 >>>
 
@@ -234,17 +244,11 @@ Bildquelle: *Der erste Bug. Dokumentiert am 9. September 1945 von von Grace Hopp
 - Verantwortung, z.B. bei Sicherheitssystemen oder Medizinprodukten
 - Intrinsisches Bedürfnisse, *gute* Software zu schreiben
 
->>>
-
-### Wann sollten wird Debuggen?
-
-#### Debuggen Sie immer dann, wenn ein Problem auftritt! 
-
-<span class="blocktext larger">Meist gilt: **Je später ein Fehler entdeckt wird, desto teurer (aufwendiger) ist es, Ihn zu beheben.** Mit jedem Bug wird es schwieriger, den restlichen Teil des Codes zu reparieren.</span>
+<span class="hint">**Je später ein Fehler entdeckt wird, desto teurer (aufwendiger) ist es, Ihn zu beheben.** Mit jedem Bug wird es schwieriger, den restlichen Teil des Codes zu reparieren. Beheben Sie einen Bug direkt dann, wenn Sie ihn bemerken.</span>
 
 >>>
 
-## Fehler finden
+### Fehler finden
 
 - Meist machen Sie (und alle anderen ProgrammiererInnen) kleine Fehler, die Sie häufig ohne größere Probleme selbst lösen können bzw. könnten.
 - Schwieriger als die eigentliche Lösung des Fehlers ist das Finden der entsprechenden Stelle im Code.
@@ -257,7 +261,9 @@ Bildquelle: *Der erste Bug. Dokumentiert am 9. September 1945 von von Grace Hopp
 <span class="blocktext">Denken Sie daran, dass Bugs in der Regel sehr einfachen Ursachen haben: ein falsch platziertes Semikolon, die Verwendung der falschen Variable, ein vergessener Methodenaufruf, ...</span>
 
 ``` java
-if(j > k);
+if(j > k); 
+// Durch das Semikolon am Ende der if-Bedingung gehört der nachfolgende Block nicht mehr
+// zur Programmflussteuerung und wird IMMER ausgeführt.
 {
 	System.out.println("j ist größer als k");
 }
@@ -269,11 +275,9 @@ Rectangle rect;
 public void init() {
 	// initRect();
 }
-
 private void initRect() {
 	rect = new Rect(0,0,100,100,Colors.RED);
 }
-
 public void draw() {
 	rect.draw(); // NullPointerException weil rect nicht initialisiert wurde!
 }
@@ -292,13 +296,7 @@ public void draw() {
 
 >>>
 
-## Übersicht: Fehler identifizieren
-
-![large-image](slides/images/debugging-flow-chart.png)
-
->>>
-
-### Der Idealfall: Die Exception mit StackTrace
+## Der Idealfall: Die Exception mit StackTrace
 
 ```
 java.lang.NullPointerException
@@ -392,8 +390,9 @@ public class Logger {
     }
     public static void log(String msg, Object context) {
         if(!isEnabled) { return; }
+        Date now = new Date();
         StringBuilder builder = new StringBuilder();
-        builder.append(System.currentTimeMillis());
+        Date now = new Date();
         builder.append(":\t");
         builder.append(msg);
         builder.append(" from: ");
@@ -407,6 +406,9 @@ public class Logger {
 >>>
 
 ### Verwendung der Log-Klasse
+
+**Einschalten und Loggen**
+
 
 ``` java
 public class App extends GraphicsApp {
@@ -422,7 +424,7 @@ public class App extends GraphicsApp {
 **Ausgabe**
 
 ```
-1578987440390:	in: initialize from: class SnowballFight
+Tue Jan 14 13:37:00 CET 2020:	in: initialize from: class App
 ```
 
 >>>
@@ -456,15 +458,53 @@ public void doEvenMoreStuff() {
 
 >>>
 
-## Der Debugger in IntelliJ
+### Debugger
 
-- IntelliJ beinhaltet ein Tool, das die schrittweise (kontrollierte) Ausführung eines Programms erlaubt.
+<blockquote>Ein Debugger (von engl. de- (Präfix; dt. ent-, aus-) im Sinne von entfernen und engl. bug im Sinne von Programmfehler) ist ein Werkzeug zum Diagnostizieren und Auffinden von Fehlern in Computersystemen, dabei vor allem in Programmen, aber auch in der für die Ausführung benötigten Hardware. Debugging bezeichnet die Tätigkeit, solche Fehler zu diagnostizieren und aufzufinden, sei es unter Verwendung eines Debuggers oder anderer Methoden.</blockquote>
+<p>https://de.wikipedia.org/wiki/Debugger</p>
+
+>>>
+
+### Der Debugger in IntelliJ
+
+- IntelliJ beinhaltet einen Debugger, der die schrittweise (kontrollierte) Ausführung eines Programms erlaubt.
 - Sie können den Programmablauf damit selbst steuern, also von Anweisung zu Anweisung springen.
 - Für jeden Schritt können Sie mit diesem Tool den aktuellen Zustand der Anwendung (Variablen und deren Werte) einsehen.
 
 >>>
 
+### Verwendung des Debuggers (1/2)
+
+1. Die Anwendung muss explizit über den Debugger gestartet werden (Kontextmenü oder Symbol rechts oben).
+2. Um in die eigentliche Debugger-Ansicht zu wechseln, muss die Anwendung pausiert werden.
+3. Alternativ können im Code *Breakpoints* gesetzt werden, an denen der Debugger die Ausführung automatisch pausiert.
+4. Im pausierten Zustand kann der Debugger über die entsprechenden UI-Elemente gesteuert werden.
+
+>>>
+
+### Verwendung des Debuggers (2/2)
+
+![large-image](slides/images/debugging-example-05.png)
+
+>>>
+
+## Übersicht: Fehler identifizieren
+
+![large-image](slides/images/debugging-flow-chart.png)
+
+>>>
+
 ## Zusammenfassung
+
+- Softwarequalität zeigt sich in unterschiedlichen Bereichen, die funktionale Vollständigkeit ist nur ein Teil von guten Programmen.
+- Hohe Codequalität ist ein wichtiger Faktor der Softwarequalität und wirkt sich in der Regel auch positiv auf die Fehlerrate aus.
+- *Bugs* lassen sich nicht vollständig vermeiden: Wir benötigen Strategien zum Identifizieren und Beheben dieser Probleme.
+- *Printlining* und der *Debugger* sind zwei Strategien zum systematischen Beheben von Programmfehlern.
+- Moderne Entwicklungsumgebungen unterstützen sich beim Beheben von Fehlern und beim Steigern der Codequalität.
+
+>>>
+
+# Jetzt: Live-Test des Debuggers
 
 >>>
 
