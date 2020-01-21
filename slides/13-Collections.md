@@ -56,11 +56,53 @@
 
 >>>
 
-## Pingo-Quiz
+### Die OOP-Weihnachtschallenge 2019/20
 
-![large-image](slides/images/pingo-2020-01-21.png)
+Vor der Weihnachtspause haben wir Ihnen eine Aufgabe gestellt:
 
-https://pingo.coactum.de/460007
+**"Entwerfen Sie ein weihnachtliches *Jump and Run*-Spiel".**
+
+Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für die Teilnahme!
+
+**Dies sind die Preisträger.**
+
+>>>
+
+### 3. Platz: "The day after Christmas Eve" (Elina Maier)
+
+![large-image](slides/images/christmas-maier-intro.png)
+![large-image](slides/images/christmas-maier.png)
+
+<span class="blocktext">Verhelfen Sie *Santa* zum wohlverdienten Feierabendwein ...</span>
+
+>>>
+
+### 2. Platz: "Rudolph vs Krampus" (Jannik Wiese)
+
+![half-image](slides/images/christmas-wiese-1.png)
+![half-image](slides/images/christmas-wiese-boss.png)
+
+<span class="blocktext">Sammeln Sie Geschenke um im *Boss Fight* gegen Krampus zu bestehen ...</span>
+
+>>>
+
+### 1. Platz: "Santa can Jump" (David Ring)
+
+![half-image](slides/images/christmas-ring-1.png)
+![half-image](slides/images/christmas-ring-2.png)
+![half-image](slides/images/christmas-ring-2.png)
+![half-image](slides/images/christmas-ring-3.png)
+
+<span class="blocktext">Meistern Sie Hindernisse und Fallen auf mehreren Karten ...</span>
+
+>>>
+
+## Rückblick
+
+- Funktionale Vollständigkeit ist ein wichtiger, aber nicht der einzige Teil guter Software: Hohe Codequalität ist wichtig!
+- *Bugs* lassen sich nicht vollständig vermeiden: Wir benötigen Strategien zum Identifizieren und Beheben dieser Probleme.
+- *Printlining* und der *Debugger* sind zwei Strategien zum systematischen Beheben von Programmfehlern.
+- Moderne Entwicklungsumgebungen unterstützen sich beim Beheben von Fehlern und beim Steigern der Codequalität.
 
 >>>
 

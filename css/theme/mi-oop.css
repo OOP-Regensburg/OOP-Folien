@@ -556,6 +556,12 @@ body {
   width: auto;
 }
 
+.reveal img[alt=half-image] {
+  margin: 0 auto;
+  height: auto;
+  width: 40%;
+}
+
 .reveal img[alt=sequence] {
   width: 125px;
   height: 125px;
