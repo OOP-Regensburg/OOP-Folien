@@ -153,9 +153,9 @@ Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für d
 
 ### Typische Fälle für "kritische" Stellen
 
-- Arbeit mit Dateien: Was passiert, wenn die gewünschte Datei nicht vorhanden ist?
-- Netzwerkkommunikation: Was passiert, wenn keine Internetverbindung aufgebaut werden kann?
-- Nutzereingaben: Was passiert, wenn zur Laufzeit nicht-kompatible Eingaben getätigt werden?
+- **Arbeit mit Dateien**: Was passiert, wenn die gewünschte Datei nicht vorhanden ist?
+- **Netzwerkkommunikation**: Was passiert, wenn keine Internetverbindung aufgebaut werden kann?
+- **Nutzereingaben**: Was passiert, wenn zur Laufzeit nicht-kompatible Eingaben getätigt werden?
 
 <span class="hint">Im eigenen Code können wir die vorgegebenen Fehlerfälle erweitern oder ergänzen, um die *Exceptions* an den konkreten Anwendungsfall anzupassen, z.B. in dem statt einer `FileNotFound`-Meldung ein inhaltlich deutlicherer `ConfigurationFileNotFound`-Hinweis wird.</span>
 
@@ -421,11 +421,13 @@ Entry entry = phonebook.get("Alexander Bazo");
 
 ### HashMaps: Weitere Methoden
 
-- Daten entfernen: `map.remove(key)`
-- Alle Daten entfernen: `map.clear()`
-- Alle Daten auslesen: `map.values` (Gibt eine *Collections* aller Werte(!) zurück)
-- Vorhandensein von Schlüsseln oder Werten prüfen: `map.containsKey(key)` bzw. `map.containsValue(value)`
-- Länge bestimmen: `map.size()`
+| | |
+|-|-|
+| Daten entfernen | `map.remove(key)` |
+| Alle Daten entfernen | `map.clear()`  |
+| Alle Daten auslesen | `map.values`  (Gibt eine *Collections* aller Werte(!) zurück) |
+| Vorhandensein von Schlüsseln oder Werten prüfen | `map.containsKey(key)` bzw. `map.containsValue(value)` |
+| Länge bestimmen | `map.size()` |
 
 >>>
 
@@ -521,7 +523,14 @@ while (nameIterator.hasNext()) {
 
 >>>
 
-## Iteration über Collections: KeySets von HashMap
+## Maps sind nicht Teil des Collection-Frameworks
+
+![left-side](slides/images/collections-2.png)
+<span class="image-description">*HashMaps* sind keine *Collections*, da das Interface `Collection` nicht implementiert wird. Der Sinn von einer *Interface*-basierten Gruppierung von Datenstrukturen zeigt sich hier noch deutlicher: Durch das einheitliche *Interface* sind beide Varianten austauschbar verwendbar. Der Unterschied liegt in der jeweiligen Implementierung der Datenspeicherung und des entsprechenden, internen Zugriffs.</span>
+
+>>>
+
+### Iteration über Collections: KeySets von HashMap
 
 <span class="blocktext">HashMaps sind nicht Teil der *Collections*-Hierarchie und erzeugen keinen Iterator für die gespeicherten Daten. HashMaps können aber ein `Set` mit allen ihrer *Keys* zurückgeben, das dann wiederum einen Iterator erzeugen kann (Sets sind Teil der Collections-Hierarchie!).</span>
 
@@ -536,14 +545,6 @@ while (nameIterator.hasNext()) {
 ```
 
 >>>
-
-### Maps sind nicht Teil des Collection-Frameworks
-
-![left-side](slides/images/collections-2.png)
-<span class="image-description">*HashMaps* sind keine *Collections*, da das Interface `Collection` nicht implementiert wird. Der Sinn von einer *Interface*-basierten Gruppierung von Datenstrukturen zeigt sich hier noch deutlicher: Durch das einheitliche *Interface* sind beide Varianten austauschbar verwendbar. Der Unterschied liegt in der jeweiligen Implementierung der Datenspeicherung und des entsprechenden, internen Zugriffs.</span>
-
->>>
-
 
 ## Zusammenfassung
 
