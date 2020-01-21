@@ -42,7 +42,7 @@
 <td>
 <span class="current">Listen, Maps &amp; die Collections</span>
 <span>Speicherverwaltung</span>
-<span>Umgang mit Dateien</span>
+<span class="current">Umgang mit Dateien</span>
 </tr>
 <tr>
 <td>Software Engineering</td>
@@ -116,9 +116,11 @@ Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für d
 
 ## Ausblick auf die nächsten Wochen
 
-- **Vergessen Sie nicht die Klausuranmeldung in Flexnow vom 1. bis zum 9. Februar**!
+
 - In den Übungen dieser Woche bitten wir um Ihre Hilfe: Wir möchten anonyme Interaktionsdaten über den Umgang mit der IntelliJ-IDE sammeln.
 - In der nächsten Woche werden Vorlesung und Übung evaluiert: Bitte bringen Sie Laptop oder Smartphone mit.
+
+<span class="hint">Vergessen Sie nicht die **Klausuranmeldung** in Flexnow vom 1. bis zum 9. Februar!</span>
 
 >>>
 
@@ -134,10 +136,10 @@ Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für d
 
 ### Exceptions vs Errors
 
-<span class="blocktext">Wenn Java auf einen Fall stößt, in dem es nicht normal weiterarbeiten kann, wird eine Exception verursacht: die relevante Methode wirft (*throws*) eine *Exception* (Ausnahme). Eine Ausnahme ist, im Unterschied zu einem *(terminal) error*, dabei eine zwar außergewöhnliche, aber in der Regel korrigierbare Situation während des Programmablaufs:</span>
+<span class="blocktext">Wenn Java auf einen Fall stößt, in dem es nicht normal weiterarbeiten kann, wird eine *Exception* verursacht: die relevante Methode wirft (*throws*) eine *Exception* (Ausnahme). Eine Ausnahme ist, im Unterschied zu einem *(terminal) error*, dabei eine zwar außergewöhnliche, aber in der Regel korrigierbare Situation während des Programmablaufs:</span>
 
 - Java verlangt von Programmen bzw. den ProgrammiereInnen, mit bestimmten Ausnahmen umgehen zu können.
-- Exceptions sind eine Art Notfallplan: Wenn alles gut geht, läuft das Programm wie gehabt weiter. Wenn etwas schief geht, kümmert sich das Programm um diese Ausnahme.
+- *Exceptions* sind eine Art Notfallplan: Wenn alles gut geht, läuft das Programm wie gehabt weiter. Wenn etwas schief geht, kümmert sich das Programm um diese Ausnahme.
 
 >>>
 
@@ -145,9 +147,9 @@ Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für d
 
 <span class="blocktext">**Exceptions abfangen und verarbeiten**: Verschieden Stellen des eigenen oder fremden Code können Ausnahmen auslösen. Dies wird über entsprechende Syntaxelemente kommuniziert. Nutzen wir diese Stellen, *müssen wir im aufrufenden Code einen Plan für das Abfangen dieser Fehlermöglichkeit definieren*.</span>
 
-<span class="blocktext">**Exceptions erzeugen:** In unserem eigenen Code können wir Exceptions einsetzten, um Ausnahmefälle zu definieren und Möglichkeiten zum Umgang mit diesen anzubieten.</span>
+<span class="blocktext">**Exceptions erzeugen:** In unserem eigenen Code können wir *Exceptions* einsetzten, um Ausnahmefälle zu definieren und Möglichkeiten zum Umgang mit diesen anzubieten.</span>
 
-<span class="hint">Der übermäßige Einsatz von *Exceptions* ist nicht unumstritten: Häufig bietet es sich an, Fehlersituationen direkt zu verarbeiten statt nur nach außen zu kommunizieren.</span>
+<span class="hint">Der übermäßige Einsatz von *Exceptions* ist nicht unumstritten: Häufig bietet es sich an, Fehlersituationen direkt zu verarbeiten und über entsprechende Rückgabewerte zu kommunizieren, statt die Fehlerbehandlung über *Exceptions* nach Außen zu verlagern.</span>
 
 >>>
 
@@ -163,7 +165,7 @@ Alle Einreichungen wurden vom OOP-Team gespielt und bewertet. Vielen Dank für d
 
 ### Kritische Stellen ausprobieren
 
-<span class="blocktext">Code-Stellen, die unter Umständen einen Fehler oder *Exception* verursachen könnten, müssen in Java entsprechend gekennzeichnet werden. Die *Runtime* versucht dann, den Code auszuführen. Ob eine Methode/Klasse eine *Exception* auslösen könnte, steht in der Dokumentation bzw. wird Ihnen von IntelliJ mitgeteilt:</span>
+<span class="blocktext">Stellen im Quellcode, die unter Umständen einen Fehler oder *Exception* verursachen könnten, müssen in Java entsprechend gekennzeichnet werden. Die *Runtime* versucht dann, den Code auszuführen. Ob eine Methode/Klasse eine *Exception* auslösen könnte, steht in der Dokumentation bzw. wird Ihnen von *IntelliJ*mitgeteilt:</span>
 
 ![large-image](slides/images/exceptions-scanner.png)
 <p class="source">Oracle Java Dokumentation</p>
@@ -204,13 +206,13 @@ try {
 }
 ```
 
-<span class="hint">Exceptions werden als Objekte kommuniziert (Superklasse `Exception`), die Informationen zum jeweiligen Fehler enthalten.</span>
+<span class="hint">*Exceptions* werden als Objekte kommuniziert (Superklasse `Exception`), die Informationen zum jeweiligen Fehler enthalten.</span>
 
 >>>
 
 ### Der besondere Fehler: Runtime Exceptions
 
-<span class="hint">Bestimmte Exceptions (solche, die von der Klasse RuntimeExceptions abgeleitet werden) behandeln häufig auftretende Fehler und müssen nicht explizit durch try & catch abgefangen werden (der Code würde sonst sehr unübersichtlich werden). Die Fehler treten trotzdem auf und können zu Abstürzen führen.</span>
+<span class="hint">Bestimmte *Exceptions* (solche, die von der Klasse RuntimeExceptions abgeleitet werden) behandeln häufig auftretende Fehler und müssen nicht explizit durch `try ... catch` abgefangen werden (der Code würde sonst sehr unübersichtlich werden). Die Fehler treten trotzdem auf und können zu Abstürzen führen.</span>
 
 ![large-image](slides/images/exceptions-doc.png)
 <p class="source">Oracle Java Dokumentation</p>
