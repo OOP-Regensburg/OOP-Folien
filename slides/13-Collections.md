@@ -541,7 +541,9 @@ Set<String> nameSet = phoneBook.keySet();
 Iterator<String> nameIterator = nameSet.iterator();
 while (nameIterator.hasNext()) {
 	String name = nameIterator.next();
-	System.out.println("Name: " + name);
+    Entry entry = phonebook.get(name);
+	System.out.println("Name: " + entry.getName());
+    System.out.println("Number: " + entry.getNumber());
 }
 
 ```
