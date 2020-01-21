@@ -505,6 +505,19 @@ body {
   padding: 0.25em;
 }
 
+.reveal p.source {
+  width: 75%;
+  margin-left: 25%;
+  text-align: right;
+  font-size: 0.75em;
+  color: rgb(156,0,75);
+}
+
+.reveal p.source:before {
+  content: "Quelle: ";
+  color: rgb(90,90,90);
+}
+
 .reveal img[alt=user-image] {
   width: 18%;
   height: auto;
