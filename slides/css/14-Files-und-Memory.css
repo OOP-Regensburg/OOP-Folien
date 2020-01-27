@@ -1,0 +1,132 @@
+
+.memory-menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1em;
+}
+
+.memory-menu .button {
+	display: inline-block;
+	padding: 0.1em 0.25em;
+	border-radius: 0.25em;
+	background-color: rgb(156,0,75);
+	color: rgb(255,255,255);
+	font-size: 0.75em;
+}
+
+.memory-menu .button:not(.disabled):hover {
+	cursor: pointer;
+}
+
+.memory-menu .button.disabled {
+	background-color: rgb(200,200,200);
+}
+
+.memory-menu .title {
+	text-align: center;
+	color: rgb(156,0,75);
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.memory-visualizer {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.memory-visualizer .frame {
+	display: flex;
+	margin: 0 2.5%;
+	flex-direction: column;
+	flex-basis: 25%;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.memory-visualizer .frame .title {
+	display: block;
+	margin-bottom: 1em;
+	background-color: rgb(156,0,75);
+	line-height: 1.25em;
+	font-size: 1em;
+	color: rgb(255,255,255);
+}
+
+.memory-visualizer .frame .field {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 0.75em;
+	margin: 1% 0;
+}
+
+.memory-visualizer .frame .field.hidden {
+	opacity: 0;
+}
+
+.memory-visualizer .frame .field .label {
+	flex-basis: 24%;
+	padding: 0 1%;
+	text-align: right;
+	font-family: monospace;
+	color: rgb(156,0,75);
+}
+
+.memory-visualizer .frame .field .value {
+	flex-basis: 48%;
+	padding: 0 1%;
+	text-align: center;
+	border: solid 1px rgb(30,30,30);
+	background-color: rgb(255,255,255);
+	padding: 0.25em;
+	color: rgb(30,30,30);
+	font-weight: bold;
+}
+
+.memory-visualizer .frame .field .value.highlighted {
+	background-color: rgb(30,30,30);
+	color: rgb(255,255,255);
+}
+
+.memory-visualizer .frame .field .address {
+	flex-basis: 24%;
+	padding: 0 1%;
+	text-align: right;
+	font-family: monospace;
+}
+
+.memory-visualizer .code {
+	flex-basis: 38%;
+	list-style-type: none;
+	margin: 0 1%;
+}
+
+.memory-visualizer .code li {
+	font-size: 0.5em;
+	font-family: monospace;
+}
+
+.memory-visualizer .code li.selected {
+	font-weight: bold;
+	color: rgb(156,0,75);
+}
+
+.memory-visualizer .code li .line-number {
+	margin-right: 0.5em;
+	text-align: right;
+	color: rgb(30,30,30);
+}
+
+.memory-visualizer .code .info {
+	display: block;
+	margin-top: 1em;
+	padding: 0.25em;
+	background-color: rgb(255,255,255);
+	font-size: 0.6em;
+
+}

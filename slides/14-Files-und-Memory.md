@@ -1,6 +1,6 @@
 # Memory & Files
 
-<span class="subtitle">Heap. Stack und der Garbage Collector</span>
+<span class="subtitle">Heap, Stack und der Garbage Collector</span>
 
 <span class="blocktext">Struktur und Inhalt des Kurses wurden 2012 von Markus Heckner entwickelt. Im Anschluss haben Alexander Bazo und Christian Wolff Änderungen am Material vorgenommen. Die aktuellen Folien wurden von Alexander Bazo erstellt und können unter der [MIT-Lizenz](https://raw.githubusercontent.com/OOP-Regensburg/OOP-Folien/master/LICENSE) verwendet werden.</span>
 
@@ -86,7 +86,175 @@ https://pingo.coactum.de/534961
 
 >>>
 
-# Speicherverwaltung im Betriebssystem und in unserern Anwendungen
+# Speicherverwaltung im Betriebssystem und in unseren Anwendungen
+
+>>>
+
+## Die Klasse Point
+
+``` java
+public class Point {
+    /* instance variables */
+    private int px;
+    private int py;
+
+    public Point(int x, int y) {
+        px = x;
+        py = y;
+    }
+
+    public void move(int dx, int dy) {
+        px += dx;
+        py += dy;
+    }
+}
+```
+
+>>>
+
+## Die Klasse Line
+
+``` java
+public class Line {
+    /* instance variables */
+    private Point beg;
+    private Point end;
+
+    public Line(Point p1, Point p2) {
+        beg = p1;
+        end = p2;
+    }
+}
+```
+
+>>>
+
+## Unsere Demo-Anwendung
+
+``` java
+public class DemoApp extends GraphicsApp {
+
+    // ...
+
+    public void initalize() {
+        Point p1 = new Point(5, 4);
+        Point p2 = new Point(2, 3);
+        p1.move(10, 15);
+    }
+
+}
+```
+
+>>>
+
+<span class="memory-menu">
+    <span class="button back">zurück</span>
+        <span class="title">Speicherzuweisung</span>
+    <span class="button next">weiter</span>
+</span>
+
+<div class="memory-visualizer">
+    <span class="frame heap">
+        <span class="title">Heap</span>
+        <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">1000</span>
+        </span>
+        <span class="field">
+            <span class="label">px</span>
+            <span class="value">5</span>
+            <span class="address">1004</span>
+        </span>
+        <span class="field">
+            <span class="label">py</span>
+            <span class="value">5</span>
+            <span class="address">1008</span>
+        </span>
+         <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">100C</span>
+        </span>
+        <span class="field">
+            <span class="label">px</span>
+            <span class="value">2</span>
+            <span class="address">1010</span>
+        </span>
+        <span class="field">
+            <span class="label">py</span>
+            <span class="value">3</span>
+            <span class="address">1014</span>
+        </span>
+         <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">1018</span>
+        </span>
+        <span class="field">
+            <span class="label">beg</span>
+            <span class="value">5</span>
+            <span class="address">101C</span>
+        </span>
+        <span class="field">
+            <span class="label">end</span>
+            <span class="value">5</span>
+            <span class="address">1020</span>
+        </span>
+    </span>
+    <span class="frame stack">
+        <span class="title">Stack</span>
+        <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">FFE0</span>
+        </span>
+        <span class="field">
+            <span class="label">px</span>
+            <span class="value">5</span>
+            <span class="address">FFE4</span>
+        </span>
+        <span class="field">
+            <span class="label">py</span>
+            <span class="value">5</span>
+            <span class="address">FFE8</span>
+        </span>
+         <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">FFEC</span>
+        </span>
+        <span class="field">
+            <span class="label">px</span>
+            <span class="value">2</span>
+            <span class="address">FFF0</span>
+        </span>
+        <span class="field">
+            <span class="label">py</span>
+            <span class="value">3</span>
+            <span class="address">FFF4</span>
+        </span>
+         <span class="field">
+            <span class="label"></span>
+            <span class="value highlighted">Overhead</span>
+            <span class="address">FFF8</span>
+        </span>
+        <span class="field">
+            <span class="label">beg</span>
+            <span class="value">5</span>
+            <span class="address">FFFC</span>
+        </span>
+        <span class="field">
+            <span class="label">end</span>
+            <span class="value">5</span>
+            <span class="address">FFFF</span>
+        </span>
+    </span>
+    <ul class="code">
+        <li class="selected"><span class="line-number">01</span>System.out.println("Hello World")</li>
+        <span class="info">TEST</span>
+    </ul>
+</div>
 
 >>>
 
