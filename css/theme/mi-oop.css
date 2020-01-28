@@ -353,6 +353,17 @@ body {
   font-family: Ubuntu Mono, "monospace";
 }
 
+.reveal .arraycontent.left {
+  margin-left: 0;
+  justify-content: flex-start;
+}
+
+.reveal .arraycontent .label {
+  flex-basis: 10%;
+  font-size: 0.5em;
+  color: rgb(30,30,30);
+}
+
 .reveal .arraycontent li {
   display: flex;
   margin: 2.5px;
@@ -534,6 +545,12 @@ body {
   margin-left: 0;
   width: 30%;
   height: auto;
+}
+
+.reveal img[alt=left-side-height] {
+  margin-left: 0;
+  height: 40%;
+  width: auto;
 }
 
 .reveal img[alt=list-image] {
