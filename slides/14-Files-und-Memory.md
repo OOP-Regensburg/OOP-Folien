@@ -283,7 +283,7 @@
 
 ## Speicheradressen
 
-<span class="blocktext">Jedes praktisch verwendbare Element des Speicher kann über eine eindeutige Adresse vom Betriebssystem (und Anwendungen) angesprochen werden. Itern werden sowohl für die Adressen als auch für die gespeicherten Werte *binär Darstellungen verwendet*. Für die Repräsentation nach Außen (z. B. für ProgrammiererInnen) wird oft eine alternative Schreibweise gewählt, die *Hexadezimal*-Darstellung:</span>
+<span class="blocktext">Jedes praktisch verwendbare Element des Speicher kann über eine eindeutige Adresse vom Betriebssystem (und Anwendungen) angesprochen werden. Intern werden sowohl für die Adressen als auch für die gespeicherten Werte *binär Darstellungen verwendet*. Für die Repräsentation nach Außen (z. B. für ProgrammiererInnen) wird oft eine alternative Schreibweise gewählt, die *Hexadezimal*-Darstellung:</span>
 
 
 <ul class="arraycontent left">
@@ -496,6 +496,23 @@ Die genauen Positionen von *Heap* und *Stack* im Speicher sind nicht festgelegt.
 
 >>>
 
+## Unsere Demo-Anwendung
+
+``` java
+public class DemoApp extends GraphicsApp {
+
+    // ...
+
+    public void initalize() {
+        Point p1 = new Point(5, 4);
+        Point p2 = new Point(2, 3);
+        p1.move(10, 15);
+    }
+
+}
+```
+
+>>>
 
 ## Die Klasse Point
 
@@ -514,24 +531,6 @@ public class Point {
         px += dx;
         py += dy;
     }
-}
-```
-
->>>
-
-## Unsere Demo-Anwendung
-
-``` java
-public class DemoApp extends GraphicsApp {
-
-    // ...
-
-    public void initalize() {
-        Point p1 = new Point(5, 4);
-        Point p2 = new Point(2, 3);
-        p1.move(10, 15);
-    }
-
 }
 ```
 
@@ -736,8 +735,8 @@ Was passiert mit *Heap* und *Stack*, wenn die dort gespeicherten Daten nicht meh
 <span class="blocktext">Dateien (und deren Inhalte) werden von vielen Programmen genutzt:</span>
 
 - Textverarbeitung (Textdokumente)
-- IDEs wie IntelliJ (Quellcode: *.java-Dateien)
-- Browser (Cookies)
+- IDEs wie IntelliJ (Quellcode: `*.java`-Dateien)
+- Browser (*Cookies*)
 - Spiele (Speicherstände)
 - Mediaplayer (Musik- und Videodateien)
 ...
@@ -746,8 +745,8 @@ Was passiert mit *Heap* und *Stack*, wenn die dort gespeicherten Daten nicht meh
 
 ### Wo haben Sie bereits (implizit) mit Dateien gearbeitet?
 
-![large-image](slides/images/bouncer-screenshot.png)
-![large-image](slides/images/memory-screenshot.png)
+![small-image](slides/images/bouncer-screenshot.png)
+![small-image](slides/images/memory-screenshot.png)
 
 >>>
 
