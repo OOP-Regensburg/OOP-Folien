@@ -1,6 +1,6 @@
 # So gehts weiter
 
-<span class="subtitle">Informationen zur Klausur und zu dne nächsten Kursen.</span>
+<span class="subtitle">Informationen zur Klausur und zu den nächsten Kursen.</span>
 
 <span class="blocktext">Struktur und Inhalt des Kurses wurden 2012 von Markus Heckner entwickelt. Im Anschluss haben Alexander Bazo und Christian Wolff Änderungen am Material vorgenommen. Die aktuellen Folien wurden von Alexander Bazo erstellt und können unter der [MIT-Lizenz](https://raw.githubusercontent.com/OOP-Regensburg/OOP-Folien/master/LICENSE) verwendet werden.</span>
 
