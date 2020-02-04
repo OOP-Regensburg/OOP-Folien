@@ -56,12 +56,6 @@
 
 >>>
 
-## Rückblick
-
-- ...
-
->>>
-
 ## Das Programm für heute
 
 - Ein kurzer Rückblick auf das vergangene Semester: Was sollten Sie gelernt haben?
