@@ -152,8 +152,8 @@
 - Die Klausur findet am 18. Februar statt.
 - Treffen Sie pünktlich um 12:30 Uhr **vor** den Räumen **H2** und **H3** ein. Wir informieren Sie im Vorfeld, in welchem Raum Sie schreiben werden.
 - Die Klausur beginnt, sobald die Anwesenheit kontrolliert wurde und alle wichtigen Informationen verlesen wurden. Sie haben **60 Minuten** für die Beantwortung der Fragen.
-- Die Klausur wird *closed book* durchgeführt. Hilfsmittel sind nicht erlaubt. Einzige Außnahme: In Absprache können Sie ein Wörterbuch verwenden.
-- Besteht der Verdacht auf Unterschleif, wird dies im Prüfungsprotokoll vermerkt und führt in der Regel zum **nicht bestehen* der Klausur.
+- Die Klausur wird *closed book* durchgeführt. Hilfsmittel sind nicht erlaubt. Einzige Ausnahme: In Absprache können Sie ein Wörterbuch verwenden.
+- Besteht der Verdacht auf Unterschleif, wird dies im Prüfungsprotokoll vermerkt und führt in der Regel zum **nicht bestehen** der Klausur.
 
 >>>
 
